@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividades — Psicologia Sistêmica</title>
+<style>
+:root {
+  --violet:#7C3AED; --blue:#2563EB; --amber:#D97706;
+  --green:#059669;  --red:#DC2626;  --teal:#0891B2;
+  --g50:#F9FAFB; --g100:#F3F4F6; --g200:#E5E7EB;
+  --g700:#374151; --g900:#111827;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--g50);color:var(--g700);line-height:1.6;}
+
+/* NAV */
+nav.top{background:white;border-bottom:1px solid var(--g200);padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:200;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.logo{font-weight:700;font-size:1rem;color:var(--g900);text-decoration:none;}
+.nav-pills{display:flex;gap:8px;flex-wrap:wrap;}
+.nav-pill{padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:600;text-decoration:none;color:white;opacity:.9;}
+.nav-pill:hover{opacity:1;}
+.pill-home{background:var(--g700);}
+.pill-v{background:var(--violet);} .pill-b{background:var(--blue);}
+.pill-a{background:var(--amber);}  .pill-g{background:var(--green);}
+.pill-r{background:var(--red);}    .pill-t{background:var(--teal);}
+.pill-act{background:var(--g900);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:white;padding:60px 24px 44px;text-align:center;}
+.hero-eyebrow{font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8;margin-bottom:12px;}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,#fff 40%,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{color:#cbd5e1;font-size:1.05rem;max-width:540px;margin:0 auto;}
+
+/* TAB NAV */
+.tab-nav{background:white;border-bottom:2px solid var(--g200);display:flex;gap:0;overflow-x:auto;position:sticky;top:57px;z-index:100;}
+.tab-btn{padding:14px 24px;border:none;background:none;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--g700);border-bottom:3px solid transparent;white-space:nowrap;transition:.15s;}
+.tab-btn:hover{color:var(--g900);}
+.tab-btn.active{color:var(--g900);border-bottom-color:var(--g900);}
+
+/* SECTIONS */
+.tab-section{display:none;max-width:1100px;margin:0 auto;padding:48px 24px;}
+.tab-section.active{display:block;}
+.sec-title{font-size:1.4rem;font-weight:700;color:var(--g900);margin-bottom:6px;}
+.sec-sub{color:#6B7280;font-size:.95rem;margin-bottom:32px;}
+
+/* ── FLASH CARDS ───────────────────────────────── */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.filter-btn{padding:6px 16px;border-radius:20px;border:2px solid var(--g200);background:white;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--g700);transition:.15s;}
+.filter-btn:hover{border-color:var(--g700);}
+.filter-btn.active{color:white;border-color:transparent;}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+
+.flip-card{height:200px;perspective:800px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;}
+.flip-front{background:white;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.flip-front .escola-tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;}
+.flip-front .question{font-size:.95rem;font-weight:600;color:var(--g900);flex:1;display:flex;align-items:center;}
+.flip-front .hint{font-size:.75rem;color:#9CA3AF;text-align:right;}
+.flip-back{color:white;transform:rotateY(180deg);box-shadow:0 2px 12px rgba(0,0,0,.2);}
+.flip-back .answer{font-size:.88rem;line-height:1.55;flex:1;display:flex;align-items:center;}
+.flip-back .back-tag{font-size:.72rem;opacity:.7;text-align:right;}
+
+/* ── QUIZ ──────────────────────────────────────── */
+.quiz-wrapper{background:white;border-radius:20px;padding:36px;box-shadow:0 2px 16px rgba(0,0,0,.08);max-width:720px;}
+.quiz-progress-bar{height:6px;background:var(--g200);border-radius:3px;margin-bottom:28px;overflow:hidden;}
+.quiz-progress-fill{height:100%;background:var(--g900);border-radius:3px;transition:.3s;}
+.quiz-counter{font-size:.82rem;color:#6B7280;margin-bottom:16px;}
+.quiz-question{font-size:1.1rem;font-weight:700;color:var(--g900);margin-bottom:24px;line-height:1.45;}
+.quiz-options{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.quiz-opt{padding:14px 18px;border-radius:12px;border:2px solid var(--g200);background:white;text-align:left;font-size:.92rem;cursor:pointer;transition:.15s;color:var(--g700);}
+.quiz-opt:hover:not(:disabled){border-color:var(--g700);background:var(--g50);}
+.quiz-opt.correct{border-color:#059669;background:#ECFDF5;color:#065F46;}
+.quiz-opt.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B;}
+.quiz-opt:disabled{cursor:default;}
+.quiz-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.95rem;font-weight:700;cursor:pointer;background:var(--g900);color:white;transition:.15s;}
+.quiz-btn:hover{opacity:.88;}
+.quiz-btn:disabled{opacity:.4;cursor:default;}
+.quiz-result{text-align:center;padding:20px 0;}
+.quiz-score{font-size:3.5rem;font-weight:800;color:var(--g900);}
+.quiz-score span{font-size:1.5rem;color:#6B7280;}
+.quiz-msg{font-size:1.1rem;margin:12px 0 28px;}
+.quiz-restart{padding:12px 28px;border-radius:10px;border:2px solid var(--g900);background:white;font-size:.95rem;font-weight:700;cursor:pointer;}
+.quiz-restart:hover{background:var(--g900);color:white;}
+
+/* ── DRAG & DROP ───────────────────────────────── */
+.dd-section{margin-bottom:48px;}
+.dd-title{font-size:1.1rem;font-weight:700;color:var(--g900);margin-bottom:20px;}
+.dd-arena{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:600px){.dd-arena{grid-template-columns:1fr;}}
+.dd-pool-label,.dd-zones-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6B7280;margin-bottom:10px;}
+.dd-pool{display:flex;flex-direction:column;gap:8px;}
+.dd-item{padding:11px 16px;border-radius:10px;border:2px solid var(--g200);background:white;font-size:.88rem;font-weight:600;cursor:pointer;transition:.15s;color:var(--g700);user-select:none;}
+.dd-item:hover:not(.placed):not(.hidden){border-color:var(--g700);}
+.dd-item.selected{border-color:var(--g900);background:var(--g900);color:white;}
+.dd-item.placed{opacity:.35;cursor:default;pointer-events:none;}
+.dd-zones{display:flex;flex-direction:column;gap:8px;}
+.dd-zone{padding:11px 16px;border-radius:10px;border:2px dashed var(--g200);background:var(--g50);font-size:.88rem;cursor:pointer;transition:.15s;min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.dd-zone:hover{border-color:var(--g700);}
+.dd-zone.correct{border-color:#059669;background:#ECFDF5;cursor:default;}
+.dd-zone.correct .zone-label{color:#065F46;font-weight:600;}
+.dd-zone.wrong{animation:shake .4s;}
+.dd-zone-name{color:#6B7280;font-size:.82rem;}
+.dd-placed-tag{font-size:.82rem;font-weight:700;padding:2px 10px;border-radius:10px;background:#D1FAE5;color:#065F46;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.dd-feedback{margin-top:12px;font-size:.88rem;font-weight:600;color:#059669;min-height:22px;}
+.dd-reset{margin-top:14px;padding:8px 18px;border-radius:8px;border:1px solid var(--g200);background:white;font-size:.82rem;font-weight:600;cursor:pointer;}
+.dd-reset:hover{background:var(--g100);}
+
+/* ── REFERENCES ────────────────────────────────── */
+.refs-tabs{display:flex;gap:8px;margin-bottom:28px;}
+.refs-tab{padding:8px 20px;border-radius:20px;border:2px solid var(--g200);background:white;font-size:.85rem;font-weight:600;cursor:pointer;color:var(--g700);transition:.15s;}
+.refs-tab.active,.refs-tab:hover{background:var(--g900);color:white;border-color:var(--g900);}
+.refs-list{display:none;}
+.refs-list.active{display:flex;flex-direction:column;gap:12px;}
+.ref-item{background:white;border-radius:14px;padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;align-items:center;gap:16px;}
+.ref-badge{padding:4px 12px;border-radius:20px;color:white;font-size:.78rem;font-weight:700;white-space:nowrap;}
+.ref-info{flex:1;}
+.ref-title{font-size:.92rem;font-weight:600;color:var(--g900);margin-bottom:2px;}
+.ref-sub{font-size:.8rem;color:#6B7280;}
+.ref-link{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:8px;background:var(--g100);color:var(--g700);font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s;}
+.ref-link:hover{background:var(--g200);}
+
+footer{background:var(--g900);color:#9CA3AF;text-align:center;padding:24px;font-size:.85rem;margin-top:60px;}
+footer strong{color:white;}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="index.html" class="logo">Psicologia Sistêmica</a>
+  <div class="nav-pills">
+    <a href="index.html" class="nav-pill pill-home">Início</a>
+    <a href="escola-experiencial.html"  class="nav-pill pill-v">Experiencial</a>
+    <a href="escola-boweniana.html"     class="nav-pill pill-b">Boweniana</a>
+    <a href="escola-trigeracional.html" class="nav-pill pill-a">Trigeracional</a>
+    <a href="escola-estrutural.html"    class="nav-pill pill-g">Estrutural</a>
+    <a href="escola-estrategica.html"   class="nav-pill pill-r">Estratégica</a>
+    <a href="escola-diagnostico.html"   class="nav-pill pill-t">Diag. Sistêmico</a>
+    <a href="atividades.html"           class="nav-pill pill-act">Atividades</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Práticar e revisar</p>
+  <h1>Atividades de Estudo</h1>
+  <p>Flash cards, questionário, arrastar e soltar, e referências bibliográficas para as seis escolas.</p>
+</section>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('flashcards',this)">🃏 Flash Cards</button>
+  <button class="tab-btn" onclick="showTab('quiz',this)">📝 Questionário</button>
+  <button class="tab-btn" onclick="showTab('dragdrop',this)">🔀 Arrastar e Soltar</button>
+  <button class="tab-btn" onclick="showTab('refs',this)">📚 Referências</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     FLASH CARDS
+════════════════════════════════════════════════ -->
+<div id="tab-flashcards" class="tab-section active">
+  <h2 class="sec-title">Flash Cards</h2>
+  <p class="sec-sub">Clique num card para revelar a resposta. Filtre por escola ou veja todos.</p>
+
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" data-filter="all" onclick="filterCards('all',this)"
+      style="background:#111827;border-color:#111827;color:white">Todas</button>
+    <button class="filter-btn" data-filter="exp" onclick="filterCards('exp',this)">Experiencial</button>
+    <button class="filter-btn" data-filter="bow" onclick="filterCards('bow',this)">Boweniana</button>
+    <button class="filter-btn" data-filter="tri" onclick="filterCards('tri',this)">Trigeracional</button>
+    <button class="filter-btn" data-filter="est" onclick="filterCards('est',this)">Estrutural</button>
+    <button class="filter-btn" data-filter="str" onclick="filterCards('str',this)">Estratégica</button>
+    <button class="filter-btn" data-filter="diag" onclick="filterCards('diag',this)">Diag. Sistêmico</button>
+  </div>
+
+  <div class="cards-grid" id="cards-grid"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     QUIZ
+════════════════════════════════════════════════ -->
+<div id="tab-quiz" class="tab-section">
+  <h2 class="sec-title">Questionário</h2>
+  <p class="sec-sub">15 perguntas de múltipla escolha cobrindo as seis escolas. Boa sorte!</p>
+  <div class="quiz-wrapper" id="quiz-wrapper"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     DRAG & DROP
+════════════════════════════════════════════════ -->
+<div id="tab-dragdrop" class="tab-section">
+  <h2 class="sec-title">Arrastar e Soltar</h2>
+  <p class="sec-sub">Clique num item para selecioná-lo (destaca em preto), depois clique na coluna direita onde ele pertence.</p>
+
+  <!-- Exercise 1 -->
+  <div class="dd-section">
+    <p class="dd-title">Exercício 1 — Relacione a escola ao seu principal autor</p>
+    <div class="dd-arena">
+      <div>
+        <p class="dd-pool-label">Escolas</p>
+        <div class="dd-pool" id="pool-1"></div>
+      </div>
+      <div>
+        <p class="dd-zones-label">Autores</p>
+        <div class="dd-zones" id="zones-1"></div>
+      </div>
+    </div>
+    <p class="dd-feedback" id="fb-1"></p>
+    <button class="dd-reset" onclick="resetExercise(0)">↺ Reiniciar exercício</button>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="dd-section">
+    <p class="dd-title">Exercício 2 — Relacione o conceito à escola correspondente</p>
+    <div class="dd-arena">
+      <div>
+        <p class="dd-pool-label">Conceitos</p>
+        <div class="dd-pool" id="pool-2"></div>
+      </div>
+      <div>
+        <p class="dd-zones-label">Escolas</p>
+        <div class="dd-zones" id="zones-2"></div>
+      </div>
+    </div>
+    <p class="dd-feedback" id="fb-2"></p>
+    <button class="dd-reset" onclick="resetExercise(1)">↺ Reiniciar exercício</button>
+  </div>
+
+  <!-- Exercise 3 -->
+  <div class="dd-section">
+    <p class="dd-title">Exercício 3 — Relacione a técnica à escola que a utiliza</p>
+    <div class="dd-arena">
+      <div>
+        <p class="dd-pool-label">Técnicas</p>
+        <div class="dd-pool" id="pool-3"></div>
+      </div>
+      <div>
+        <p class="dd-zones-label">Escolas</p>
+        <div class="dd-zones" id="zones-3"></div>
+      </div>
+    </div>
+    <p class="dd-feedback" id="fb-3"></p>
+    <button class="dd-reset" onclick="resetExercise(2)">↺ Reiniciar exercício</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     REFERENCES
+════════════════════════════════════════════════ -->
+<div id="tab-refs" class="tab-section">
+  <h2 class="sec-title">Referências</h2>
+  <p class="sec-sub">Slides de aula e artigos disponíveis no repositório, organizados por escola.</p>
+
+  <div class="refs-tabs">
+    <button class="refs-tab active" onclick="showRefsTab('slides',this)">Slides</button>
+    <button class="refs-tab" onclick="showRefsTab('artigos',this)">Artigos</button>
+  </div>
+
+  <div id="refs-slides" class="refs-list active">
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--violet)">Experiencial</span>
+      <div class="ref-info">
+        <p class="ref-title">Terapia Familiar Experiencial</p>
+        <p class="ref-sub">Slides de aula</p>
+      </div>
+      <a href="Slides/Terapia_Familiar_Experiencial.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--blue)">Boweniana</span>
+      <div class="ref-info">
+        <p class="ref-title">A Terapia Familiar Sistêmica de Bowen</p>
+        <p class="ref-sub">Slides de aula</p>
+      </div>
+      <a href="Slides/A Terapia Familiar sistêmica de Bowen.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
+      <div class="ref-info">
+        <p class="ref-title">Modelo Trigeracional / Multigeracional</p>
+        <p class="ref-sub">Slides de aula</p>
+      </div>
+      <a href="Slides/Modelo_Trigeracional.Multigeracional.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--green)">Estrutural</span>
+      <div class="ref-info">
+        <p class="ref-title">Terapia Familiar Estrutural — Minuchin</p>
+        <p class="ref-sub">Slides de aula</p>
+      </div>
+      <a href="Slides/TerapiaFamiliarEstruturalMinuchin.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--red)">Estratégica</span>
+      <div class="ref-info">
+        <p class="ref-title">Terapia Familiar Estratégica</p>
+        <p class="ref-sub">Slides de aula</p>
+      </div>
+      <a href="Slides/Terapia_Familiar_Estrategica.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--teal)">Diag. Sistêmico</span>
+      <div class="ref-info">
+        <p class="ref-title">Diagnóstico da Dinâmica Familiar</p>
+        <p class="ref-sub">Slides de aula</p>
+      </div>
+      <a href="Slides/Diagnóstico da dinâmica familiar.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+  </div>
+
+  <div id="refs-artigos" class="refs-list">
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--violet)">Experiencial</span>
+      <div class="ref-info">
+        <p class="ref-title">Terapia Familiar Experiencial</p>
+        <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
+      </div>
+      <a href="Artigos/Terapia Familiar Experiencial. Nichols e Shcwartz.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--blue)">Boweniana</span>
+      <div class="ref-info">
+        <p class="ref-title">Terapia Familiar de Bowen</p>
+        <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
+      </div>
+      <a href="Artigos/Terapia Familiar de Bowen. Nichols e Schwartz.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
+      <div class="ref-info">
+        <p class="ref-title">A Pessoa do Terapeuta</p>
+        <p class="ref-sub">Maurizio Andolfi</p>
+      </div>
+      <a href="Artigos/Andolfi.A Pessoa do Terapeuta.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
+      <div class="ref-info">
+        <p class="ref-title">Cap. 1 — Livro Andolfi (em espanhol)</p>
+        <p class="ref-sub">Maurizio Andolfi</p>
+      </div>
+      <a href="Artigos/Cap.1 Livro Andolfi em espanhol.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
+      <div class="ref-info">
+        <p class="ref-title">Restituir Voz à Criança</p>
+        <p class="ref-sub">Maurizio Andolfi</p>
+      </div>
+      <a href="Artigos/Andolfi. Restituir voz à criança.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--green)">Estrutural</span>
+      <div class="ref-info">
+        <p class="ref-title">Terapia Familiar Estrutural</p>
+        <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
+      </div>
+      <a href="Artigos/Terapia Familiar Estrutural. Nichols e Schwartz.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--red)">Estratégica</span>
+      <div class="ref-info">
+        <p class="ref-title">Terapia Familiar Estratégica</p>
+        <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
+      </div>
+      <a href="Artigos/Terapia Familiar Estrategica. Nichols e Schwartz (1).pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--red)">Estratégica</span>
+      <div class="ref-info">
+        <p class="ref-title">Psicoterapia Familiar</p>
+        <p class="ref-sub">Jay Haley</p>
+      </div>
+      <a href="Artigos/Jay Haley. Psicoterapia Familiar (1).pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+    <div class="ref-item">
+      <span class="ref-badge" style="background:var(--teal)">Diag. Sistêmico</span>
+      <div class="ref-info">
+        <p class="ref-title">Diagnóstico Familiar</p>
+        <p class="ref-sub">Artigo de referência</p>
+      </div>
+      <a href="Artigos/DiagnósticoFamiliar.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Psicologia Sistêmica</strong> · Atividades de Estudo · Material de apoio
+</footer>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────
+
+const ESCOLA_NAMES = {
+  exp:  { label:'Experiencial',      cor:'#7C3AED' },
+  bow:  { label:'Boweniana',         cor:'#2563EB' },
+  tri:  { label:'Trigeracional',     cor:'#D97706' },
+  est:  { label:'Estrutural',        cor:'#059669' },
+  str:  { label:'Estratégica',       cor:'#DC2626' },
+  diag: { label:'Diag. Sistêmico',   cor:'#0891B2' },
+};
+
+const flashCards = [
+  // EXPERIENCIAL
+  { escola:'exp', pergunta:'O que caracteriza a Escola Experiencial frente às demais abordagens sistêmicas?',
+    resposta:'A mudança ocorre pela vivência emocional real na sessão — encontro humano genuíno —, não pela análise intelectual dos problemas.' },
+  { escola:'exp', pergunta:'O que é "escultura familiar" e quem a difundiu?',
+    resposta:'Técnica criada por Virginia Satir: membros usam seus corpos para criar uma imagem tridimensional das relações, revelando distâncias, poder e proximidade sem palavras.' },
+  { escola:'exp', pergunta:'Cite os cinco padrões de comunicação de Virginia Satir.',
+    resposta:'Aplacador (cede para evitar conflito), Culpabilizador (culpa o outro), Super-razoável (intelectualiza), Irrelevante (desvia o assunto) e Congruente (integra o que sente, pensa e diz).' },
+  { escola:'exp', pergunta:'O que Whitaker entende por "uso do self do terapeuta"?',
+    resposta:'O terapeuta usa suas próprias reações, fantasias e humor de forma deliberada e espontânea como instrumento terapêutico — a irracionalidade criativa como veículo de mudança.' },
+  { escola:'exp', pergunta:'Como a escola experiencial vê o sintoma?',
+    resposta:'Como resultado da repressão emocional e da comunicação incongruente. O sofrimento aparece onde a autenticidade foi sacrificada nas relações familiares.' },
+
+  // BOWENIANA
+  { escola:'bow', pergunta:'O que é "diferenciação do self" na teoria de Bowen?',
+    resposta:'Capacidade de separar pensamento de emoção e de manter a própria identidade sob pressão do grupo familiar. É um contínuo (0–100) — ninguém é totalmente diferenciado.' },
+  { escola:'bow', pergunta:'O que é triangulação e por que é a unidade básica do sistema emocional?',
+    resposta:'Quando a tensão entre duas pessoas aumenta, uma terceira é incluída para aliviar a ansiedade. O triângulo é o sistema mais estável de relacionamento sob estresse.' },
+  { escola:'bow', pergunta:'O que é "corte emocional" e qual o seu problema?',
+    resposta:'Afastamento físico ou emocional da família de origem para lidar com fusão não resolvida. Não resolve — apenas "congela" o problema, que resurge nas próximas relações íntimas.' },
+  { escola:'bow', pergunta:'Cite os 8 conceitos da teoria familiar de Bowen.',
+    resposta:'(1) Diferenciação do self, (2) Triangulação, (3) Sistema emocional nuclear, (4) Processo de projeção familiar, (5) Transmissão multigeracional, (6) Posição entre irmãos, (7) Corte emocional, (8) Processo emocional da sociedade.' },
+  { escola:'bow', pergunta:'Para que serve o genograma na abordagem boweniana?',
+    resposta:'Mapear três ou mais gerações para revelar padrões repetitivos, triangulações ativas, cortes emocionais, alianças e eventos críticos ao longo do tempo familiar.' },
+
+  // TRIGERACIONAL
+  { escola:'tri', pergunta:'O que são "lealdades invisíveis" (Boszormenyi-Nagy)?',
+    resposta:'Vínculos de obrigação e dívida emocional que ligam membros através das gerações. São "invisíveis" pois operam fora da consciência, mas orientam fortemente comportamentos e escolhas de vida.' },
+  { escola:'tri', pergunta:'O que são "mandatos transgeracionais"?',
+    resposta:'Tarefas, missões ou proibições transmitidas implicitamente entre gerações. Ex: "os homens desta família não choram", "nunca se fala de dinheiro", "precisamos cuidar da mãe".' },
+  { escola:'tri', pergunta:'O que é um "mito familiar"?',
+    resposta:'Narrativa compartilhada sobre identidade e regras da família. Organiza a realidade, protege de ansiedades profundas e resiste à mudança — mesmo quando disfuncional.' },
+  { escola:'tri', pergunta:'Qual a função do "paciente designado" no modelo trigeracional?',
+    resposta:'Não é o "doente" da família — é o portador da mensagem do sistema, frequentemente a pessoa mais sensível e conectada às dores não elaboradas das gerações anteriores.' },
+  { escola:'tri', pergunta:'Por que o modelo trigeracional trabalha com três gerações?',
+    resposta:'Porque lealdades, mandatos e conflitos não resolvidos se transmitem geracionalmente. Compreender o sofrimento presente exige acessar o contexto da família de origem.' },
+
+  // ESTRUTURAL
+  { escola:'est', pergunta:'O que são "fronteiras difusas" na terapia estrutural?',
+    resposta:'Fronteiras pouco definidas que geram emaranhamento: fusão excessiva entre membros, falta de autonomia individual e hipersensibilidade às reações dos outros.' },
+  { escola:'est', pergunta:'Quais são os três subsistemas principais e suas funções?',
+    resposta:'Conjugal (casal em relação íntima), Parental (casal na função de educar filhos) e Fraternal (irmãos aprendendo a negociar entre pares). Cada membro pertence a múltiplos subsistemas.' },
+  { escola:'est', pergunta:'O que é "encenação" (enactment) e qual seu objetivo?',
+    resposta:'O terapeuta pede que a família aja um conflito na sessão em vez de descrevê-lo. Permite observar e intervir diretamente no padrão estrutural real, não numa versão narrada.' },
+  { escola:'est', pergunta:'O que é "desequilíbrio" na terapia estrutural?',
+    resposta:'O terapeuta rompe coalizões disfuncionais aliando-se temporariamente com um membro contra outro. Cria instabilidade intencional para possibilitar uma reorganização mais funcional.' },
+  { escola:'est', pergunta:'Qual a diferença entre emaranhamento e desligamento?',
+    resposta:'Emaranhamento = fronteiras difusas, fusão, falta de autonomia. Desligamento = fronteiras rígidas, isolamento, comunicação quase nula. Fronteiras claras ficam entre os dois extremos.' },
+
+  // ESTRATÉGICA
+  { escola:'str', pergunta:'Qual é o princípio central do MRI sobre as tentativas de solução?',
+    resposta:'"O problema não é o problema — o problema é a solução." As tentativas repetidas e ineficazes de resolver o problema são o que o mantém ativo — "mais do mesmo".' },
+  { escola:'str', pergunta:'O que é "prescrição do sintoma" e por que funciona?',
+    resposta:'O terapeuta instrui a família a manter ou exagerar o sintoma de forma controlada. Coloca o sintoma sob controle voluntário e frequentemente o elimina por torná-lo deliberado.' },
+  { escola:'str', pergunta:'O que é mudança de 2ª ordem (Watzlawick)?',
+    resposta:'Mudança das regras que organizam as soluções possíveis — não apenas "fazer diferente" (1ª ordem), mas mudar o enquadramento do problema em nível lógico superior.' },
+  { escola:'str', pergunta:'O que é "ordálio" (Jay Haley)?',
+    resposta:'Tarefa árdua (mas não prejudicial) que o cliente deve realizar sempre que o sintoma aparecer. O sintoma torna-se "caro demais" e a pessoa acaba escolhendo abandoná-lo.' },
+  { escola:'str', pergunta:'Como Cloe Madanes interpreta o sintoma na família?',
+    resposta:'Como expressão de amor e proteção: a pessoa adoece para proteger quem ela ama de algo mais ameaçador. O sintoma é um ato de cuidado disfuncional.' },
+
+  // DIAGNÓSTICO SISTÊMICO
+  { escola:'diag', pergunta:'Quais são os três pilares metodológicos da Equipe de Milão?',
+    resposta:'Hipotização (formular hipótese sobre a função do sintoma), Circularidade (entrevista que cruza perspectivas dos membros) e Neutralidade (posição equidistante, sem tomar partido).' },
+  { escola:'diag', pergunta:'O que é uma "pergunta circular" e para que serve?',
+    resposta:'Pergunta que explora relações entre membros: "Quando sua mãe chora, o que seu pai faz?" Revela padrões relacionais invisíveis que perguntas diretas ao indivíduo não acessam.' },
+  { escola:'diag', pergunta:'O que é "conotação positiva" (Equipe de Milão)?',
+    resposta:'Atribuir uma intenção positiva a todos os comportamentos do sistema — inclusive ao sintoma. Ex: "Seu filho está doente para manter os pais unidos." Muda o enquadramento sem acionar resistência.' },
+  { escola:'diag', pergunta:'O que é a Entrevista Familiar Estruturada (EFE)?',
+    resposta:'Protocolo de avaliação sistêmica com etapas padronizadas para observar organização familiar, comunicação, resolução de conflitos e alianças. Base instrumental do diagnóstico sistêmico.' },
+  { escola:'diag', pergunta:'O que é a "hipótese sistêmica" e como ela orienta a sessão?',
+    resposta:'Narrativa relacional provisória que explica a função do sintoma no sistema. Guia as perguntas do terapeuta, é testada durante a entrevista e revista conforme novas informações surgem.' },
+];
+
+// ─── QUIZ ────────────────────────────────────────────────
+
+const quizData = [
+  { q:'Qual conceito é central na teoria de Murray Bowen?',
+    ops:['Lealdades invisíveis','Diferenciação do self','Encenação familiar','Hipotização'], ans:1 },
+  { q:'Qual escola foca nas fronteiras, subsistemas e hierarquia da família?',
+    ops:['Experiencial','Estratégica','Estrutural','Trigeracional'], ans:2 },
+  { q:'Quem desenvolveu os padrões de comunicação (aplacador, culpabilizador, etc.)?',
+    ops:['Carl Whitaker','Jay Haley','Virginia Satir','Murray Bowen'], ans:2 },
+  { q:'O que o MRI entende por "tentativas de solução"?',
+    ops:['Técnicas paradoxais do terapeuta','Estratégias da família que mantêm o problema','O processo de hipotização','A encenação de conflitos'], ans:1 },
+  { q:'Qual escola trabalha com lealdades invisíveis e mandatos transgeracionais?',
+    ops:['Boweniana','Estrutural','Estratégica','Trigeracional'], ans:3 },
+  { q:'O que é "encenação" (enactment) na terapia estrutural?',
+    ops:['Dramatização com bonecos','Pedido para a família agir um conflito na sessão, não apenas descrevê-lo','Representação gráfica da estrutura familiar','Uso de metáforas terapêuticas'], ans:1 },
+  { q:'Quais são os três pilares metodológicos da Equipe de Milão?',
+    ops:['Encenação, desequilíbrio e mapeamento','Escultura, role-playing e dramatização','Hipotização, circularidade e neutralidade','Genograma, triângulos e corte emocional'], ans:2 },
+  { q:'Quem desenvolveu o modelo trigeracional integrado às lealdades invisíveis?',
+    ops:['Salvador Minuchin','Jay Haley','Maurizio Andolfi','Murray Bowen'], ans:2 },
+  { q:'O "ordálio" é uma técnica de qual escola?',
+    ops:['Experiencial','Boweniana','Estrutural','Estratégica'], ans:3 },
+  { q:'O que é "conotação positiva" na Equipe de Milão?',
+    ops:['Elogiar o progresso da família','Atribuir intenção positiva a todos os comportamentos, incluindo o sintoma','Reforçar mudanças com feedback verbal','Destacar recursos familiares no genograma'], ans:1 },
+  { q:'Na teoria de Bowen, o que caracteriza o "corte emocional"?',
+    ops:['A família interrompe a terapia','O terapeuta encerra o processo','Afastamento físico ou emocional da família de origem para lidar com fusão não resolvida','Um membro é excluído do sistema'], ans:2 },
+  { q:'O que diferencia fundamentalmente a escola experiencial das demais?',
+    ops:['Uso de técnicas estruturadas e diretivas','Foco na história multigeracional','Uso do self do terapeuta e ênfase na experiência emocional vivida na sessão','Formulação de hipóteses antes da sessão'], ans:2 },
+  { q:'O diagnóstico sistêmico usa "causalidade circular". O que isso significa?',
+    ops:['As causas são sempre eventos do passado','O comportamento de cada membro influencia e é influenciado pelos demais simultaneamente','O sintoma tem sempre uma causa única','Os problemas se repetem por falta de motivação'], ans:1 },
+  { q:'Qual escola afirma: "o problema não é o problema — o problema é a solução"?',
+    ops:['Boweniana','Trigeracional','Estratégica (MRI)','Diagnóstico Sistêmico'], ans:2 },
+  { q:'Para que serve o genograma na abordagem boweniana?',
+    ops:['Mapear a estrutura de subsistemas e fronteiras','Mapear três ou mais gerações para revelar padrões repetitivos, triangulações e eventos críticos','Representar visualmente os padrões de comunicação','Protocolo padronizado de entrevista familiar'], ans:1 },
+];
+
+// ─── DRAG & DROP DATA ────────────────────────────────────
+
+const exercises = [
+  {
+    poolLabel:'Escolas',
+    zonesLabel:'Autores',
+    pool:[
+      { id:'p1_exp',  label:'Experiencial',      cor:'#7C3AED' },
+      { id:'p1_bow',  label:'Boweniana',          cor:'#2563EB' },
+      { id:'p1_tri',  label:'Trigeracional',      cor:'#D97706' },
+      { id:'p1_est',  label:'Estrutural',         cor:'#059669' },
+      { id:'p1_str',  label:'Estratégica',        cor:'#DC2626' },
+      { id:'p1_diag', label:'Diag. Sistêmico',    cor:'#0891B2' },
+    ],
+    zones:[
+      { id:'z1_1', label:'Carl Whitaker',          answer:'p1_exp'  },
+      { id:'z1_2', label:'Murray Bowen',           answer:'p1_bow'  },
+      { id:'z1_3', label:'Maurizio Andolfi',       answer:'p1_tri'  },
+      { id:'z1_4', label:'Salvador Minuchin',      answer:'p1_est'  },
+      { id:'z1_5', label:'Jay Haley',              answer:'p1_str'  },
+      { id:'z1_6', label:'Mara Selvini Palazzoli', answer:'p1_diag' },
+    ]
+  },
+  {
+    poolLabel:'Conceitos',
+    zonesLabel:'Escolas',
+    pool:[
+      { id:'p2_dif',   label:'Diferenciação do self',  cor:'#2563EB' },
+      { id:'p2_leal',  label:'Lealdades invisíveis',   cor:'#D97706' },
+      { id:'p2_enact', label:'Encenação (enactment)',   cor:'#059669' },
+      { id:'p2_presc', label:'Prescrição do sintoma',  cor:'#DC2626' },
+      { id:'p2_esc',   label:'Escultura familiar',     cor:'#7C3AED' },
+      { id:'p2_circ',  label:'Perguntas circulares',   cor:'#0891B2' },
+    ],
+    zones:[
+      { id:'z2_bow',  label:'Boweniana',          answer:'p2_dif'   },
+      { id:'z2_tri',  label:'Trigeracional',      answer:'p2_leal'  },
+      { id:'z2_est',  label:'Estrutural',         answer:'p2_enact' },
+      { id:'z2_str',  label:'Estratégica',        answer:'p2_presc' },
+      { id:'z2_exp',  label:'Experiencial',       answer:'p2_esc'   },
+      { id:'z2_diag', label:'Diag. Sistêmico',    answer:'p2_circ'  },
+    ]
+  },
+  {
+    poolLabel:'Técnicas',
+    zonesLabel:'Escolas',
+    pool:[
+      { id:'p3_geno',   label:'Genograma',             cor:'#2563EB' },
+      { id:'p3_ordale', label:'Ordálio',                cor:'#DC2626' },
+      { id:'p3_desq',   label:'Desequilíbrio',         cor:'#059669' },
+      { id:'p3_meta',   label:'Metáforas terapêuticas',cor:'#D97706' },
+      { id:'p3_role',   label:'Role-playing',           cor:'#7C3AED' },
+      { id:'p3_efe',    label:'EFE',                    cor:'#0891B2' },
+    ],
+    zones:[
+      { id:'z3_bow',  label:'Boweniana',         answer:'p3_geno'   },
+      { id:'z3_str',  label:'Estratégica',       answer:'p3_ordale' },
+      { id:'z3_est',  label:'Estrutural',        answer:'p3_desq'   },
+      { id:'z3_tri',  label:'Trigeracional',     answer:'p3_meta'   },
+      { id:'z3_exp',  label:'Experiencial',      answer:'p3_role'   },
+      { id:'z3_diag', label:'Diag. Sistêmico',   answer:'p3_efe'    },
+    ]
+  }
+];
+
+// ─── TABS ────────────────────────────────────────────────
+
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ─── FLASH CARDS ─────────────────────────────────────────
+
+function renderCards(filter) {
+  const grid = document.getElementById('cards-grid');
+  grid.innerHTML = '';
+  const list = filter === 'all' ? flashCards : flashCards.filter(c => c.escola === filter);
+  list.forEach((c, i) => {
+    const e = ESCOLA_NAMES[c.escola];
+    const card = document.createElement('div');
+    card.className = 'flip-card';
+    card.setAttribute('tabindex','0');
+    card.innerHTML = `
+      <div class="flip-inner">
+        <div class="flip-front">
+          <p class="escola-tag" style="color:${e.cor}">${e.label}</p>
+          <p class="question">${c.pergunta}</p>
+          <p class="hint">clique para ver a resposta ↩</p>
+        </div>
+        <div class="flip-back" style="background:${e.cor}">
+          <p class="answer">${c.resposta}</p>
+          <p class="back-tag">clique para voltar ↩</p>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') card.classList.toggle('flipped'); });
+    grid.appendChild(card);
+  });
+}
+
+function filterCards(filter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+    b.style.background = '';
+    b.style.borderColor = '';
+    b.style.color = '';
+  });
+  btn.classList.add('active');
+  if (filter === 'all') {
+    btn.style.background = '#111827';
+    btn.style.borderColor = '#111827';
+    btn.style.color = 'white';
+  } else {
+    const cor = ESCOLA_NAMES[filter].cor;
+    btn.style.background = cor;
+    btn.style.borderColor = cor;
+    btn.style.color = 'white';
+  }
+  renderCards(filter);
+}
+
+renderCards('all');
+
+// ─── QUIZ ────────────────────────────────────────────────
+
+let qIndex = 0, qScore = 0, qAnswered = false;
+
+function renderQuiz() {
+  const w = document.getElementById('quiz-wrapper');
+  if (qIndex >= quizData.length) {
+    const pct = Math.round(qScore / quizData.length * 100);
+    const msg = pct >= 80 ? '🏆 Excelente! Você domina o conteúdo.' :
+                pct >= 55 ? '👍 Bom trabalho! Continue revisando.' :
+                            '📖 Continue estudando — você consegue!';
+    w.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-score">${qScore}<span>/${quizData.length}</span></div>
+        <p class="quiz-msg">${msg}</p>
+        <button class="quiz-restart" onclick="restartQuiz()">↺ Refazer questionário</button>
+      </div>`;
+    return;
+  }
+  const d = quizData[qIndex];
+  const pct = (qIndex / quizData.length) * 100;
+  w.innerHTML = `
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${pct}%"></div></div>
+    <p class="quiz-counter">Pergunta ${qIndex + 1} de ${quizData.length}</p>
+    <p class="quiz-question">${d.q}</p>
+    <div class="quiz-options">
+      ${d.ops.map((op, i) => `<button class="quiz-opt" id="opt-${i}" onclick="pickAnswer(${i})">${op}</button>`).join('')}
+    </div>
+    <button class="quiz-btn" id="next-btn" onclick="nextQuestion()" disabled>Próxima →</button>`;
+  qAnswered = false;
+}
+
+function pickAnswer(idx) {
+  if (qAnswered) return;
+  qAnswered = true;
+  const d = quizData[qIndex];
+  document.querySelectorAll('.quiz-opt').forEach((b, i) => {
+    b.disabled = true;
+    if (i === d.ans) b.classList.add('correct');
+    else if (i === idx) b.classList.add('wrong');
+  });
+  if (idx === d.ans) qScore++;
+  document.getElementById('next-btn').disabled = false;
+}
+
+function nextQuestion() {
+  qIndex++;
+  renderQuiz();
+}
+
+function restartQuiz() {
+  qIndex = 0; qScore = 0; qAnswered = false;
+  renderQuiz();
+}
+
+renderQuiz();
+
+// ─── DRAG & DROP ─────────────────────────────────────────
+
+let ddSelected = [null, null, null]; // selected item id per exercise
+
+function renderExercise(exIdx) {
+  const ex = exercises[exIdx];
+  const n = exIdx + 1;
+  const pool = document.getElementById(`pool-${n}`);
+  const zones = document.getElementById(`zones-${n}`);
+  if (!pool || !zones) return;
+  pool.innerHTML = '';
+  zones.innerHTML = '';
+  ddSelected[exIdx] = null;
+
+  ex.pool.forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'dd-item';
+    el.id = `item-${item.id}`;
+    el.dataset.itemId = item.id;
+    el.textContent = item.label;
+    el.style.borderLeftColor = item.cor;
+    el.style.borderLeftWidth = '4px';
+    el.addEventListener('click', () => selectDDItem(exIdx, item.id, el));
+    pool.appendChild(el);
+  });
+
+  ex.zones.forEach(zone => {
+    const el = document.createElement('div');
+    el.className = 'dd-zone';
+    el.id = `zone-${zone.id}`;
+    el.innerHTML = `<span class="dd-zone-name">${zone.label}</span><span class="dd-placed-tag" style="display:none"></span>`;
+    el.addEventListener('click', () => dropToZone(exIdx, zone.id, zone.answer, zone.label, el));
+    zones.appendChild(el);
+  });
+}
+
+function selectDDItem(exIdx, itemId, el) {
+  if (el.classList.contains('placed')) return;
+  const prev = ddSelected[exIdx];
+  // Deselect all in this exercise
+  document.querySelectorAll(`#pool-${exIdx+1} .dd-item`).forEach(e => e.classList.remove('selected'));
+  if (prev === itemId) {
+    ddSelected[exIdx] = null;
+  } else {
+    ddSelected[exIdx] = itemId;
+    el.classList.add('selected');
+  }
+}
+
+function dropToZone(exIdx, zoneId, correctAnswer, zoneLabel, el) {
+  if (el.classList.contains('correct')) return;
+  const sel = ddSelected[exIdx];
+  if (!sel) return;
+
+  if (sel === correctAnswer) {
+    // Correct
+    el.classList.add('correct');
+    const tag = el.querySelector('.dd-placed-tag');
+    // Find pool item label
+    const poolItem = exercises[exIdx].pool.find(p => p.id === sel);
+    tag.textContent = poolItem ? poolItem.label : sel;
+    tag.style.display = 'inline-block';
+    const itemEl = document.getElementById(`item-${sel}`);
+    if (itemEl) itemEl.classList.add('placed');
+    ddSelected[exIdx] = null;
+    checkDDComplete(exIdx);
+  } else {
+    // Wrong
+    el.classList.add('wrong');
+    setTimeout(() => el.classList.remove('wrong'), 500);
+    document.querySelectorAll(`#pool-${exIdx+1} .dd-item`).forEach(e => e.classList.remove('selected'));
+    ddSelected[exIdx] = null;
+  }
+}
+
+function checkDDComplete(exIdx) {
+  const n = exIdx + 1;
+  const zones = document.querySelectorAll(`#zones-${n} .dd-zone`);
+  const total = exercises[exIdx].zones.length;
+  const done = document.querySelectorAll(`#zones-${n} .dd-zone.correct`).length;
+  if (done === total) {
+    document.getElementById(`fb-${n}`).textContent = '✅ Muito bem! Exercício completo.';
+  }
+}
+
+function resetExercise(exIdx) {
+  document.getElementById(`fb-${exIdx+1}`).textContent = '';
+  renderExercise(exIdx);
+}
+
+exercises.forEach((_, i) => renderExercise(i));
+
+// ─── REFERENCES TABS ─────────────────────────────────────
+
+function showRefsTab(id, btn) {
+  document.querySelectorAll('.refs-list').forEach(l => l.classList.remove('active'));
+  document.querySelectorAll('.refs-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('refs-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
