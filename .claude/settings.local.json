@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import fitz; print\\('PyMuPDF ok'\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(python *)",
+      "Bash(where tesseract *)",
+      "Bash(pip install *)",
+      "Bash(pip show *)",
+      "Bash(tesseract --version)"
+    ]
+  }
+}

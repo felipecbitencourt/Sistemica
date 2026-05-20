@@ -461,6 +461,8 @@ const flashCards = [
     resposta:'Tarefa árdua (mas não prejudicial) que o cliente deve realizar sempre que o sintoma aparecer. O sintoma torna-se "caro demais" e a pessoa acaba escolhendo abandoná-lo.' },
   { escola:'str', pergunta:'Como Cloe Madanes interpreta o sintoma na família?',
     resposta:'Como expressão de amor e proteção: a pessoa adoece para proteger quem ela ama de algo mais ameaçador. O sintoma é um ato de cuidado disfuncional.' },
+  { escola:'str', pergunta:'Quais são os três submodelos que compõem a escola estratégica?',
+    resposta:'MRI (Watzlawick, Weakland, Fisch — foco nas tentativas de solução), Haley/Madanes (hierarquia, tarefas e poder) e Modelo de Milão (Selvini Palazzoli — hipotização e rituais). Todos derivam do trabalho de Bateson e do MRI original.' },
 
   // DIAGNÓSTICO SISTÊMICO
   { escola:'diag', pergunta:'Quais são os três pilares metodológicos da Equipe de Milão?',
@@ -473,6 +475,26 @@ const flashCards = [
     resposta:'Protocolo de avaliação sistêmica com etapas padronizadas para observar organização familiar, comunicação, resolução de conflitos e alianças. Base instrumental do diagnóstico sistêmico.' },
   { escola:'diag', pergunta:'O que é a "hipótese sistêmica" e como ela orienta a sessão?',
     resposta:'Narrativa relacional provisória que explica a função do sintoma no sistema. Guia as perguntas do terapeuta, é testada durante a entrevista e revista conforme novas informações surgem.' },
+  { escola:'diag', pergunta:'Quais são os seis passos metodológicos do diagnóstico sistêmico (Ríos-González)?',
+    resposta:'(1) Do indivíduo ao sistema; (2) dos conteúdos aos processos; (3) de interpretar a prescrever; (4) das origens às pautas atuais; (5) dos sintomas às mensagens; (6) das causas a reestruturar o sistema.' },
+
+  // EXPERIENCIAL — novos
+  { escola:'exp', pergunta:'Quais são as duas "batalhas" que Whitaker descreve no início da terapia?',
+    resposta:'Batalha pela estrutura: o terapeuta controla o setting (quem vem, quando, onde). Batalha pela iniciativa: a família define o conteúdo e os objetivos. Perder a primeira inviabiliza a terapia.' },
+  { escola:'exp', pergunta:'O que é "morte emocional" na perspectiva de Whitaker?',
+    resposta:'Estado de entorpecimento afetivo progressivo quando a família suprime a expressão emocional autêntica. Associado a quatro síndromes: pai solitário, mãe cansada, infidelidade recorrente e filho parental.' },
+
+  // BOWENIANA — novos
+  { escola:'bow', pergunta:'Como se distribuem os níveis na Escala de Diferenciação 0–100 de Bowen?',
+    resposta:'0–25: fusão quase total, vida dominada pelo emocional; 25–50: mais guiado pela emoção que pela razão, vida instável; 50–75: princípios próprios mas vulnerável ao estresse; 75–100: raro, integração plena de razão e emoção.' },
+
+  // TRIGERACIONAL — novos
+  { escola:'tri', pergunta:'Como Andolfi descreve o papel da criança na terapia familiar?',
+    resposta:'Como "fio de Ariadne" — consultora que guia o terapeuta pelo labirinto familiar. A criança conecta as gerações, é a mais livre para experimentar mudanças, e o sintoma em si contém recursos terapêuticos.' },
+
+  // ESTRUTURAL — novos
+  { escola:'est', pergunta:'Quais são as quatro etapas do modelo de Minuchin, Nichols & Lee?',
+    resposta:'(1) Ampliar e redefinir a queixa; (2) explorar as interações que mantêm o problema; (3) investigar o passado relevante com foco estrutural; (4) co-criar alternativas — "dançar com a família" para que ela encontre novas formas de funcionar.' },
 ];
 
 // ─── QUIZ ────────────────────────────────────────────────
@@ -508,6 +530,14 @@ const quizData = [
     ops:['Boweniana','Trigeracional','Estratégica (MRI)','Diagnóstico Sistêmico'], ans:2 },
   { q:'Para que serve o genograma na abordagem boweniana?',
     ops:['Mapear a estrutura de subsistemas e fronteiras','Mapear três ou mais gerações para revelar padrões repetitivos, triangulações e eventos críticos','Representar visualmente os padrões de comunicação','Protocolo padronizado de entrevista familiar'], ans:1 },
+  { q:'Quais são as duas batalhas descritas por Whitaker no início da terapia familiar?',
+    ops:['Batalha pelo vínculo e batalha pela interpretação','Batalha pela estrutura (setting) e batalha pela iniciativa (conteúdo)','Batalha pela aliança e batalha pela resistência','Batalha pelo passado e batalha pelo presente'], ans:1 },
+  { q:'Na escala de diferenciação de Bowen (0–100), o que caracteriza o nível 0–25?',
+    ops:['Integração plena entre razão e emoção','Princípios próprios mas vulnerável ao estresse relacional','Fusão quase total — vida dominada pelo emocional, reações impulsivas','Guiado mais pela emoção que pela razão, vida instável'], ans:2 },
+  { q:'Como Andolfi descreve o papel da criança na terapia familiar trigeracional?',
+    ops:['Paciente designado a ser protegido das sessões','Observador neutro do sistema','Fio de Ariadne — consultora que guia o terapeuta e conecta as gerações','Porta-voz das queixas dos pais'], ans:2 },
+  { q:'Quais são as quatro etapas do modelo estrutural de Minuchin, Nichols & Lee?',
+    ops:['Engajamento, avaliação, intervenção e encerramento','Ampliar a queixa, explorar interações mantenedoras, investigar o passado estrutural e co-criar alternativas','Hipotização, circularidade, neutralidade e intervenção','Mapeamento, estruturação, desequilíbrio e consolidação'], ans:1 },
 ];
 
 // ─── DRAG & DROP DATA ────────────────────────────────────
