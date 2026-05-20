@@ -76,7 +76,7 @@ nav.top{background:white;border-bottom:1px solid var(--g200);padding:14px 24px;d
 .quiz-opt.correct{border-color:#059669;background:#ECFDF5;color:#065F46;}
 .quiz-opt.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B;}
 .quiz-opt:disabled{cursor:default;}
-.quiz-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.95rem;font-weight:700;cursor:pointer;background:var(--g900);color:white;transition:.15s;}
+.quiz-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:10px;border:none;font-size:.95rem;font-weight:700;cursor:pointer;background:var(--g900);color:white;transition:.15s;}
 .quiz-btn:hover{opacity:.88;}
 .quiz-btn:disabled{opacity:.4;cursor:default;}
 .quiz-result{text-align:center;padding:20px 0;}
@@ -124,11 +124,55 @@ nav.top{background:white;border-bottom:1px solid var(--g200);padding:14px 24px;d
 .ref-link{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:8px;background:var(--g100);color:var(--g700);font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s;}
 .ref-link:hover{background:var(--g200);}
 
+/* ── DIFFICULTY ────────────────────────────────────────── */
+.dif-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.dif-btn{padding:6px 20px;border-radius:20px;border:2px solid var(--g200);background:white;font-size:.85rem;font-weight:700;cursor:pointer;color:var(--g700);transition:.15s;}
+.dif-btn:hover{border-color:var(--g700);}
+.dif-btn.active{color:white;border-color:transparent;}
+.dif-easy.active{background:#059669;}
+.dif-med.active{background:#D97706;}
+.dif-hard.active{background:#DC2626;}
+.dif-badge{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+.dif-badge-easy{background:#ECFDF5;color:#065F46;}
+.dif-badge-med{background:#FFFBEB;color:#92400E;}
+.dif-badge-hard{background:#FEF2F2;color:#991B1B;}
+
 footer{background:var(--g900);color:#9CA3AF;text-align:center;padding:24px;font-size:.85rem;margin-top:60px;}
 footer strong{color:white;}
+
+/* ── ÍCONES SVG ─────────────────────────────────────── */
+.icon{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.12em;flex-shrink:0;}
+.icon svg{display:block;width:100%;height:100%;}
+.tab-btn{display:inline-flex;align-items:center;gap:7px;}
+.tab-btn .icon{width:1.05em;height:1.05em;vertical-align:0;}
+.ref-link .icon{width:.95em;height:.95em;}
+.dd-reset,.quiz-restart{display:inline-flex;align-items:center;gap:6px;}
+.dd-reset .icon,.quiz-restart .icon,.quiz-btn .icon{width:1em;height:1em;}
+.flip-front .hint,.flip-back .back-tag{display:flex;align-items:center;justify-content:flex-end;gap:4px;}
+.flip-front .hint .icon,.flip-back .back-tag .icon{width:.85em;height:.85em;opacity:.85;}
+.dd-feedback{display:flex;align-items:center;gap:6px;}
+.dd-feedback .icon{width:1.1em;height:1.1em;color:#059669;}
+.quiz-msg{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.quiz-msg .result-icon{width:2.75rem;height:2.75rem;color:var(--g900);}
+.quiz-msg-text{margin:0;}
 </style>
 </head>
 <body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ico-cards" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="16" rx="2"/><path d="M7 5V3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2"/></symbol>
+  <symbol id="ico-quiz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/></symbol>
+  <symbol id="ico-shuffle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></symbol>
+  <symbol id="ico-books" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="ico-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></symbol>
+  <symbol id="ico-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></symbol>
+  <symbol id="ico-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM5 4H3v2a4 4 0 0 0 4 4M19 4h2v2a4 4 0 0 1-4 4"/></symbol>
+  <symbol id="ico-thumbs-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/></symbol>
+  <symbol id="ico-book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></symbol>
+  <symbol id="ico-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="ico-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6M21 17v-6h-6"/><path d="M17 3h4v4M3 21h4v-4"/></symbol>
+</svg>
 
 <nav class="top">
   <a href="index.html" class="logo">Psicologia Sistêmica</a>
@@ -151,10 +195,10 @@ footer strong{color:white;}
 </section>
 
 <nav class="tab-nav">
-  <button class="tab-btn active" onclick="showTab('flashcards',this)">🃏 Flash Cards</button>
-  <button class="tab-btn" onclick="showTab('quiz',this)">📝 Questionário</button>
-  <button class="tab-btn" onclick="showTab('dragdrop',this)">🔀 Arrastar e Soltar</button>
-  <button class="tab-btn" onclick="showTab('refs',this)">📚 Referências</button>
+  <button class="tab-btn active" onclick="showTab('flashcards',this)"><span class="icon" aria-hidden="true"><svg><use href="#ico-cards"/></svg></span> Flash Cards</button>
+  <button class="tab-btn" onclick="showTab('quiz',this)"><span class="icon" aria-hidden="true"><svg><use href="#ico-quiz"/></svg></span> Questionário</button>
+  <button class="tab-btn" onclick="showTab('dragdrop',this)"><span class="icon" aria-hidden="true"><svg><use href="#ico-shuffle"/></svg></span> Arrastar e Soltar</button>
+  <button class="tab-btn" onclick="showTab('refs',this)"><span class="icon" aria-hidden="true"><svg><use href="#ico-books"/></svg></span> Referências</button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════
@@ -162,7 +206,14 @@ footer strong{color:white;}
 ════════════════════════════════════════════════ -->
 <div id="tab-flashcards" class="tab-section active">
   <h2 class="sec-title">Flash Cards</h2>
-  <p class="sec-sub">Clique num card para revelar a resposta. Filtre por escola ou veja todos.</p>
+  <p class="sec-sub">Clique num card para revelar a resposta. Filtre por escola e por nível de dificuldade.</p>
+
+  <div class="dif-bar" id="fc-dif-bar" data-dif-bar>
+    <button class="dif-btn dif-easy active" onclick="setFcDif('all',this)" style="background:#111827;border-color:#111827;color:white">Todos</button>
+    <button class="dif-btn dif-easy" onclick="setFcDif('easy',this)">Fácil</button>
+    <button class="dif-btn dif-med" onclick="setFcDif('med',this)">Médio</button>
+    <button class="dif-btn dif-hard" onclick="setFcDif('hard',this)">Difícil</button>
+  </div>
 
   <div class="filter-bar" id="filter-bar">
     <button class="filter-btn active" data-filter="all" onclick="filterCards('all',this)"
@@ -183,7 +234,13 @@ footer strong{color:white;}
 ════════════════════════════════════════════════ -->
 <div id="tab-quiz" class="tab-section">
   <h2 class="sec-title">Questionário</h2>
-  <p class="sec-sub">15 perguntas de múltipla escolha cobrindo as seis escolas. Boa sorte!</p>
+  <p class="sec-sub">Múltipla escolha cobrindo as seis escolas. Filtre por nível de dificuldade ou responda todas.</p>
+  <div class="dif-bar" id="quiz-dif-bar">
+    <button class="dif-btn active" onclick="setQuizDif('all',this)" style="background:#111827;border-color:#111827;color:white">Todos</button>
+    <button class="dif-btn dif-easy" onclick="setQuizDif('easy',this)">Fácil</button>
+    <button class="dif-btn dif-med" onclick="setQuizDif('med',this)">Médio</button>
+    <button class="dif-btn dif-hard" onclick="setQuizDif('hard',this)">Difícil</button>
+  </div>
   <div class="quiz-wrapper" id="quiz-wrapper"></div>
 </div>
 
@@ -192,7 +249,13 @@ footer strong{color:white;}
 ════════════════════════════════════════════════ -->
 <div id="tab-dragdrop" class="tab-section">
   <h2 class="sec-title">Arrastar e Soltar</h2>
-  <p class="sec-sub">Clique num item para selecioná-lo (destaca em preto), depois clique na coluna direita onde ele pertence.</p>
+  <p class="sec-sub">Clique num item para selecioná-lo (destaca em preto), depois clique na coluna direita onde ele pertence. Escolha o nível de dificuldade.</p>
+
+  <div class="dif-bar" id="dd-dif-bar">
+    <button class="dif-btn dif-easy active" onclick="setDdDif('easy',this)" style="background:#059669;border-color:#059669;color:white">Fácil</button>
+    <button class="dif-btn dif-med" onclick="setDdDif('med',this)">Médio</button>
+    <button class="dif-btn dif-hard" onclick="setDdDif('hard',this)">Difícil</button>
+  </div>
 
   <!-- Exercise 1 -->
   <div class="dd-section">
@@ -208,7 +271,7 @@ footer strong{color:white;}
       </div>
     </div>
     <p class="dd-feedback" id="fb-1"></p>
-    <button class="dd-reset" onclick="resetExercise(0)">↺ Reiniciar exercício</button>
+    <button class="dd-reset" onclick="resetExercise(0)"><span class="icon" aria-hidden="true"><svg><use href="#ico-refresh"/></svg></span> Reiniciar exercício</button>
   </div>
 
   <!-- Exercise 2 -->
@@ -225,7 +288,7 @@ footer strong{color:white;}
       </div>
     </div>
     <p class="dd-feedback" id="fb-2"></p>
-    <button class="dd-reset" onclick="resetExercise(1)">↺ Reiniciar exercício</button>
+    <button class="dd-reset" onclick="resetExercise(1)"><span class="icon" aria-hidden="true"><svg><use href="#ico-refresh"/></svg></span> Reiniciar exercício</button>
   </div>
 
   <!-- Exercise 3 -->
@@ -242,7 +305,7 @@ footer strong{color:white;}
       </div>
     </div>
     <p class="dd-feedback" id="fb-3"></p>
-    <button class="dd-reset" onclick="resetExercise(2)">↺ Reiniciar exercício</button>
+    <button class="dd-reset" onclick="resetExercise(2)"><span class="icon" aria-hidden="true"><svg><use href="#ico-refresh"/></svg></span> Reiniciar exercício</button>
   </div>
 </div>
 
@@ -265,7 +328,7 @@ footer strong{color:white;}
         <p class="ref-title">Terapia Familiar Experiencial</p>
         <p class="ref-sub">Slides de aula</p>
       </div>
-      <a href="Slides/Terapia_Familiar_Experiencial.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Slides/Terapia_Familiar_Experiencial.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--blue)">Boweniana</span>
@@ -273,7 +336,7 @@ footer strong{color:white;}
         <p class="ref-title">A Terapia Familiar Sistêmica de Bowen</p>
         <p class="ref-sub">Slides de aula</p>
       </div>
-      <a href="Slides/A Terapia Familiar sistêmica de Bowen.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Slides/A Terapia Familiar sistêmica de Bowen.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
@@ -281,7 +344,7 @@ footer strong{color:white;}
         <p class="ref-title">Modelo Trigeracional / Multigeracional</p>
         <p class="ref-sub">Slides de aula</p>
       </div>
-      <a href="Slides/Modelo_Trigeracional.Multigeracional.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Slides/Modelo_Trigeracional.Multigeracional.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--green)">Estrutural</span>
@@ -289,7 +352,7 @@ footer strong{color:white;}
         <p class="ref-title">Terapia Familiar Estrutural — Minuchin</p>
         <p class="ref-sub">Slides de aula</p>
       </div>
-      <a href="Slides/TerapiaFamiliarEstruturalMinuchin.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Slides/TerapiaFamiliarEstruturalMinuchin.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--red)">Estratégica</span>
@@ -297,7 +360,7 @@ footer strong{color:white;}
         <p class="ref-title">Terapia Familiar Estratégica</p>
         <p class="ref-sub">Slides de aula</p>
       </div>
-      <a href="Slides/Terapia_Familiar_Estrategica.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Slides/Terapia_Familiar_Estrategica.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--teal)">Diag. Sistêmico</span>
@@ -305,7 +368,7 @@ footer strong{color:white;}
         <p class="ref-title">Diagnóstico da Dinâmica Familiar</p>
         <p class="ref-sub">Slides de aula</p>
       </div>
-      <a href="Slides/Diagnóstico da dinâmica familiar.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Slides/Diagnóstico da dinâmica familiar.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
   </div>
 
@@ -316,7 +379,7 @@ footer strong{color:white;}
         <p class="ref-title">Terapia Familiar Experiencial</p>
         <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
       </div>
-      <a href="Artigos/Terapia Familiar Experiencial. Nichols e Shcwartz.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Terapia Familiar Experiencial. Nichols e Shcwartz.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--blue)">Boweniana</span>
@@ -324,7 +387,7 @@ footer strong{color:white;}
         <p class="ref-title">Terapia Familiar de Bowen</p>
         <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
       </div>
-      <a href="Artigos/Terapia Familiar de Bowen. Nichols e Schwartz.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Terapia Familiar de Bowen. Nichols e Schwartz.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
@@ -332,7 +395,7 @@ footer strong{color:white;}
         <p class="ref-title">A Pessoa do Terapeuta</p>
         <p class="ref-sub">Maurizio Andolfi</p>
       </div>
-      <a href="Artigos/Andolfi.A Pessoa do Terapeuta.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Andolfi.A Pessoa do Terapeuta.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
@@ -340,7 +403,7 @@ footer strong{color:white;}
         <p class="ref-title">Cap. 1 — Livro Andolfi (em espanhol)</p>
         <p class="ref-sub">Maurizio Andolfi</p>
       </div>
-      <a href="Artigos/Cap.1 Livro Andolfi em espanhol.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Cap.1 Livro Andolfi em espanhol.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--amber)">Trigeracional</span>
@@ -348,7 +411,7 @@ footer strong{color:white;}
         <p class="ref-title">Restituir Voz à Criança</p>
         <p class="ref-sub">Maurizio Andolfi</p>
       </div>
-      <a href="Artigos/Andolfi. Restituir voz à criança.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Andolfi. Restituir voz à criança.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--green)">Estrutural</span>
@@ -356,7 +419,7 @@ footer strong{color:white;}
         <p class="ref-title">Terapia Familiar Estrutural</p>
         <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
       </div>
-      <a href="Artigos/Terapia Familiar Estrutural. Nichols e Schwartz.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Terapia Familiar Estrutural. Nichols e Schwartz.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--red)">Estratégica</span>
@@ -364,7 +427,7 @@ footer strong{color:white;}
         <p class="ref-title">Terapia Familiar Estratégica</p>
         <p class="ref-sub">Nichols e Schwartz (capítulo)</p>
       </div>
-      <a href="Artigos/Terapia Familiar Estrategica. Nichols e Schwartz (1).pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Terapia Familiar Estrategica. Nichols e Schwartz (1).pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--red)">Estratégica</span>
@@ -372,7 +435,7 @@ footer strong{color:white;}
         <p class="ref-title">Psicoterapia Familiar</p>
         <p class="ref-sub">Jay Haley</p>
       </div>
-      <a href="Artigos/Jay Haley. Psicoterapia Familiar (1).pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/Jay Haley. Psicoterapia Familiar (1).pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
     <div class="ref-item">
       <span class="ref-badge" style="background:var(--teal)">Diag. Sistêmico</span>
@@ -380,7 +443,7 @@ footer strong{color:white;}
         <p class="ref-title">Diagnóstico Familiar</p>
         <p class="ref-sub">Artigo de referência</p>
       </div>
-      <a href="Artigos/DiagnósticoFamiliar.pdf" target="_blank" class="ref-link">Abrir PDF ↗</a>
+      <a href="Artigos/DiagnósticoFamiliar.pdf" target="_blank" class="ref-link"><span class="icon" aria-hidden="true"><svg><use href="#ico-external"/></svg></span> Abrir PDF</a>
     </div>
   </div>
 </div>
@@ -392,6 +455,11 @@ footer strong{color:white;}
 <script>
 // ─── DATA ───────────────────────────────────────────────
 
+function icon(name, extraClass) {
+  const cls = extraClass ? `icon ${extraClass}` : 'icon';
+  return `<span class="${cls}" aria-hidden="true"><svg><use href="#ico-${name}"/></svg></span>`;
+}
+
 const ESCOLA_NAMES = {
   exp:  { label:'Experiencial',      cor:'#7C3AED' },
   bow:  { label:'Boweniana',         cor:'#2563EB' },
@@ -401,247 +469,404 @@ const ESCOLA_NAMES = {
   diag: { label:'Diag. Sistêmico',   cor:'#0891B2' },
 };
 
+const DIF_LABELS = { easy:'Fácil', med:'Médio', hard:'Difícil' };
+
 const flashCards = [
   // EXPERIENCIAL
-  { escola:'exp', pergunta:'O que caracteriza a Escola Experiencial frente às demais abordagens sistêmicas?',
+  { escola:'exp', dif:'med', pergunta:'O que caracteriza a Escola Experiencial frente às demais abordagens sistêmicas?',
     resposta:'A mudança ocorre pela vivência emocional real na sessão — encontro humano genuíno —, não pela análise intelectual dos problemas.' },
-  { escola:'exp', pergunta:'O que é "escultura familiar" e quem a difundiu?',
+  { escola:'exp', dif:'easy', pergunta:'O que é "escultura familiar" e quem a difundiu?',
     resposta:'Técnica criada por Virginia Satir: membros usam seus corpos para criar uma imagem tridimensional das relações, revelando distâncias, poder e proximidade sem palavras.' },
-  { escola:'exp', pergunta:'Cite os cinco padrões de comunicação de Virginia Satir.',
+  { escola:'exp', dif:'med', pergunta:'Cite os cinco padrões de comunicação de Virginia Satir.',
     resposta:'Aplacador (cede para evitar conflito), Culpabilizador (culpa o outro), Super-razoável (intelectualiza), Irrelevante (desvia o assunto) e Congruente (integra o que sente, pensa e diz).' },
-  { escola:'exp', pergunta:'O que Whitaker entende por "uso do self do terapeuta"?',
+  { escola:'exp', dif:'med', pergunta:'O que Whitaker entende por "uso do self do terapeuta"?',
     resposta:'O terapeuta usa suas próprias reações, fantasias e humor de forma deliberada e espontânea como instrumento terapêutico — a irracionalidade criativa como veículo de mudança.' },
-  { escola:'exp', pergunta:'Como a escola experiencial vê o sintoma?',
+  { escola:'exp', dif:'med', pergunta:'Como a escola experiencial vê o sintoma?',
     resposta:'Como resultado da repressão emocional e da comunicação incongruente. O sofrimento aparece onde a autenticidade foi sacrificada nas relações familiares.' },
 
   // BOWENIANA
-  { escola:'bow', pergunta:'O que é "diferenciação do self" na teoria de Bowen?',
+  { escola:'bow', dif:'easy', pergunta:'O que é "diferenciação do self" na teoria de Bowen?',
     resposta:'Capacidade de separar pensamento de emoção e de manter a própria identidade sob pressão do grupo familiar. É um contínuo (0–100) — ninguém é totalmente diferenciado.' },
-  { escola:'bow', pergunta:'O que é triangulação e por que é a unidade básica do sistema emocional?',
+  { escola:'bow', dif:'med', pergunta:'O que é triangulação e por que é a unidade básica do sistema emocional?',
     resposta:'Quando a tensão entre duas pessoas aumenta, uma terceira é incluída para aliviar a ansiedade. O triângulo é o sistema mais estável de relacionamento sob estresse.' },
-  { escola:'bow', pergunta:'O que é "corte emocional" e qual o seu problema?',
+  { escola:'bow', dif:'med', pergunta:'O que é "corte emocional" e qual o seu problema?',
     resposta:'Afastamento físico ou emocional da família de origem para lidar com fusão não resolvida. Não resolve — apenas "congela" o problema, que resurge nas próximas relações íntimas.' },
-  { escola:'bow', pergunta:'Cite os 8 conceitos da teoria familiar de Bowen.',
+  { escola:'bow', dif:'hard', pergunta:'Cite os 8 conceitos da teoria familiar de Bowen.',
     resposta:'(1) Diferenciação do self, (2) Triangulação, (3) Sistema emocional nuclear, (4) Processo de projeção familiar, (5) Transmissão multigeracional, (6) Posição entre irmãos, (7) Corte emocional, (8) Processo emocional da sociedade.' },
-  { escola:'bow', pergunta:'Para que serve o genograma na abordagem boweniana?',
+  { escola:'bow', dif:'easy', pergunta:'Para que serve o genograma na abordagem boweniana?',
     resposta:'Mapear três ou mais gerações para revelar padrões repetitivos, triangulações ativas, cortes emocionais, alianças e eventos críticos ao longo do tempo familiar.' },
 
   // TRIGERACIONAL
-  { escola:'tri', pergunta:'O que são "lealdades invisíveis" (Boszormenyi-Nagy)?',
+  { escola:'tri', dif:'easy', pergunta:'O que são "lealdades invisíveis" (Boszormenyi-Nagy)?',
     resposta:'Vínculos de obrigação e dívida emocional que ligam membros através das gerações. São "invisíveis" pois operam fora da consciência, mas orientam fortemente comportamentos e escolhas de vida.' },
-  { escola:'tri', pergunta:'O que são "mandatos transgeracionais"?',
+  { escola:'tri', dif:'easy', pergunta:'O que são "mandatos transgeracionais"?',
     resposta:'Tarefas, missões ou proibições transmitidas implicitamente entre gerações. Ex: "os homens desta família não choram", "nunca se fala de dinheiro", "precisamos cuidar da mãe".' },
-  { escola:'tri', pergunta:'O que é um "mito familiar"?',
+  { escola:'tri', dif:'med', pergunta:'O que é um "mito familiar"?',
     resposta:'Narrativa compartilhada sobre identidade e regras da família. Organiza a realidade, protege de ansiedades profundas e resiste à mudança — mesmo quando disfuncional.' },
-  { escola:'tri', pergunta:'Qual a função do "paciente designado" no modelo trigeracional?',
+  { escola:'tri', dif:'med', pergunta:'Qual a função do "paciente designado" no modelo trigeracional?',
     resposta:'Não é o "doente" da família — é o portador da mensagem do sistema, frequentemente a pessoa mais sensível e conectada às dores não elaboradas das gerações anteriores.' },
-  { escola:'tri', pergunta:'Por que o modelo trigeracional trabalha com três gerações?',
+  { escola:'tri', dif:'med', pergunta:'Por que o modelo trigeracional trabalha com três gerações?',
     resposta:'Porque lealdades, mandatos e conflitos não resolvidos se transmitem geracionalmente. Compreender o sofrimento presente exige acessar o contexto da família de origem.' },
 
   // ESTRUTURAL
-  { escola:'est', pergunta:'O que são "fronteiras difusas" na terapia estrutural?',
+  { escola:'est', dif:'easy', pergunta:'O que são "fronteiras difusas" na terapia estrutural?',
     resposta:'Fronteiras pouco definidas que geram emaranhamento: fusão excessiva entre membros, falta de autonomia individual e hipersensibilidade às reações dos outros.' },
-  { escola:'est', pergunta:'Quais são os três subsistemas principais e suas funções?',
+  { escola:'est', dif:'easy', pergunta:'Quais são os três subsistemas principais e suas funções?',
     resposta:'Conjugal (casal em relação íntima), Parental (casal na função de educar filhos) e Fraternal (irmãos aprendendo a negociar entre pares). Cada membro pertence a múltiplos subsistemas.' },
-  { escola:'est', pergunta:'O que é "encenação" (enactment) e qual seu objetivo?',
+  { escola:'est', dif:'med', pergunta:'O que é "encenação" (enactment) e qual seu objetivo?',
     resposta:'O terapeuta pede que a família aja um conflito na sessão em vez de descrevê-lo. Permite observar e intervir diretamente no padrão estrutural real, não numa versão narrada.' },
-  { escola:'est', pergunta:'O que é "desequilíbrio" na terapia estrutural?',
+  { escola:'est', dif:'med', pergunta:'O que é "desequilíbrio" na terapia estrutural?',
     resposta:'O terapeuta rompe coalizões disfuncionais aliando-se temporariamente com um membro contra outro. Cria instabilidade intencional para possibilitar uma reorganização mais funcional.' },
-  { escola:'est', pergunta:'Qual a diferença entre emaranhamento e desligamento?',
+  { escola:'est', dif:'med', pergunta:'Qual a diferença entre emaranhamento e desligamento?',
     resposta:'Emaranhamento = fronteiras difusas, fusão, falta de autonomia. Desligamento = fronteiras rígidas, isolamento, comunicação quase nula. Fronteiras claras ficam entre os dois extremos.' },
 
   // ESTRATÉGICA
-  { escola:'str', pergunta:'Qual é o princípio central do MRI sobre as tentativas de solução?',
+  { escola:'str', dif:'easy', pergunta:'Qual é o princípio central do MRI sobre as tentativas de solução?',
     resposta:'"O problema não é o problema — o problema é a solução." As tentativas repetidas e ineficazes de resolver o problema são o que o mantém ativo — "mais do mesmo".' },
-  { escola:'str', pergunta:'O que é "prescrição do sintoma" e por que funciona?',
+  { escola:'str', dif:'med', pergunta:'O que é "prescrição do sintoma" e por que funciona?',
     resposta:'O terapeuta instrui a família a manter ou exagerar o sintoma de forma controlada. Coloca o sintoma sob controle voluntário e frequentemente o elimina por torná-lo deliberado.' },
-  { escola:'str', pergunta:'O que é mudança de 2ª ordem (Watzlawick)?',
+  { escola:'str', dif:'hard', pergunta:'O que é mudança de 2ª ordem (Watzlawick)?',
     resposta:'Mudança das regras que organizam as soluções possíveis — não apenas "fazer diferente" (1ª ordem), mas mudar o enquadramento do problema em nível lógico superior.' },
-  { escola:'str', pergunta:'O que é "ordálio" (Jay Haley)?',
+  { escola:'str', dif:'easy', pergunta:'O que é "ordálio" (Jay Haley)?',
     resposta:'Tarefa árdua (mas não prejudicial) que o cliente deve realizar sempre que o sintoma aparecer. O sintoma torna-se "caro demais" e a pessoa acaba escolhendo abandoná-lo.' },
-  { escola:'str', pergunta:'Como Cloe Madanes interpreta o sintoma na família?',
+  { escola:'str', dif:'med', pergunta:'Como Cloe Madanes interpreta o sintoma na família?',
     resposta:'Como expressão de amor e proteção: a pessoa adoece para proteger quem ela ama de algo mais ameaçador. O sintoma é um ato de cuidado disfuncional.' },
-  { escola:'str', pergunta:'Quais são os três submodelos que compõem a escola estratégica?',
+  { escola:'str', dif:'med', pergunta:'Quais são os três submodelos que compõem a escola estratégica?',
     resposta:'MRI (Watzlawick, Weakland, Fisch — foco nas tentativas de solução), Haley/Madanes (hierarquia, tarefas e poder) e Modelo de Milão (Selvini Palazzoli — hipotização e rituais). Todos derivam do trabalho de Bateson e do MRI original.' },
 
   // DIAGNÓSTICO SISTÊMICO
-  { escola:'diag', pergunta:'Quais são os três pilares metodológicos da Equipe de Milão?',
+  { escola:'diag', dif:'easy', pergunta:'Quais são os três pilares metodológicos da Equipe de Milão?',
     resposta:'Hipotização (formular hipótese sobre a função do sintoma), Circularidade (entrevista que cruza perspectivas dos membros) e Neutralidade (posição equidistante, sem tomar partido).' },
-  { escola:'diag', pergunta:'O que é uma "pergunta circular" e para que serve?',
+  { escola:'diag', dif:'easy', pergunta:'O que é uma "pergunta circular" e para que serve?',
     resposta:'Pergunta que explora relações entre membros: "Quando sua mãe chora, o que seu pai faz?" Revela padrões relacionais invisíveis que perguntas diretas ao indivíduo não acessam.' },
-  { escola:'diag', pergunta:'O que é "conotação positiva" (Equipe de Milão)?',
+  { escola:'diag', dif:'med', pergunta:'O que é "conotação positiva" (Equipe de Milão)?',
     resposta:'Atribuir uma intenção positiva a todos os comportamentos do sistema — inclusive ao sintoma. Ex: "Seu filho está doente para manter os pais unidos." Muda o enquadramento sem acionar resistência.' },
-  { escola:'diag', pergunta:'O que é a Entrevista Familiar Estruturada (EFE)?',
+  { escola:'diag', dif:'easy', pergunta:'O que é a Entrevista Familiar Estruturada (EFE)?',
     resposta:'Protocolo de avaliação sistêmica com etapas padronizadas para observar organização familiar, comunicação, resolução de conflitos e alianças. Base instrumental do diagnóstico sistêmico.' },
-  { escola:'diag', pergunta:'O que é a "hipótese sistêmica" e como ela orienta a sessão?',
+  { escola:'diag', dif:'med', pergunta:'O que é a "hipótese sistêmica" e como ela orienta a sessão?',
     resposta:'Narrativa relacional provisória que explica a função do sintoma no sistema. Guia as perguntas do terapeuta, é testada durante a entrevista e revista conforme novas informações surgem.' },
-  { escola:'diag', pergunta:'Quais são os seis passos metodológicos do diagnóstico sistêmico (Ríos-González)?',
+  { escola:'diag', dif:'hard', pergunta:'Quais são os seis passos metodológicos do diagnóstico sistêmico (Ríos-González)?',
     resposta:'(1) Do indivíduo ao sistema; (2) dos conteúdos aos processos; (3) de interpretar a prescrever; (4) das origens às pautas atuais; (5) dos sintomas às mensagens; (6) das causas a reestruturar o sistema.' },
 
   // EXPERIENCIAL — novos
-  { escola:'exp', pergunta:'Quais são as duas "batalhas" que Whitaker descreve no início da terapia?',
+  { escola:'exp', dif:'med', pergunta:'Quais são as duas "batalhas" que Whitaker descreve no início da terapia?',
     resposta:'Batalha pela estrutura: o terapeuta controla o setting (quem vem, quando, onde). Batalha pela iniciativa: a família define o conteúdo e os objetivos. Perder a primeira inviabiliza a terapia.' },
-  { escola:'exp', pergunta:'O que é "morte emocional" na perspectiva de Whitaker?',
+  { escola:'exp', dif:'hard', pergunta:'O que é "morte emocional" na perspectiva de Whitaker?',
     resposta:'Estado de entorpecimento afetivo progressivo quando a família suprime a expressão emocional autêntica. Associado a quatro síndromes: pai solitário, mãe cansada, infidelidade recorrente e filho parental.' },
 
   // BOWENIANA — novos
-  { escola:'bow', pergunta:'Como se distribuem os níveis na Escala de Diferenciação 0–100 de Bowen?',
+  { escola:'bow', dif:'hard', pergunta:'Como se distribuem os níveis na Escala de Diferenciação 0–100 de Bowen?',
     resposta:'0–25: fusão quase total, vida dominada pelo emocional; 25–50: mais guiado pela emoção que pela razão, vida instável; 50–75: princípios próprios mas vulnerável ao estresse; 75–100: raro, integração plena de razão e emoção.' },
 
   // TRIGERACIONAL — novos
-  { escola:'tri', pergunta:'Como Andolfi descreve o papel da criança na terapia familiar?',
+  { escola:'tri', dif:'med', pergunta:'Como Andolfi descreve o papel da criança na terapia familiar?',
     resposta:'Como "fio de Ariadne" — consultora que guia o terapeuta pelo labirinto familiar. A criança conecta as gerações, é a mais livre para experimentar mudanças, e o sintoma em si contém recursos terapêuticos.' },
 
   // ESTRUTURAL — novos
-  { escola:'est', pergunta:'Quais são as quatro etapas do modelo de Minuchin, Nichols & Lee?',
+  { escola:'est', dif:'hard', pergunta:'Quais são as quatro etapas do modelo de Minuchin, Nichols & Lee?',
     resposta:'(1) Ampliar e redefinir a queixa; (2) explorar as interações que mantêm o problema; (3) investigar o passado relevante com foco estrutural; (4) co-criar alternativas — "dançar com a família" para que ela encontre novas formas de funcionar.' },
-  { escola:'est', pergunta:'O que é "coalizão geracional cruzada" na terapia estrutural?',
+  { escola:'est', dif:'hard', pergunta:'O que é "coalizão geracional cruzada" na terapia estrutural?',
     resposta:'Aliança rígida entre um progenitor e um filho contra o outro progenitor, saltando a fronteira intergeracional. Sintoma clássico de hierarquia invertida; o filho entra na posição de parceiro do adulto, comprometendo seu desenvolvimento.' },
-  { escola:'est', pergunta:'O que é "dar forma à competência" (sculpting competence) em Minuchin?',
+  { escola:'est', dif:'hard', pergunta:'O que é "dar forma à competência" (sculpting competence) em Minuchin?',
     resposta:'Técnica de reestruturação em que o terapeuta cria ativamente situações que evidenciam as capacidades da família — não apenas aponta recursos, mas organiza interações que tornam a competência visível e experienciada pelo sistema.' },
-  { escola:'est', pergunta:'O que é a "síndrome mãe emaranhada / pai desligado" na terapia estrutural?',
+  { escola:'est', dif:'hard', pergunta:'O que é a "síndrome mãe emaranhada / pai desligado" na terapia estrutural?',
     resposta:'Padrão em que a mãe está excessivamente fusionada com os filhos (fronteiras difusas) enquanto o pai se encontra periférico e desengajado. Consequência: fronteiras intergeracionais borradas; filho assume função emocional do cônjuge ausente.' },
 
   // ESTRATÉGICA — novos
-  { escola:'str', pergunta:'Quais são os cinco Axiomas da Comunicação de Watzlawick?',
+  { escola:'str', dif:'hard', pergunta:'Quais são os cinco Axiomas da Comunicação de Watzlawick?',
     resposta:'(1) Impossível não comunicar; (2) toda comunicação tem nível de conteúdo e de relação; (3) a pontuação da sequência define a relação; (4) comunicação analógica (não-verbal) e digital (verbal); (5) interações simétricas ou complementares.' },
-  { escola:'str', pergunta:'O que é "homeostase familiar" (Jackson)?',
+  { escola:'str', dif:'hard', pergunta:'O que é "homeostase familiar" (Jackson)?',
     resposta:'Tendência do sistema familiar a resistir à mudança e retornar ao equilíbrio habitual. Quando um membro melhora, o sistema pode reagir produzindo novo sintoma — o sintoma tem função reguladora.' },
-  { escola:'str', pergunta:'O que é "duplo vínculo" (double bind — Bateson et al., 1956)?',
+  { escola:'str', dif:'hard', pergunta:'O que é "duplo vínculo" (double bind — Bateson et al., 1956)?',
     resposta:'Padrão comunicativo em que a pessoa recebe mensagens contraditórias em dois níveis (verbal/relacional) sem poder sair da situação. Qualquer resposta é "errada". Associado originalmente à etiologia da esquizofrenia; hoje generalizado a padrões de comunicação disfuncional.' },
-  { escola:'str', pergunta:'Quais são as três categorias de "soluções erradas" do MRI?',
+  { escola:'str', dif:'hard', pergunta:'Quais são as três categorias de "soluções erradas" do MRI?',
     resposta:'(1) Negar que há problema (quando algo precisa mudar); (2) agir como se houvesse problema (quando não há); (3) tentar resolver no nível errado — aplicar solução de 1ª ordem a problema que exige mudança de 2ª ordem.' },
 
   // BOWENIANA — novos
-  { escola:'bow', pergunta:'Qual a diferença entre nível básico e nível funcional de diferenciação?',
+  { escola:'bow', dif:'hard', pergunta:'Qual a diferença entre nível básico e nível funcional de diferenciação?',
     resposta:'Nível básico: estrutura estável de self, desenvolvida ao longo da vida, resistente ao estresse. Nível funcional: posição flutuante segundo o contexto relacional — sobe quando apoiado, cai sob pressão. Uma pessoa pode parecer bem diferenciada funcionalmente mas ter baixo nível básico.' },
-  { escola:'bow', pergunta:'Qual foi a contribuição de Betty Carter e Monica McGoldrick à abordagem boweniana?',
+  { escola:'bow', dif:'hard', pergunta:'Qual foi a contribuição de Betty Carter e Monica McGoldrick à abordagem boweniana?',
     resposta:'Introduziram perspectiva feminista e multicultural: questionaram o ideal de diferenciação como neutro ao gênero (culturalmente masculino), destacaram o impacto de raça e etnia nos padrões multigeracionais, e expandiram o ciclo de vida familiar para incluir divórcio, recasamento e famílias não-tradicionais.' },
 
   // EXPERIENCIAL — novos
-  { escola:'exp', pergunta:'O que é a Terapia Focada nas Emoções (EFT) de Greenberg & Johnson?',
+  { escola:'exp', dif:'hard', pergunta:'O que é a Terapia Focada nas Emoções (EFT) de Greenberg & Johnson?',
     resposta:'Abordagem derivada do modelo experiencial, integra teoria do apego com técnicas experienciais. Em 9 estágios, trabalha ciclos de interação negativa do casal, acessa emoções de apego subjacentes (medo de abandono, necessidade de contato) e reestrutura vínculos afetivos.' },
-  { escola:'exp', pergunta:'O que é o modelo IFS (Internal Family Systems) de Richard Schwartz?',
+  { escola:'exp', dif:'hard', pergunta:'O que é o modelo IFS (Internal Family Systems) de Richard Schwartz?',
     resposta:'Cada pessoa contém múltiplas "partes" internas com papéis próprios: exilados (carregam dor), gerentes (controlam para evitar a dor), bombeiros (reagem impulsivamente quando exilados emergem). O objetivo é alcançar o Self — centro calmo e compassivo — que lidera o sistema interno.' },
 ];
 
 // ─── QUIZ ────────────────────────────────────────────────
 
 const quizData = [
-  { q:'Qual conceito é central na teoria de Murray Bowen?',
+
+  // ── FÁCIL ──────────────────────────────────────────────
+  { dif:'easy', q:'Qual conceito é central na teoria de Murray Bowen?',
     ops:['Lealdades invisíveis','Diferenciação do self','Encenação familiar','Hipotização'], ans:1 },
-  { q:'Qual escola foca nas fronteiras, subsistemas e hierarquia da família?',
+  { dif:'easy', q:'Qual escola foca nas fronteiras, subsistemas e hierarquia da família?',
     ops:['Experiencial','Estratégica','Estrutural','Trigeracional'], ans:2 },
-  { q:'Quem desenvolveu os padrões de comunicação (aplacador, culpabilizador, etc.)?',
+  { dif:'easy', q:'Quem desenvolveu os padrões de comunicação (aplacador, culpabilizador, etc.)?',
     ops:['Carl Whitaker','Jay Haley','Virginia Satir','Murray Bowen'], ans:2 },
-  { q:'O que o MRI entende por "tentativas de solução"?',
-    ops:['Técnicas paradoxais do terapeuta','Estratégias da família que mantêm o problema','O processo de hipotização','A encenação de conflitos'], ans:1 },
-  { q:'Qual escola trabalha com lealdades invisíveis e mandatos transgeracionais?',
+  { dif:'easy', q:'Qual escola trabalha com lealdades invisíveis e mandatos transgeracionais?',
     ops:['Boweniana','Estrutural','Estratégica','Trigeracional'], ans:3 },
-  { q:'O que é "encenação" (enactment) na terapia estrutural?',
-    ops:['Dramatização com bonecos','Pedido para a família agir um conflito na sessão, não apenas descrevê-lo','Representação gráfica da estrutura familiar','Uso de metáforas terapêuticas'], ans:1 },
-  { q:'Quais são os três pilares metodológicos da Equipe de Milão?',
-    ops:['Encenação, desequilíbrio e mapeamento','Escultura, role-playing e dramatização','Hipotização, circularidade e neutralidade','Genograma, triângulos e corte emocional'], ans:2 },
-  { q:'Quem desenvolveu o modelo trigeracional integrado às lealdades invisíveis?',
+  { dif:'easy', q:'Quem desenvolveu o modelo trigeracional integrado às lealdades invisíveis?',
     ops:['Salvador Minuchin','Jay Haley','Maurizio Andolfi','Murray Bowen'], ans:2 },
-  { q:'O "ordálio" é uma técnica de qual escola?',
+  { dif:'easy', q:'O "ordálio" é uma técnica de qual escola?',
     ops:['Experiencial','Boweniana','Estrutural','Estratégica'], ans:3 },
-  { q:'O que é "conotação positiva" na Equipe de Milão?',
-    ops:['Elogiar o progresso da família','Atribuir intenção positiva a todos os comportamentos, incluindo o sintoma','Reforçar mudanças com feedback verbal','Destacar recursos familiares no genograma'], ans:1 },
-  { q:'Na teoria de Bowen, o que caracteriza o "corte emocional"?',
-    ops:['A família interrompe a terapia','O terapeuta encerra o processo','Afastamento físico ou emocional da família de origem para lidar com fusão não resolvida','Um membro é excluído do sistema'], ans:2 },
-  { q:'O que diferencia fundamentalmente a escola experiencial das demais?',
-    ops:['Uso de técnicas estruturadas e diretivas','Foco na história multigeracional','Uso do self do terapeuta e ênfase na experiência emocional vivida na sessão','Formulação de hipóteses antes da sessão'], ans:2 },
-  { q:'O diagnóstico sistêmico usa "causalidade circular". O que isso significa?',
-    ops:['As causas são sempre eventos do passado','O comportamento de cada membro influencia e é influenciado pelos demais simultaneamente','O sintoma tem sempre uma causa única','Os problemas se repetem por falta de motivação'], ans:1 },
-  { q:'Qual escola afirma: "o problema não é o problema — o problema é a solução"?',
+  { dif:'easy', q:'Qual escola afirma: "o problema não é o problema — o problema é a solução"?',
     ops:['Boweniana','Trigeracional','Estratégica (MRI)','Diagnóstico Sistêmico'], ans:2 },
-  { q:'Para que serve o genograma na abordagem boweniana?',
+  { dif:'easy', q:'Qual das seguintes técnicas pertence à escola Experiencial?',
+    ops:['Encenação (enactment)','Escultura familiar','Prescrição do sintoma','Perguntas circulares'], ans:1 },
+  { dif:'easy', q:'Em qual escola o terapeuta usa suas próprias emoções e fantasias como instrumento terapêutico?',
+    ops:['Estrutural','Diagnóstico Sistêmico','Experiencial','Estratégica'], ans:2 },
+  { dif:'easy', q:'Qual instrumento gráfico é central na abordagem boweniana para mapear padrões em três ou mais gerações?',
+    ops:['Mapa estrutural','Genograma','Sociograma','Ecomapa'], ans:1 },
+  { dif:'easy', q:'A Entrevista Familiar Estruturada (EFE) é instrumento central de qual escola?',
+    ops:['Experiencial','Estrutural','Diag. Sistêmico','Trigeracional'], ans:2 },
+
+  // ── MÉDIO ──────────────────────────────────────────────
+  { dif:'med', q:'O que o MRI entende por "tentativas de solução"?',
+    ops:['Técnicas paradoxais do terapeuta','Estratégias da família que mantêm o problema','O processo de hipotização','A encenação de conflitos'], ans:1 },
+  { dif:'med', q:'O que é "encenação" (enactment) na terapia estrutural?',
+    ops:['Dramatização com bonecos','Pedido para a família agir um conflito na sessão, não apenas descrevê-lo','Representação gráfica da estrutura familiar','Uso de metáforas terapêuticas'], ans:1 },
+  { dif:'med', q:'Quais são os três pilares metodológicos da Equipe de Milão?',
+    ops:['Encenação, desequilíbrio e mapeamento','Escultura, role-playing e dramatização','Hipotização, circularidade e neutralidade','Genograma, triângulos e corte emocional'], ans:2 },
+  { dif:'med', q:'O que é "conotação positiva" na Equipe de Milão?',
+    ops:['Elogiar o progresso da família','Atribuir intenção positiva a todos os comportamentos, incluindo o sintoma','Reforçar mudanças com feedback verbal','Destacar recursos familiares no genograma'], ans:1 },
+  { dif:'med', q:'Na teoria de Bowen, o que caracteriza o "corte emocional"?',
+    ops:['A família interrompe a terapia','O terapeuta encerra o processo','Afastamento físico ou emocional da família de origem para lidar com fusão não resolvida','Um membro é excluído do sistema'], ans:2 },
+  { dif:'med', q:'O que diferencia fundamentalmente a escola experiencial das demais?',
+    ops:['Uso de técnicas estruturadas e diretivas','Foco na história multigeracional','Uso do self do terapeuta e ênfase na experiência emocional vivida na sessão','Formulação de hipóteses antes da sessão'], ans:2 },
+  { dif:'med', q:'O diagnóstico sistêmico usa "causalidade circular". O que isso significa?',
+    ops:['As causas são sempre eventos do passado','O comportamento de cada membro influencia e é influenciado pelos demais simultaneamente','O sintoma tem sempre uma causa única','Os problemas se repetem por falta de motivação'], ans:1 },
+  { dif:'med', q:'Para que serve o genograma na abordagem boweniana?',
     ops:['Mapear a estrutura de subsistemas e fronteiras','Mapear três ou mais gerações para revelar padrões repetitivos, triangulações e eventos críticos','Representar visualmente os padrões de comunicação','Protocolo padronizado de entrevista familiar'], ans:1 },
-  { q:'Quais são as duas batalhas descritas por Whitaker no início da terapia familiar?',
+  { dif:'med', q:'Quais são as duas batalhas descritas por Whitaker no início da terapia familiar?',
     ops:['Batalha pelo vínculo e batalha pela interpretação','Batalha pela estrutura (setting) e batalha pela iniciativa (conteúdo)','Batalha pela aliança e batalha pela resistência','Batalha pelo passado e batalha pelo presente'], ans:1 },
-  { q:'Na escala de diferenciação de Bowen (0–100), o que caracteriza o nível 0–25?',
-    ops:['Integração plena entre razão e emoção','Princípios próprios mas vulnerável ao estresse relacional','Fusão quase total — vida dominada pelo emocional, reações impulsivas','Guiado mais pela emoção que pela razão, vida instável'], ans:2 },
-  { q:'Como Andolfi descreve o papel da criança na terapia familiar trigeracional?',
+  { dif:'med', q:'Como Andolfi descreve o papel da criança na terapia familiar trigeracional?',
     ops:['Paciente designado a ser protegido das sessões','Observador neutro do sistema','Fio de Ariadne — consultora que guia o terapeuta e conecta as gerações','Porta-voz das queixas dos pais'], ans:2 },
-  { q:'Quais são as quatro etapas do modelo estrutural de Minuchin, Nichols & Lee?',
+  { dif:'med', q:'Na terapia estratégica, o que é "reenquadramento"?',
+    ops:['Reorganizar a estrutura hierárquica da família','Oferecer uma nova perspectiva que muda o significado do problema sem alterar os fatos','Prescrever o sintoma de forma controlada','Pedir à família que aja o conflito na sessão'], ans:1 },
+  { dif:'med', q:'O que é "mapeamento estrutural" na terapia de Minuchin?',
+    ops:['Genograma de três ou mais gerações','Representação visual dos subsistemas, fronteiras e coalizões da família','Lista das tentativas de solução ineficazes','Diagrama dos padrões de comunicação verbal e não-verbal'], ans:1 },
+  { dif:'med', q:'O que é o "processo de projeção familiar" na teoria de Bowen?',
+    ops:['Transferência de tensão não resolvida dos pais para um filho específico via triangulação','A criança adoece para proteger os pais de conflitos conjugais','O terapeuta projeta sua própria história na dinâmica familiar','A família projeta a responsabilidade pelo sintoma no paciente designado'], ans:0 },
+
+  // ── DIFÍCIL ────────────────────────────────────────────
+  { dif:'hard', q:'Na escala de diferenciação de Bowen (0–100), o que caracteriza o nível 0–25?',
+    ops:['Integração plena entre razão e emoção','Princípios próprios mas vulnerável ao estresse relacional','Fusão quase total — vida dominada pelo emocional, reações impulsivas','Guiado mais pela emoção que pela razão, vida instável'], ans:2 },
+  { dif:'hard', q:'Quais são as quatro etapas do modelo estrutural de Minuchin, Nichols & Lee?',
     ops:['Engajamento, avaliação, intervenção e encerramento','Ampliar a queixa, explorar interações mantenedoras, investigar o passado estrutural e co-criar alternativas','Hipotização, circularidade, neutralidade e intervenção','Mapeamento, estruturação, desequilíbrio e consolidação'], ans:1 },
-  { q:'O que é o "duplo vínculo" (double bind) descrito por Bateson et al.?',
+  { dif:'hard', q:'O que é o "duplo vínculo" (double bind) descrito por Bateson et al.?',
     ops:['Conflito entre dois membros da família por lealdades opostas','Mensagens contraditórias em dois níveis comunicacionais sem possibilidade de saída — qualquer resposta é "errada"','Aliança de dois membros contra um terceiro','Técnica paradoxal do terapeuta estratégico'], ans:1 },
-  { q:'Qual dos seguintes descreve a "homeostase familiar" segundo Don Jackson?',
+  { dif:'hard', q:'Qual dos seguintes descreve a "homeostase familiar" segundo Don Jackson?',
     ops:['A capacidade da família de se adaptar a novos contextos','A tendência do sistema a resistir à mudança e restaurar o equilíbrio habitual, podendo gerar novo sintoma quando um membro melhora','O equilíbrio saudável entre fronteiras rígidas e difusas','O processo de diferenciação progressiva dos filhos'], ans:1 },
-  { q:'Na distinção de Bowen, qual é a diferença entre nível básico e nível funcional de diferenciação?',
+  { dif:'hard', q:'Na distinção de Bowen, qual é a diferença entre nível básico e nível funcional de diferenciação?',
     ops:['O básico mede o QI emocional; o funcional mede habilidades de comunicação','O básico é estável e resistente ao estresse; o funcional oscila conforme o contexto relacional','O básico é medido pelo genograma; o funcional pela escala 0–100','Não há diferença — são sinônimos usados em contextos diferentes'], ans:1 },
-  { q:'O que caracteriza a "coalizão geracional cruzada" na terapia estrutural?',
+  { dif:'hard', q:'O que caracteriza a "coalizão geracional cruzada" na terapia estrutural?',
     ops:['Aliança entre avós e netos excluindo os pais','Aliança rígida entre um progenitor e um filho contra o outro progenitor, invertendo a hierarquia intergeracional','Triangulação em que a criança medeia o conflito conjugal','Fronteira difusa entre os subsistemas fraternal e parental'], ans:1 },
-  { q:'A Terapia Focada nas Emoções (EFT) de Greenberg & Johnson pertence a qual tradição?',
+  { dif:'hard', q:'A Terapia Focada nas Emoções (EFT) de Greenberg & Johnson pertence a qual tradição?',
     ops:['Estrutural, com foco em subsistemas e fronteiras do casal','Boweniana, trabalhando triangulações e diferenciação','Derivada do modelo experiencial, integrando teoria do apego','Estratégica, usando prescrições paradoxais para mudar padrões'], ans:2 },
+  { dif:'hard', q:'Qual a diferença entre "mudança de 1ª ordem" e "mudança de 2ª ordem" segundo Watzlawick?',
+    ops:['A de 1ª ordem é mais rápida; a de 2ª é mais duradoura','A de 1ª ordem muda comportamentos dentro das mesmas regras; a de 2ª muda as próprias regras que organizam as soluções possíveis','A primeira ocorre na sessão; a segunda, entre sessões','A de 1ª ordem é consciente; a de 2ª é inconsciente e emerge com o tempo'], ans:1 },
+  { dif:'hard', q:'O que é o "processo emocional da sociedade", 8º conceito de Bowen?',
+    ops:['A influência das normas culturais nos padrões de comunicação familiar','O mesmo mecanismo de fusão/diferenciação que opera nas famílias se replica em nível societário — grupos sociais sob estresse reagem com padrões análogos à ansiedade crônica familiar','A transmissão de valores de uma cultura para outra por meio da família','O impacto de políticas públicas na saúde emocional das famílias'], ans:1 },
+  { dif:'hard', q:'O que distingue a abordagem de Whitaker (simbólico-experiencial) da de Satir (comunicação) dentro da escola experiencial?',
+    ops:['Whitaker usa confronto verbal; Satir usa principalmente o silêncio terapêutico','Whitaker prioriza o irracional, o absurdo e a fantasia como veículo de mudança; Satir foca em comunicação congruente e padrões de valor do self','Whitaker trabalha individualmente; Satir apenas com sistemas familiares completos','Whitaker evita qualquer interpretação; Satir as utiliza como intervenção central'], ans:1 },
 ];
 
 // ─── DRAG & DROP DATA ────────────────────────────────────
 
-const exercises = [
-  {
-    poolLabel:'Escolas',
-    zonesLabel:'Autores',
-    pool:[
-      { id:'p1_exp',  label:'Experiencial',      cor:'#7C3AED' },
-      { id:'p1_bow',  label:'Boweniana',          cor:'#2563EB' },
-      { id:'p1_tri',  label:'Trigeracional',      cor:'#D97706' },
-      { id:'p1_est',  label:'Estrutural',         cor:'#059669' },
-      { id:'p1_str',  label:'Estratégica',        cor:'#DC2626' },
-      { id:'p1_diag', label:'Diag. Sistêmico',    cor:'#0891B2' },
-    ],
-    zones:[
-      { id:'z1_1', label:'Carl Whitaker',          answer:'p1_exp'  },
-      { id:'z1_2', label:'Murray Bowen',           answer:'p1_bow'  },
-      { id:'z1_3', label:'Maurizio Andolfi',       answer:'p1_tri'  },
-      { id:'z1_4', label:'Salvador Minuchin',      answer:'p1_est'  },
-      { id:'z1_5', label:'Jay Haley',              answer:'p1_str'  },
-      { id:'z1_6', label:'Mara Selvini Palazzoli', answer:'p1_diag' },
-    ]
-  },
-  {
-    poolLabel:'Conceitos',
-    zonesLabel:'Escolas',
-    pool:[
-      { id:'p2_dif',   label:'Diferenciação do self',  cor:'#2563EB' },
-      { id:'p2_leal',  label:'Lealdades invisíveis',   cor:'#D97706' },
-      { id:'p2_enact', label:'Encenação (enactment)',   cor:'#059669' },
-      { id:'p2_presc', label:'Prescrição do sintoma',  cor:'#DC2626' },
-      { id:'p2_esc',   label:'Escultura familiar',     cor:'#7C3AED' },
-      { id:'p2_circ',  label:'Perguntas circulares',   cor:'#0891B2' },
-    ],
-    zones:[
-      { id:'z2_bow',  label:'Boweniana',          answer:'p2_dif'   },
-      { id:'z2_tri',  label:'Trigeracional',      answer:'p2_leal'  },
-      { id:'z2_est',  label:'Estrutural',         answer:'p2_enact' },
-      { id:'z2_str',  label:'Estratégica',        answer:'p2_presc' },
-      { id:'z2_exp',  label:'Experiencial',       answer:'p2_esc'   },
-      { id:'z2_diag', label:'Diag. Sistêmico',    answer:'p2_circ'  },
-    ]
-  },
-  {
-    poolLabel:'Técnicas',
-    zonesLabel:'Escolas',
-    pool:[
-      { id:'p3_geno',   label:'Genograma',             cor:'#2563EB' },
-      { id:'p3_ordale', label:'Ordálio',                cor:'#DC2626' },
-      { id:'p3_desq',   label:'Desequilíbrio',         cor:'#059669' },
-      { id:'p3_meta',   label:'Metáforas terapêuticas',cor:'#D97706' },
-      { id:'p3_role',   label:'Role-playing',           cor:'#7C3AED' },
-      { id:'p3_efe',    label:'EFE',                    cor:'#0891B2' },
-    ],
-    zones:[
-      { id:'z3_bow',  label:'Boweniana',         answer:'p3_geno'   },
-      { id:'z3_str',  label:'Estratégica',       answer:'p3_ordale' },
-      { id:'z3_est',  label:'Estrutural',        answer:'p3_desq'   },
-      { id:'z3_tri',  label:'Trigeracional',     answer:'p3_meta'   },
-      { id:'z3_exp',  label:'Experiencial',      answer:'p3_role'   },
-      { id:'z3_diag', label:'Diag. Sistêmico',   answer:'p3_efe'    },
-    ]
-  }
-];
+const exercisesByDif = {
+  easy: [
+    {
+      title:'Exercício 1 — Relacione a escola ao seu principal autor',
+      poolLabel:'Escolas', zonesLabel:'Autores',
+      pool:[
+        { id:'e1_exp',  label:'Experiencial',   cor:'#7C3AED' },
+        { id:'e1_bow',  label:'Boweniana',      cor:'#2563EB' },
+        { id:'e1_tri',  label:'Trigeracional',  cor:'#D97706' },
+        { id:'e1_est',  label:'Estrutural',     cor:'#059669' },
+        { id:'e1_str',  label:'Estratégica',    cor:'#DC2626' },
+        { id:'e1_diag', label:'Diag. Sistêmico',cor:'#0891B2' },
+      ],
+      zones:[
+        { id:'e1z1', label:'Carl Whitaker',          answer:'e1_exp'  },
+        { id:'e1z2', label:'Murray Bowen',           answer:'e1_bow'  },
+        { id:'e1z3', label:'Maurizio Andolfi',       answer:'e1_tri'  },
+        { id:'e1z4', label:'Salvador Minuchin',      answer:'e1_est'  },
+        { id:'e1z5', label:'Jay Haley',              answer:'e1_str'  },
+        { id:'e1z6', label:'Mara Selvini Palazzoli', answer:'e1_diag' },
+      ]
+    },
+    {
+      title:'Exercício 2 — Relacione o conceito à escola correspondente',
+      poolLabel:'Conceitos', zonesLabel:'Escolas',
+      pool:[
+        { id:'e2_dif',   label:'Diferenciação do self', cor:'#2563EB' },
+        { id:'e2_leal',  label:'Lealdades invisíveis',  cor:'#D97706' },
+        { id:'e2_enact', label:'Encenação (enactment)',  cor:'#059669' },
+        { id:'e2_presc', label:'Prescrição do sintoma', cor:'#DC2626' },
+        { id:'e2_esc',   label:'Escultura familiar',    cor:'#7C3AED' },
+        { id:'e2_circ',  label:'Perguntas circulares',  cor:'#0891B2' },
+      ],
+      zones:[
+        { id:'e2zb', label:'Boweniana',       answer:'e2_dif'   },
+        { id:'e2zt', label:'Trigeracional',   answer:'e2_leal'  },
+        { id:'e2ze', label:'Estrutural',      answer:'e2_enact' },
+        { id:'e2zs', label:'Estratégica',     answer:'e2_presc' },
+        { id:'e2zx', label:'Experiencial',    answer:'e2_esc'   },
+        { id:'e2zd', label:'Diag. Sistêmico', answer:'e2_circ'  },
+      ]
+    },
+    {
+      title:'Exercício 3 — Relacione a técnica à escola que a utiliza',
+      poolLabel:'Técnicas', zonesLabel:'Escolas',
+      pool:[
+        { id:'e3_geno',   label:'Genograma',              cor:'#2563EB' },
+        { id:'e3_ordale', label:'Ordálio',                 cor:'#DC2626' },
+        { id:'e3_desq',   label:'Desequilíbrio',          cor:'#059669' },
+        { id:'e3_meta',   label:'Metáforas terapêuticas', cor:'#D97706' },
+        { id:'e3_role',   label:'Role-playing',            cor:'#7C3AED' },
+        { id:'e3_efe',    label:'EFE',                     cor:'#0891B2' },
+      ],
+      zones:[
+        { id:'e3zb', label:'Boweniana',       answer:'e3_geno'   },
+        { id:'e3zs', label:'Estratégica',     answer:'e3_ordale' },
+        { id:'e3ze', label:'Estrutural',      answer:'e3_desq'   },
+        { id:'e3zt', label:'Trigeracional',   answer:'e3_meta'   },
+        { id:'e3zx', label:'Experiencial',    answer:'e3_role'   },
+        { id:'e3zd', label:'Diag. Sistêmico', answer:'e3_efe'    },
+      ]
+    }
+  ],
+  med: [
+    {
+      title:'Exercício 1 — Relacione a escola ao autor ou teórico associado',
+      poolLabel:'Escolas', zonesLabel:'Autores / teóricos',
+      pool:[
+        { id:'m1_exp',  label:'Experiencial',   cor:'#7C3AED' },
+        { id:'m1_bow',  label:'Boweniana',      cor:'#2563EB' },
+        { id:'m1_tri',  label:'Trigeracional',  cor:'#D97706' },
+        { id:'m1_est',  label:'Estrutural',     cor:'#059669' },
+        { id:'m1_str',  label:'Estratégica',    cor:'#DC2626' },
+        { id:'m1_diag', label:'Diag. Sistêmico',cor:'#0891B2' },
+      ],
+      zones:[
+        { id:'m1z1', label:'Virginia Satir',         answer:'m1_exp'  },
+        { id:'m1z2', label:'Michael Kerr',           answer:'m1_bow'  },
+        { id:'m1z3', label:'Ivan Boszormenyi-Nagy',  answer:'m1_tri'  },
+        { id:'m1z4', label:'Nichols & Lee',          answer:'m1_est'  },
+        { id:'m1z5', label:'Paul Watzlawick',        answer:'m1_str'  },
+        { id:'m1z6', label:'Gianfranco Cecchin',     answer:'m1_diag' },
+      ]
+    },
+    {
+      title:'Exercício 2 — Relacione o conceito à escola correspondente',
+      poolLabel:'Conceitos', zonesLabel:'Escolas',
+      pool:[
+        { id:'m2_tri',   label:'Triangulação',           cor:'#2563EB' },
+        { id:'m2_hip',   label:'Hipotização',            cor:'#0891B2' },
+        { id:'m2_home',  label:'Homeostase familiar',    cor:'#DC2626' },
+        { id:'m2_mand',  label:'Mandato transgeracional',cor:'#D97706' },
+        { id:'m2_map',   label:'Mapeamento estrutural',  cor:'#059669' },
+        { id:'m2_con',   label:'Conotação positiva',     cor:'#0891B2' },
+      ],
+      zones:[
+        { id:'m2zb', label:'Boweniana',       answer:'m2_tri'  },
+        { id:'m2zd', label:'Diag. Sistêmico (hipotização)', answer:'m2_hip'  },
+        { id:'m2zs', label:'Estratégica (homeostase)',      answer:'m2_home' },
+        { id:'m2zt', label:'Trigeracional',                 answer:'m2_mand' },
+        { id:'m2ze', label:'Estrutural',                    answer:'m2_map'  },
+        { id:'m2zd2',label:'Diag. Sistêmico (conotação)',   answer:'m2_con'  },
+      ]
+    },
+    {
+      title:'Exercício 3 — Relacione a técnica ou procedimento à escola',
+      poolLabel:'Técnicas', zonesLabel:'Escolas',
+      pool:[
+        { id:'m3_map',  label:'Mapeamento estrutural', cor:'#059669' },
+        { id:'m3_circ', label:'Perguntas circulares',  cor:'#0891B2' },
+        { id:'m3_geno', label:'Genograma',             cor:'#2563EB' },
+        { id:'m3_reen', label:'Reenquadramento',       cor:'#DC2626' },
+        { id:'m3_esc',  label:'Escultura familiar',    cor:'#7C3AED' },
+        { id:'m3_rit',  label:'Ritual terapêutico',    cor:'#DC2626' },
+      ],
+      zones:[
+        { id:'m3ze', label:'Estrutural',      answer:'m3_map'  },
+        { id:'m3zd', label:'Diag. Sistêmico', answer:'m3_circ' },
+        { id:'m3zb', label:'Boweniana',       answer:'m3_geno' },
+        { id:'m3zs', label:'Estratégica (reenquadramento)', answer:'m3_reen' },
+        { id:'m3zx', label:'Experiencial',                  answer:'m3_esc'  },
+        { id:'m3zs2',label:'Estratégica (ritual Milão)',    answer:'m3_rit'  },
+      ]
+    }
+  ],
+  hard: [
+    {
+      title:'Exercício 1 — Relacione a escola ao contribuidor menos óbvio',
+      poolLabel:'Escolas', zonesLabel:'Contribuidores',
+      pool:[
+        { id:'h1_exp',  label:'Experiencial',   cor:'#7C3AED' },
+        { id:'h1_bow',  label:'Boweniana',      cor:'#2563EB' },
+        { id:'h1_tri',  label:'Trigeracional',  cor:'#D97706' },
+        { id:'h1_est',  label:'Estrutural',     cor:'#059669' },
+        { id:'h1_str',  label:'Estratégica',    cor:'#DC2626' },
+        { id:'h1_diag', label:'Diag. Sistêmico',cor:'#0891B2' },
+      ],
+      zones:[
+        { id:'h1z1', label:'Greenberg & Johnson (EFT)', answer:'h1_exp'  },
+        { id:'h1z2', label:'Betty Carter & McGoldrick', answer:'h1_bow'  },
+        { id:'h1z3', label:'Boszormenyi-Nagy (lealdades)',answer:'h1_tri' },
+        { id:'h1z4', label:'Nichols & Lee',               answer:'h1_est'  },
+        { id:'h1z5', label:'Gregory Bateson',             answer:'h1_str'  },
+        { id:'h1z6', label:'Tom Andersen (reflexão)',     answer:'h1_diag' },
+      ]
+    },
+    {
+      title:'Exercício 2 — Relacione o conceito avançado à escola',
+      poolLabel:'Conceitos', zonesLabel:'Escolas',
+      pool:[
+        { id:'h2_soc',  label:'Processo emocional da sociedade', cor:'#2563EB' },
+        { id:'h2_coal', label:'Coalizão geracional cruzada',     cor:'#059669' },
+        { id:'h2_bind', label:'Duplo vínculo',                   cor:'#DC2626' },
+        { id:'h2_sc',   label:'Sculpting competence',            cor:'#059669' },
+        { id:'h2_neu',  label:'Neutralidade terapêutica',        cor:'#0891B2' },
+        { id:'h2_2ord', label:'Mudança de 2ª ordem',             cor:'#DC2626' },
+      ],
+      zones:[
+        { id:'h2zb', label:'Boweniana',       answer:'h2_soc'  },
+        { id:'h2ze', label:'Estrutural (coalizão)',   answer:'h2_coal' },
+        { id:'h2zs', label:'Estratégica (duplo vínculo)',answer:'h2_bind' },
+        { id:'h2ze2',label:'Estrutural (competência)',answer:'h2_sc'   },
+        { id:'h2zd', label:'Diag. Sistêmico',       answer:'h2_neu'  },
+        { id:'h2zs2',label:'Estratégica (2ª ordem)',answer:'h2_2ord' },
+      ]
+    },
+    {
+      title:'Exercício 3 — Relacione o procedimento especializado à escola',
+      poolLabel:'Procedimentos', zonesLabel:'Escolas',
+      pool:[
+        { id:'h3_desq',  label:'Desequilíbrio estrutural',     cor:'#059669' },
+        { id:'h3_ord',   label:'Ordálio',                       cor:'#DC2626' },
+        { id:'h3_efe',   label:'Entrevista Familiar Estruturada',cor:'#0891B2' },
+        { id:'h3_cote',  label:'Co-terapia',                    cor:'#7C3AED' },
+        { id:'h3_fiad',  label:'Fiador da lealdade',            cor:'#D97706' },
+        { id:'h3_proj',  label:'Processo de projeção familiar', cor:'#2563EB' },
+      ],
+      zones:[
+        { id:'h3ze', label:'Estrutural',      answer:'h3_desq' },
+        { id:'h3zs', label:'Estratégica',     answer:'h3_ord'  },
+        { id:'h3zd', label:'Diag. Sistêmico', answer:'h3_efe'  },
+        { id:'h3zx', label:'Experiencial',    answer:'h3_cote' },
+        { id:'h3zt', label:'Trigeracional',   answer:'h3_fiad' },
+        { id:'h3zb', label:'Boweniana',       answer:'h3_proj' },
+      ]
+    }
+  ]
+};
+
+let ddDif = 'easy';
+let exercises = exercisesByDif.easy;
 
 // ─── TABS ────────────────────────────────────────────────
 
@@ -652,13 +877,53 @@ function showTab(id, btn) {
   if (btn) btn.classList.add('active');
 }
 
+// ─── DIFICULDADE (helpers) ───────────────────────────────
+
+const DIF_COLORS = { all:'#111827', easy:'#059669', med:'#D97706', hard:'#DC2626' };
+
+function activateDifBtn(btn, dif, barId) {
+  const bar = document.getElementById(barId);
+  if (!bar) return;
+  bar.querySelectorAll('.dif-btn').forEach(b => {
+    b.classList.remove('active');
+    b.style.background = '';
+    b.style.borderColor = '';
+    b.style.color = '';
+  });
+  btn.classList.add('active');
+  const cor = DIF_COLORS[dif] || DIF_COLORS.all;
+  btn.style.background = cor;
+  btn.style.borderColor = cor;
+  btn.style.color = 'white';
+}
+
+function difBadgeHtml(dif) {
+  const cls = dif === 'easy' ? 'dif-badge-easy' : dif === 'med' ? 'dif-badge-med' : 'dif-badge-hard';
+  return `<span class="dif-badge ${cls}">${DIF_LABELS[dif]}</span>`;
+}
+
 // ─── FLASH CARDS ─────────────────────────────────────────
 
-function renderCards(filter) {
+let fcEscola = 'all';
+let fcDif = 'all';
+
+function getFilteredCards() {
+  return flashCards.filter(c => {
+    if (fcEscola !== 'all' && c.escola !== fcEscola) return false;
+    if (fcDif !== 'all' && c.dif !== fcDif) return false;
+    return true;
+  });
+}
+
+function renderCards() {
   const grid = document.getElementById('cards-grid');
   grid.innerHTML = '';
-  const list = filter === 'all' ? flashCards : flashCards.filter(c => c.escola === filter);
-  list.forEach((c, i) => {
+  const list = getFilteredCards();
+  if (!list.length) {
+    grid.innerHTML = '<p style="color:#6B7280;font-size:.95rem;">Nenhum card neste filtro. Tente outra combinação.</p>';
+    return;
+  }
+  list.forEach(c => {
     const e = ESCOLA_NAMES[c.escola];
     const card = document.createElement('div');
     card.className = 'flip-card';
@@ -666,22 +931,24 @@ function renderCards(filter) {
     card.innerHTML = `
       <div class="flip-inner">
         <div class="flip-front">
+          ${difBadgeHtml(c.dif)}
           <p class="escola-tag" style="color:${e.cor}">${e.label}</p>
           <p class="question">${c.pergunta}</p>
-          <p class="hint">clique para ver a resposta ↩</p>
+          <p class="hint"><span>clique para ver a resposta</span>${icon('flip')}</p>
         </div>
         <div class="flip-back" style="background:${e.cor}">
           <p class="answer">${c.resposta}</p>
-          <p class="back-tag">clique para voltar ↩</p>
+          <p class="back-tag"><span>clique para voltar</span>${icon('flip')}</p>
         </div>
       </div>`;
     card.addEventListener('click', () => card.classList.toggle('flipped'));
-    card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') card.classList.toggle('flipped'); });
+    card.addEventListener('keydown', ev => { if(ev.key==='Enter'||ev.key===' ') card.classList.toggle('flipped'); });
     grid.appendChild(card);
   });
 }
 
 function filterCards(filter, btn) {
+  fcEscola = filter;
   document.querySelectorAll('.filter-btn').forEach(b => {
     b.classList.remove('active');
     b.style.background = '';
@@ -699,47 +966,73 @@ function filterCards(filter, btn) {
     btn.style.borderColor = cor;
     btn.style.color = 'white';
   }
-  renderCards(filter);
+  renderCards();
 }
 
-renderCards('all');
+function setFcDif(dif, btn) {
+  fcDif = dif;
+  activateDifBtn(btn, dif, 'fc-dif-bar');
+  renderCards();
+}
+
+renderCards();
 
 // ─── QUIZ ────────────────────────────────────────────────
 
+let quizDif = 'all';
 let qIndex = 0, qScore = 0, qAnswered = false;
+
+function getQuizList() {
+  return quizDif === 'all' ? quizData : quizData.filter(q => q.dif === quizDif);
+}
+
+function setQuizDif(dif, btn) {
+  quizDif = dif;
+  activateDifBtn(btn, dif, 'quiz-dif-bar');
+  restartQuiz();
+}
 
 function renderQuiz() {
   const w = document.getElementById('quiz-wrapper');
-  if (qIndex >= quizData.length) {
-    const pct = Math.round(qScore / quizData.length * 100);
-    const msg = pct >= 80 ? '🏆 Excelente! Você domina o conteúdo.' :
-                pct >= 55 ? '👍 Bom trabalho! Continue revisando.' :
-                            '📖 Continue estudando — você consegue!';
+  const list = getQuizList();
+  if (!list.length) {
+    w.innerHTML = '<p style="color:#6B7280;padding:20px 0;">Nenhuma pergunta neste nível.</p>';
+    return;
+  }
+  if (qIndex >= list.length) {
+    const pct = Math.round(qScore / list.length * 100);
+    const difLabel = quizDif === 'all' ? '' : ` (${DIF_LABELS[quizDif]})`;
+    const result = pct >= 80
+      ? { ico:'trophy', text:'Excelente! Você domina o conteúdo.' }
+      : pct >= 55
+        ? { ico:'thumbs-up', text:'Bom trabalho! Continue revisando.' }
+        : { ico:'book-open', text:'Continue estudando — você consegue!' };
     w.innerHTML = `
       <div class="quiz-result">
-        <div class="quiz-score">${qScore}<span>/${quizData.length}</span></div>
-        <p class="quiz-msg">${msg}</p>
-        <button class="quiz-restart" onclick="restartQuiz()">↺ Refazer questionário</button>
+        <div class="quiz-score">${qScore}<span>/${list.length}</span></div>
+        <p class="quiz-msg">${icon(result.ico, 'result-icon')}<span class="quiz-msg-text">${result.text}${difLabel}</span></p>
+        <button class="quiz-restart" onclick="restartQuiz()">${icon('refresh')} Refazer questionário</button>
       </div>`;
     return;
   }
-  const d = quizData[qIndex];
-  const pct = (qIndex / quizData.length) * 100;
+  const d = list[qIndex];
+  const pct = (qIndex / list.length) * 100;
   w.innerHTML = `
     <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${pct}%"></div></div>
-    <p class="quiz-counter">Pergunta ${qIndex + 1} de ${quizData.length}</p>
+    <p class="quiz-counter">Pergunta ${qIndex + 1} de ${list.length}${quizDif !== 'all' ? ' · ' + DIF_LABELS[quizDif] : ''}</p>
+    ${quizDif === 'all' ? difBadgeHtml(d.dif) : ''}
     <p class="quiz-question">${d.q}</p>
     <div class="quiz-options">
       ${d.ops.map((op, i) => `<button class="quiz-opt" id="opt-${i}" onclick="pickAnswer(${i})">${op}</button>`).join('')}
     </div>
-    <button class="quiz-btn" id="next-btn" onclick="nextQuestion()" disabled>Próxima →</button>`;
+    <button class="quiz-btn" id="next-btn" onclick="nextQuestion()" disabled>Próxima ${icon('arrow-right')}</button>`;
   qAnswered = false;
 }
 
 function pickAnswer(idx) {
   if (qAnswered) return;
   qAnswered = true;
-  const d = quizData[qIndex];
+  const d = getQuizList()[qIndex];
   document.querySelectorAll('.quiz-opt').forEach((b, i) => {
     b.disabled = true;
     if (i === d.ans) b.classList.add('correct');
@@ -763,7 +1056,20 @@ renderQuiz();
 
 // ─── DRAG & DROP ─────────────────────────────────────────
 
-let ddSelected = [null, null, null]; // selected item id per exercise
+let ddSelected = [null, null, null];
+
+function setDdDif(dif, btn) {
+  ddDif = dif;
+  activateDifBtn(btn, dif, 'dd-dif-bar');
+  exercises = exercisesByDif[dif];
+  ddSelected = [null, null, null];
+  for (let i = 0; i < 3; i++) {
+    document.getElementById(`fb-${i + 1}`).textContent = '';
+    const titleEl = document.querySelectorAll('.dd-section .dd-title')[i];
+    if (titleEl && exercises[i]) titleEl.textContent = exercises[i].title;
+  }
+  exercises.forEach((_, i) => renderExercise(i));
+}
 
 function renderExercise(exIdx) {
   const ex = exercises[exIdx];
@@ -842,7 +1148,7 @@ function checkDDComplete(exIdx) {
   const total = exercises[exIdx].zones.length;
   const done = document.querySelectorAll(`#zones-${n} .dd-zone.correct`).length;
   if (done === total) {
-    document.getElementById(`fb-${n}`).textContent = '✅ Muito bem! Exercício completo.';
+    document.getElementById(`fb-${n}`).innerHTML = `${icon('check')}<span>Muito bem! Exercício completo.</span>`;
   }
 }
 
@@ -851,7 +1157,12 @@ function resetExercise(exIdx) {
   renderExercise(exIdx);
 }
 
-exercises.forEach((_, i) => renderExercise(i));
+(function initDragDrop() {
+  document.querySelectorAll('.dd-section .dd-title').forEach((el, i) => {
+    if (exercises[i]) el.textContent = exercises[i].title;
+  });
+  exercises.forEach((_, i) => renderExercise(i));
+})();
 
 // ─── REFERENCES TABS ─────────────────────────────────────
 
