@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escola Trigeracional — Psicologia Sistêmica</title>
+<style>
+  :root {
+    --color:       #D97706;
+    --color-dark:  #B45309;
+    --color-light: #FFFBEB;
+    --color-mid:   #FEF3C7;
+    --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-700:#374151;--gray-900:#111827;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--gray-50);color:var(--gray-700);line-height:1.7;}
+  nav{background:white;border-bottom:1px solid var(--gray-200);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+  .nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--gray-700);font-size:0.9rem;font-weight:600;}
+  .nav-back:hover{color:var(--color);}
+  .nav-badge{background:var(--color);color:white;padding:4px 14px;border-radius:20px;font-size:0.82rem;font-weight:700;}
+  .nav-siblings{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav-siblings a{font-size:0.78rem;padding:4px 10px;border-radius:12px;background:var(--gray-100);color:var(--gray-700);text-decoration:none;font-weight:500;}
+  .nav-siblings a:hover{background:var(--color-mid);color:var(--color);}
+  .hero{background:linear-gradient(135deg,var(--color-dark) 0%,var(--color) 100%);color:white;padding:64px 24px 48px;}
+  .hero-inner{max-width:800px;margin:0 auto;}
+  .hero-eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;}
+  .hero-authors{font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:12px;}
+  .hero-period{display:inline-block;background:rgba(255,255,255,0.2);padding:4px 14px;border-radius:12px;font-size:0.85rem;font-weight:600;}
+  .content{max-width:800px;margin:0 auto;padding:48px 24px;}
+  .section{margin-bottom:52px;}
+  .section h2{font-size:1.3rem;font-weight:700;color:var(--gray-900);border-left:4px solid var(--color);padding-left:14px;margin-bottom:20px;}
+  .section p{margin-bottom:14px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
+  .info-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .info-card h3{font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--color);margin-bottom:10px;}
+  .info-card ul{padding-left:18px;}
+  .info-card li{margin-bottom:6px;font-size:0.93rem;}
+  .technique{background:white;border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:12px;border-left:4px solid var(--color);}
+  .technique h3{font-size:1rem;font-weight:700;color:var(--gray-900);margin-bottom:6px;}
+  .technique p{font-size:0.92rem;margin:0;}
+  .author-card{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .author-card h3{font-size:1.1rem;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
+  .author-card .author-dates{font-size:0.82rem;color:#6B7280;margin-bottom:12px;}
+  .author-card p{font-size:0.92rem;}
+  .highlight{background:var(--color-light);border-left:4px solid var(--color);border-radius:0 12px 12px 0;padding:18px 20px;margin-bottom:20px;}
+  .highlight p{margin:0;font-size:0.95rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .pill{background:var(--color-mid);color:var(--color);padding:4px 12px;border-radius:20px;font-size:0.82rem;font-weight:600;}
+  .page-nav{display:flex;justify-content:space-between;gap:16px;padding:32px 0;border-top:1px solid var(--gray-200);margin-top:16px;}
+  .page-nav a{background:white;border:1px solid var(--gray-200);border-radius:10px;padding:12px 20px;text-decoration:none;font-size:0.88rem;font-weight:600;color:var(--gray-700);transition:border-color 0.15s;}
+  .page-nav a:hover{border-color:var(--color);color:var(--color);}
+  .page-nav .next{background:var(--color);color:white;border-color:var(--color);}
+  .page-nav .next:hover{opacity:0.88;color:white;}
+  footer{background:var(--gray-900);color:#9CA3AF;text-align:center;padding:24px;font-size:0.85rem;}
+  footer strong{color:white;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Voltar</a>
+  <span class="nav-badge">Trigeracional</span>
+  <div class="nav-siblings">
+    <a href="escola-experiencial.html">Experiencial</a>
+    <a href="escola-boweniana.html">Boweniana</a>
+    <a href="escola-estrutural.html">Estrutural</a>
+    <a href="escola-estrategica.html">Estratégica</a>
+    <a href="escola-diagnostico.html">Diag. Sistêmico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Escola 3 de 6</p>
+    <h1>Modelo Trigeracional</h1>
+    <p class="hero-authors">Maurizio Andolfi · Influências: Boszormenyi-Nagy · Bowen</p>
+    <span class="hero-period">Anos 1970 · Itália · Accademia di Psicoterapia della Famiglia</span>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Visão Geral</h2>
+    <div class="highlight">
+      <p>O modelo trigeracional entende que o sofrimento familiar tem raízes em <strong>lealdades invisíveis e mandatos não resolvidos</strong> transmitidos entre gerações. O sintoma atual é muitas vezes uma mensagem cifrada da família de origem.</p>
+    </div>
+    <p>Maurizio Andolfi desenvolveu seu modelo em Roma na década de 1970, integrando contribuições da escola boweniana (padrões multigeracionais) com a abordagem contextual de <strong>Ivan Boszormenyi-Nagy</strong> (lealdades invisíveis) e elementos experienciais da terapia familiar italiana.</p>
+    <p>A perspectiva trigeracional propõe que para compreender o sofrimento de uma família nuclear é necessário acessar <strong>três gerações</strong>: avós, pais e filhos. O paciente designado frequentemente carrega uma missão ou lealdade que pertence a um ancestral.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pressupostos Teóricos</h2>
+    <div class="tags">
+      <span class="pill">Lealdades invisíveis</span>
+      <span class="pill">Mandatos transgeracionais</span>
+      <span class="pill">Família de origem</span>
+      <span class="pill">Mitos familiares</span>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Sobre as Gerações</h3>
+        <ul>
+          <li>O presente contém o passado familiar</li>
+          <li>Lealdades invisíveis orientam comportamentos</li>
+          <li>Mandatos transgeracionais são tarefas herdadas</li>
+          <li>Família de origem é contexto formador</li>
+          <li>Segredos familiares perpetuam padrões</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Sobre o Sintoma</h3>
+        <ul>
+          <li>Portador do sintoma como mensageiro</li>
+          <li>Sintoma protege o sistema familiar</li>
+          <li>Conflitos herdados buscam resolução</li>
+          <li>Luto não elaborado atravessa gerações</li>
+          <li>Dívidas e créditos relacionais (Boszormenyi-Nagy)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Conceitos Centrais</h2>
+
+    <div class="technique">
+      <h3>Lealdades Invisíveis (Boszormenyi-Nagy)</h3>
+      <p>Vínculos de obrigação e dívida emocional que ligam membros da família através das gerações. São "invisíveis" porque operam fora da consciência, mas determinam fortemente os comportamentos e escolhas de vida.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Mitos Familiares</h3>
+      <p>Narrativas compartilhadas pela família sobre sua história, identidade e regras. Os mitos organizam a realidade familiar, protegem de ansiedades profundas e resistem à mudança — mesmo quando disfuncionais.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Mandatos Transgeracionais</h3>
+      <p>Tarefas, missões ou proibições transmitidas implicitamente de geração em geração. Ex: "os homens desta família não choram", "precisamos cuidar da mãe", "nunca se deve falar de dinheiro".</p>
+    </div>
+
+    <div class="technique">
+      <h3>Paciente Designado como Mensageiro</h3>
+      <p>A pessoa que apresenta o sintoma não é o "doente" da família, mas aquela que porta a mensagem do sistema — frequentemente a mais sensível e ligada às dores familiares não elaboradas.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Técnicas Terapêuticas</h2>
+
+    <div class="technique">
+      <h3>Metáforas e Narrativas</h3>
+      <p>Andolfi é conhecido pelo uso criativo de metáforas para acessar conteúdos emocionais sem confrontar diretamente resistências. Uma imagem pode dizer o que palavras não conseguem — e mobiliza o sistema emocional de forma diferente.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Escultura Familiar Trigeracional</h3>
+      <p>Uso do espaço físico para representar as relações não apenas na família nuclear, mas incluindo gerações anteriores — frequentemente com cadeiras ou representações simbólicas dos ausentes.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Jogos Terapêuticos</h3>
+      <p>Recursos lúdicos, objetos, bonecos ou desenhos para acessar conteúdos relacionais de forma menos ameaçadora. Especialmente útil com crianças e adolescentes.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Provocação Criativa</h3>
+      <p>O terapeuta intervém de forma inesperada — com humor, paradoxo ou ação — para romper padrões rígidos. Diferente da provocação estratégica, aqui o objetivo é abrir espaço para o novo, não controlar a mudança.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Trabalho com a Família de Origem</h3>
+      <p>Convidar gerações anteriores para as sessões (quando possível) ou trabalhar com representações simbólicas dos antepassados. O objetivo é ressignificar as lealdades e liberar o presente das dívidas do passado.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Papel do Terapeuta</h2>
+    <div class="highlight">
+      <p>O terapeuta trigeracional é <strong>investigativo e provocador</strong> — usa a curiosidade ativa para explorar o passado familiar e intervenções criativas para mobilizar o sistema.</p>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Postura</h3>
+        <ul>
+          <li>Curiosidade genuína pela história familiar</li>
+          <li>Uso criativo e imprevisível de técnicas</li>
+          <li>Respeito pelas lealdades, mesmo disfuncionais</li>
+          <li>Trabalho com três gerações simultaneamente</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Relação com a Família</h3>
+        <ul>
+          <li>Aliança com toda a família, não só o paciente</li>
+          <li>Validação das dores de cada geração</li>
+          <li>Busca de recursos na história familiar</li>
+          <li>Confronta mitos com gentileza</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Autores Principais</h2>
+    <div class="grid-2">
+      <div class="author-card">
+        <h3>Maurizio Andolfi</h3>
+        <p class="author-dates">1942– · Itália · Roma</p>
+        <p>Psiquiatra e psicoterapeuta italiano, fundador da Accademia di Psicoterapia della Famiglia em Roma. Desenvolveu o modelo trigeracional integrando perspectivas italianas, bowenianas e contextuais. Obras: <em>Famiglia come sistema</em>, <em>Il bambino come capro espiatorio</em>.</p>
+      </div>
+      <div class="author-card">
+        <h3>Ivan Boszormenyi-Nagy</h3>
+        <p class="author-dates">1920–2007 · Hungria/EUA</p>
+        <p>Psiquiatra húngaro-americano, desenvolveu a <em>Terapia Contextual</em> baseada no conceito de lealdades invisíveis e ética relacional. Sua noção de "livro-razão relacional" (dívidas e créditos emocionais) é central para o modelo trigeracional. Obra: <em>Invisible Loyalties</em> (1973).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="escola-boweniana.html">← Boweniana</a>
+    <a href="escola-estrutural.html" class="next">Próxima: Estrutural →</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Psicologia Sistêmica</strong> · Escola Trigeracional · Material de estudo
+</footer>
+
+</body>
+</html>

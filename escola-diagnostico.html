@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Sistêmico — Psicologia Sistêmica</title>
+<style>
+  :root {
+    --color:       #0891B2;
+    --color-dark:  #0E7490;
+    --color-light: #ECFEFF;
+    --color-mid:   #CFFAFE;
+    --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-700:#374151;--gray-900:#111827;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--gray-50);color:var(--gray-700);line-height:1.7;}
+  nav{background:white;border-bottom:1px solid var(--gray-200);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+  .nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--gray-700);font-size:0.9rem;font-weight:600;}
+  .nav-back:hover{color:var(--color);}
+  .nav-badge{background:var(--color);color:white;padding:4px 14px;border-radius:20px;font-size:0.82rem;font-weight:700;}
+  .nav-siblings{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav-siblings a{font-size:0.78rem;padding:4px 10px;border-radius:12px;background:var(--gray-100);color:var(--gray-700);text-decoration:none;font-weight:500;}
+  .nav-siblings a:hover{background:var(--color-mid);color:var(--color);}
+  .hero{background:linear-gradient(135deg,var(--color-dark) 0%,var(--color) 100%);color:white;padding:64px 24px 48px;}
+  .hero-inner{max-width:800px;margin:0 auto;}
+  .hero-eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;}
+  .hero-authors{font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:12px;}
+  .hero-period{display:inline-block;background:rgba(255,255,255,0.2);padding:4px 14px;border-radius:12px;font-size:0.85rem;font-weight:600;}
+  .content{max-width:800px;margin:0 auto;padding:48px 24px;}
+  .section{margin-bottom:52px;}
+  .section h2{font-size:1.3rem;font-weight:700;color:var(--gray-900);border-left:4px solid var(--color);padding-left:14px;margin-bottom:20px;}
+  .section p{margin-bottom:14px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
+  .info-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .info-card h3{font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--color);margin-bottom:10px;}
+  .info-card ul{padding-left:18px;}
+  .info-card li{margin-bottom:6px;font-size:0.93rem;}
+  .technique{background:white;border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:12px;border-left:4px solid var(--color);}
+  .technique h3{font-size:1rem;font-weight:700;color:var(--gray-900);margin-bottom:6px;}
+  .technique p{font-size:0.92rem;margin:0;}
+  .author-card{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .author-card h3{font-size:1.1rem;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
+  .author-card .author-dates{font-size:0.82rem;color:#6B7280;margin-bottom:12px;}
+  .author-card p{font-size:0.92rem;}
+  .highlight{background:var(--color-light);border-left:4px solid var(--color);border-radius:0 12px 12px 0;padding:18px 20px;margin-bottom:20px;}
+  .highlight p{margin:0;font-size:0.95rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .pill{background:var(--color-mid);color:var(--color);padding:4px 12px;border-radius:20px;font-size:0.82rem;font-weight:600;}
+  .milao-pillar{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-top:4px solid var(--color);text-align:center;}
+  .milao-pillar h3{font-size:0.95rem;font-weight:700;color:var(--gray-900);margin-bottom:8px;}
+  .milao-pillar p{font-size:0.88rem;margin:0;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  @media(max-width:700px){.grid-3{grid-template-columns:1fr;}}
+  .page-nav{display:flex;justify-content:space-between;gap:16px;padding:32px 0;border-top:1px solid var(--gray-200);margin-top:16px;}
+  .page-nav a{background:white;border:1px solid var(--gray-200);border-radius:10px;padding:12px 20px;text-decoration:none;font-size:0.88rem;font-weight:600;color:var(--gray-700);transition:border-color 0.15s;}
+  .page-nav a:hover{border-color:var(--color);color:var(--color);}
+  .page-nav .next{background:var(--color);color:white;border-color:var(--color);}
+  .page-nav .next:hover{opacity:0.88;color:white;}
+  footer{background:var(--gray-900);color:#9CA3AF;text-align:center;padding:24px;font-size:0.85rem;}
+  footer strong{color:white;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Voltar</a>
+  <span class="nav-badge">Diag. Sistêmico</span>
+  <div class="nav-siblings">
+    <a href="escola-experiencial.html">Experiencial</a>
+    <a href="escola-boweniana.html">Boweniana</a>
+    <a href="escola-trigeracional.html">Trigeracional</a>
+    <a href="escola-estrutural.html">Estrutural</a>
+    <a href="escola-estrategica.html">Estratégica</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Escola 6 de 6</p>
+    <h1>Diagnóstico Sistêmico</h1>
+    <p class="hero-authors">Mara Selvini Palazzoli · Equipe de Milão · Helm Stierlin · Salvador Minuchin</p>
+    <span class="hero-period">Anos 1980+ · Internacional</span>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Visão Geral</h2>
+    <div class="highlight">
+      <p>O diagnóstico sistêmico não é uma escola no sentido de uma figura fundadora única — é uma <strong>abordagem integrativa de avaliação</strong> que aplica o pensamento sistêmico para compreender e formular o sofrimento familiar em termos relacionais.</p>
+    </div>
+    <p>Surgido da integração de múltiplas tradições sistêmicas, o diagnóstico sistêmico incorpora especialmente a sofisticação metodológica da <strong>Equipe de Milão</strong> (Selvini Palazzoli, Cecchin, Boscolo, Prata) em sua segunda fase — com foco em hipóteses, circularidade e neutralidade —, junto às contribuições de <strong>Helm Stierlin</strong> sobre a transmissão relacional e de Minuchin sobre estrutura familiar.</p>
+    <p>A meta não é apenas intervir, mas <strong>compreender o sistema</strong> de forma aprofundada antes e durante a intervenção. A hipótese sistêmica é o instrumento central desse processo.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pressupostos Teóricos</h2>
+    <div class="tags">
+      <span class="pill">Pensamento circular</span>
+      <span class="pill">Hipótese sistêmica</span>
+      <span class="pill">Contextualização</span>
+      <span class="pill">Causalidade circular</span>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Epistemologia Sistêmica</h3>
+        <ul>
+          <li>Causa e efeito são circulares, não lineares</li>
+          <li>O comportamento de cada membro influencia e é influenciado pelos demais</li>
+          <li>O sintoma faz sentido no contexto relacional</li>
+          <li>Observador faz parte do sistema observado</li>
+          <li>Múltiplas perspectivas são válidas simultaneamente</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Processo Diagnóstico</h3>
+        <ul>
+          <li>Formulação de hipóteses antes da sessão</li>
+          <li>Hipótese como guia da entrevista, não como verdade</li>
+          <li>Contextualização: quem enviou? Que momento? Para quê?</li>
+          <li>Genograma como mapa de contexto</li>
+          <li>Revisão contínua da hipótese durante a entrevista</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Os Três Pilares da Equipe de Milão</h2>
+    <p>Selvini Palazzoli e equipe desenvolveram três princípios metodológicos fundamentais para a condução de entrevistas sistêmicas:</p>
+    <div class="grid-3">
+      <div class="milao-pillar">
+        <h3>Hipotização</h3>
+        <p>O terapeuta formula hipóteses sobre as funções sistêmicas do sintoma antes e durante a sessão. A hipótese organiza a coleta de informações.</p>
+      </div>
+      <div class="milao-pillar">
+        <h3>Circularidade</h3>
+        <p>O terapeuta conduz a entrevista circular — pergunta a cada membro sobre as relações entre os outros, revelando padrões que nenhum membro vê sozinho.</p>
+      </div>
+      <div class="milao-pillar">
+        <h3>Neutralidade</h3>
+        <p>O terapeuta mantém uma posição de curiosidade e aliança equidistante com todos os membros — não adere a nenhuma versão como "a verdade".</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Visão do Sintoma</h2>
+    <div class="highlight">
+      <p>O sintoma é uma <strong>expressão relacional do sistema</strong> — cumpre uma função na manutenção do equilíbrio familiar. Compreendê-lo exige analisar o contexto relacional completo, não apenas o indivíduo que o carrega.</p>
+    </div>
+    <p>A pergunta central não é "por que este indivíduo tem este sintoma?" mas "que função este sintoma cumpre neste sistema, neste momento?" A hipótese sistêmica responde a essa pergunta de forma provisória e revisável.</p>
+  </div>
+
+  <div class="section">
+    <h2>Técnicas e Instrumentos</h2>
+
+    <div class="technique">
+      <h3>Entrevista Familiar Estruturada (EFE)</h3>
+      <p>Protocolo de avaliação sistêmica da família que inclui etapas padronizadas para observar a organização familiar, padrões de comunicação, resolução de conflitos e alianças. Fornece dados observáveis para a hipótese diagnóstica.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Perguntas Circulares</h3>
+      <p>Perguntas que exploram diferenças e relações entre membros: "Quando sua mãe chora, o que faz seu pai?", "Quem na família mais sente a falta de seu avô?". Revelam padrões que não são visíveis com perguntas diretas ao indivíduo.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Genograma Sistêmico</h3>
+      <p>Mapa de três gerações que inclui não apenas datas e eventos, mas padrões relacionais, alianças, conflitos, segredos e transmissões. Ferramenta central para a construção da hipótese sistêmica.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Formulação de Hipótese Sistêmica</h3>
+      <p>Narrativa relacional que integra os dados da entrevista para explicar a função do sintoma no sistema. Uma boa hipótese é específica, relacional, circular e inclui todos os membros relevantes. Serve como guia para a intervenção.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Intervenção Paradoxal (Milão)</h3>
+      <p>Na fase inicial, a Equipe de Milão usava intervenções paradoxais ao final das sessões (rituais familiares, prescrições do sintoma, conotação positiva) para provocar movimento no sistema sem acionar sua resistência.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Conotação Positiva</h3>
+      <p>Técnica de Milão: o terapeuta atribui uma intenção positiva a todos os comportamentos do sistema, incluindo o sintoma. "Seu filho está doente para manter você e seu marido unidos" — muda o enquadramento do sintoma de "disfunção" para "lealdade".</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Papel do Terapeuta</h2>
+    <div class="highlight">
+      <p>O terapeuta diagnóstico-sistêmico é <strong>observador e analítico</strong> — sua principal ferramenta é a hipótese bem construída e a entrevista circular que a testa e aprofunda.</p>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Durante a Avaliação</h3>
+        <ul>
+          <li>Curiosidade genuína por todas as perspectivas</li>
+          <li>Neutralidade ativa — não toma partido</li>
+          <li>Observa padrões, não apenas conteúdos</li>
+          <li>Nota o que não é dito tanto quanto o que é</li>
+          <li>Reformula hipóteses conforme novas informações</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Na Intervenção</h3>
+        <ul>
+          <li>A hipótese informa a escolha de técnicas</li>
+          <li>Pode usar recursos de múltiplas escolas</li>
+          <li>Trabalha em equipe (espelho unidirecional)</li>
+          <li>Inclui equipe reflexiva quando disponível</li>
+          <li>Avalia a hipótese após cada sessão</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Autores Principais</h2>
+    <div class="grid-2">
+      <div class="author-card">
+        <h3>Mara Selvini Palazzoli</h3>
+        <p class="author-dates">1916–1999 · Itália · Milão</p>
+        <p>Psiquiatra italiana, fundadora do Centro per lo Studio della Famiglia em Milão. Desenvolveu com sua equipe a abordagem sistêmica de Milão, revolucionando o tratamento de anorexia nervosa e esquizofrenia. Obras: <em>Self-Starvation</em> (1974), <em>Paradox and Counterparadox</em> (1978).</p>
+      </div>
+      <div class="author-card">
+        <h3>Helm Stierlin</h3>
+        <p class="author-dates">1926–2021 · Alemanha · Heidelberg</p>
+        <p>Psiquiatra e psicanalista alemão que desenvolveu uma abordagem sistêmica do relacionamento familiar com forte base relacional e transgeracional. Contribuiu para a integração do diagnóstico sistêmico na tradição europeia. Obras: <em>Das Tun und das Erleiden</em>.</p>
+      </div>
+    </div>
+    <br>
+    <div class="grid-2">
+      <div class="author-card">
+        <h3>Gianfranco Cecchin</h3>
+        <p class="author-dates">1932–2004 · Itália · Milão</p>
+        <p>Psiquiatra, membro da Equipe de Milão. Desenvolveu especialmente o conceito de <em>curiosidade</em> e <em>irreverência</em> como postura terapêutica sistêmica. Obras: <em>Hypothesizing — Circularity — Neutrality</em> (com Selvini, Boscolo e Prata).</p>
+      </div>
+      <div class="author-card">
+        <h3>Luigi Boscolo &amp; Giuliana Prata</h3>
+        <p class="author-dates">Itália · Milão</p>
+        <p>Membros originais da Equipe de Milão. Após a separação do grupo em 1979, Boscolo e Cecchin continuaram desenvolvendo a abordagem como treinamento; Selvini Palazzoli e Prata seguiram a pesquisa clínica. A divisão levou a desdobramentos ricos em ambas as direções.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="escola-estrategica.html">← Estratégica</a>
+    <a href="index.html" class="next">← Página Inicial</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Psicologia Sistêmica</strong> · Diagnóstico Sistêmico · Material de estudo
+</footer>
+
+</body>
+</html>

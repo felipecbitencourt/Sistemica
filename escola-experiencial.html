@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escola Experiencial — Psicologia Sistêmica</title>
+<style>
+  :root {
+    --color:       #7C3AED;
+    --color-dark:  #5B21B6;
+    --color-light: #F5F3FF;
+    --color-mid:   #EDE9FE;
+    --gray-50:  #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-700: #374151;
+    --gray-900: #111827;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.7; }
+
+  /* NAV */
+  nav {
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .nav-back { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--gray-700); font-size: 0.9rem; font-weight: 600; }
+  .nav-back:hover { color: var(--color); }
+  .nav-badge { background: var(--color); color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; }
+  .nav-siblings { display: flex; gap: 8px; }
+  .nav-siblings a { font-size: 0.78rem; padding: 4px 10px; border-radius: 12px; background: var(--gray-100); color: var(--gray-700); text-decoration: none; font-weight: 500; }
+  .nav-siblings a:hover { background: var(--color-mid); color: var(--color); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color) 100%);
+    color: white;
+    padding: 64px 24px 48px;
+  }
+  .hero-inner { max-width: 800px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+  .hero-authors { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 12px; }
+  .hero-period { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+
+  /* CONTENT */
+  .content { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+  .section { margin-bottom: 52px; }
+  .section h2 {
+    font-size: 1.3rem; font-weight: 700; color: var(--gray-900);
+    border-left: 4px solid var(--color); padding-left: 14px;
+    margin-bottom: 20px;
+  }
+  .section p { margin-bottom: 14px; }
+
+  /* CARDS GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .grid-2 { grid-template-columns: 1fr; } }
+
+  .info-card {
+    background: white; border-radius: 12px; padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .info-card h3 { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color); margin-bottom: 10px; }
+  .info-card ul { padding-left: 18px; }
+  .info-card li { margin-bottom: 6px; font-size: 0.93rem; }
+
+  /* TECHNIQUE CARDS */
+  .technique { background: white; border-radius: 12px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 12px; border-left: 4px solid var(--color); }
+  .technique h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+  .technique p { font-size: 0.92rem; margin: 0; }
+
+  /* AUTHOR CARDS */
+  .author-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .author-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px; }
+  .author-card .author-dates { font-size: 0.82rem; color: #6B7280; margin-bottom: 12px; }
+  .author-card p { font-size: 0.92rem; }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: var(--color-light);
+    border-left: 4px solid var(--color);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  .highlight p { margin: 0; font-size: 0.95rem; }
+
+  /* PILL TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .pill { background: var(--color-mid); color: var(--color); padding: 4px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; }
+
+  /* NAV FOOTER */
+  .page-nav {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding: 32px 0; border-top: 1px solid var(--gray-200);
+    margin-top: 16px;
+  }
+  .page-nav a {
+    background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 12px 20px;
+    text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--gray-700);
+    transition: border-color 0.15s;
+  }
+  .page-nav a:hover { border-color: var(--color); color: var(--color); }
+  .page-nav .next { background: var(--color); color: white; border-color: var(--color); }
+  .page-nav .next:hover { opacity: 0.88; color: white; }
+
+  footer { background: var(--gray-900); color: #9CA3AF; text-align: center; padding: 24px; font-size: 0.85rem; }
+  footer strong { color: white; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Voltar</a>
+  <span class="nav-badge">Experiencial</span>
+  <div class="nav-siblings">
+    <a href="escola-boweniana.html">Boweniana</a>
+    <a href="escola-trigeracional.html">Trigeracional</a>
+    <a href="escola-estrutural.html">Estrutural</a>
+    <a href="escola-estrategica.html">Estratégica</a>
+    <a href="escola-diagnostico.html">Diag. Sistêmico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Escola 1 de 6</p>
+    <h1>Terapia Experiencial</h1>
+    <p class="hero-authors">Carl Whitaker · Virginia Satir</p>
+    <span class="hero-period">Anos 1960 · EUA · Influência humanista-existencial</span>
+  </div>
+</section>
+
+<div class="content">
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <h2>Visão Geral</h2>
+    <div class="highlight">
+      <p>A terapia experiencial entende a sessão terapêutica como um <strong>encontro humano genuíno</strong>. O crescimento ocorre pela vivência emocional real, não pela análise intelectual dos problemas.</p>
+    </div>
+    <p>Surgida nos anos 1960, a abordagem experiencial se desenvolveu em paralelo ao movimento humanista-existencial, com influências de Rogers, Perls e da fenomenologia. Dois nomes marcam sua história de formas distintas: <strong>Carl Whitaker</strong> apostou na irracionalidade criativa e no uso intenso do self do terapeuta; <strong>Virginia Satir</strong> priorizou a comunicação, a autoestima e os papéis familiares.</p>
+    <p>Diferentemente das abordagens mais técnicas, aqui o terapeuta não é um estrategista neutro — ele participa ativamente, traz suas próprias reações e usa sua presença como instrumento terapêutico.</p>
+  </div>
+
+  <!-- PRESSUPOSTOS -->
+  <div class="section">
+    <h2>Pressupostos Teóricos</h2>
+    <div class="tags">
+      <span class="pill">Aqui-e-agora</span>
+      <span class="pill">Experiência emocional</span>
+      <span class="pill">Autenticidade</span>
+      <span class="pill">Crescimento</span>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Fundamentos</h3>
+        <ul>
+          <li>Ênfase no aqui-e-agora da sessão</li>
+          <li>Experiência emocional como agente de mudança</li>
+          <li>Autenticidade nas relações familiares</li>
+          <li>Crescimento individual e do sistema</li>
+          <li>Uso terapêutico do self do terapeuta</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Sobre a Família</h3>
+        <ul>
+          <li>Família como sistema de relações afetivas</li>
+          <li>Papéis rígidos bloqueiam a autenticidade</li>
+          <li>Distância emocional gera sintomas</li>
+          <li>Potencial de crescimento em cada família</li>
+          <li>Comunicação incongruente como problema central</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SINTOMA -->
+  <div class="section">
+    <h2>Visão do Sintoma</h2>
+    <div class="highlight">
+      <p>O sintoma é entendido como resultado da <strong>repressão emocional</strong>, da falta de intimidade genuína e da comunicação incongruente no sistema familiar. O sofrimento aparece onde a autenticidade foi sacrificada.</p>
+    </div>
+    <p>Para Whitaker, o sintoma muitas vezes representa uma tentativa — ainda que disfuncional — de crescimento. Para Satir, ele frequentemente aponta para baixa autoestima e padrões de comunicação distorcidos que protegem o sistema de conflitos mais profundos.</p>
+  </div>
+
+  <!-- CONCEITOS-CHAVE -->
+  <div class="section">
+    <h2>Conceitos-Chave (Satir)</h2>
+    <p>Virginia Satir descreveu <strong>cinco padrões de comunicação</strong> que as pessoas adotam sob estresse para proteger sua autoestima:</p>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Padrões Disfuncionais</h3>
+        <ul>
+          <li><strong>Aplacador (Placater)</strong> — concorda com tudo para evitar conflito</li>
+          <li><strong>Culpabilizador (Blamer)</strong> — culpa o outro para manter controle</li>
+          <li><strong>Super-razoável</strong> — foge das emoções via intelectualização</li>
+          <li><strong>Irrelevante (Distracter)</strong> — desvia o assunto, evita contato</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Comunicação Congruente</h3>
+        <ul>
+          <li>Integra o que se sente, pensa e diz</li>
+          <li>Base da autoestima saudável</li>
+          <li>Meta terapêutica central de Satir</li>
+          <li>Exige contato real com as próprias emoções</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TÉCNICAS -->
+  <div class="section">
+    <h2>Técnicas Terapêuticas</h2>
+
+    <div class="technique">
+      <h3>Escultura Familiar</h3>
+      <p>Os membros da família usam seus corpos para criar uma "fotografia" tridimensional das relações. Distâncias, posturas e posições revelam dinamicas não verbalizadas de poder, proximidade e exclusão.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Role-Playing / Dramatização</h3>
+      <p>Encenação de situações conflituosas na sessão. Permite vivenciar e modificar padrões relacionais em tempo real, com o terapeuta intervindo diretamente na cena.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Desenho Familiar</h3>
+      <p>Membros da família desenham como percebem a família. Revela percepções individuais, fronteiras emocionais e o lugar de cada um no sistema.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Uso do Self do Terapeuta (Whitaker)</h3>
+      <p>O terapeuta usa suas próprias reações, fantasias e humour para provocar movimento no sistema. A espontaneidade e a "irracionalidade criativa" são instrumentos terapêuticos deliberados.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Co-terapia</h3>
+      <p>Whitaker preferia trabalhar com um co-terapeuta, criando um modelo de relação autêntica dentro da própria sessão — a díade terapêutica como espelho para a família.</p>
+    </div>
+  </div>
+
+  <!-- PAPEL DO TERAPEUTA -->
+  <div class="section">
+    <h2>Papel do Terapeuta</h2>
+    <div class="highlight">
+      <p>O terapeuta experiencial é <strong>participante ativo</strong>, não observador neutro. Ele traz sua própria humanidade para a sessão e usa o encontro genuíno como veículo de mudança.</p>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Whitaker</h3>
+        <ul>
+          <li>Espontâneo e imprevisível</li>
+          <li>Usa humor e provocação</li>
+          <li>Traz fantasias e associações pessoais</li>
+          <li>"Batalha pela estrutura" — controla o setting</li>
+          <li>"Batalha pela iniciativa" — família lidera o conteúdo</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Satir</h3>
+        <ul>
+          <li>Caloroso e acolhedor</li>
+          <li>Modelo de comunicação congruente</li>
+          <li>Trabalha a autoestima de cada membro</li>
+          <li>Diretivo no setting, receptivo ao conteúdo</li>
+          <li>Usa esculturas e dramatizações</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTORES -->
+  <div class="section">
+    <h2>Autores Principais</h2>
+    <div class="grid-2">
+      <div class="author-card">
+        <h3>Carl Whitaker</h3>
+        <p class="author-dates">1912–1995 · EUA</p>
+        <p>Psiquiatra e um dos fundadores da terapia familiar. Desenvolveu a "terapia simbólico-experiencial", apostando na irracionalidade criativa e no uso intenso do self do terapeuta. Obras: <em>Midnight Musings of a Family Therapist</em>.</p>
+      </div>
+      <div class="author-card">
+        <h3>Virginia Satir</h3>
+        <p class="author-dates">1916–1988 · EUA</p>
+        <p>Assistente social e terapeuta, tornou-se uma das figuras mais influentes da terapia familiar. Desenvolveu conceitos sobre comunicação, autoestima e papéis familiares. Obras: <em>Conjoint Family Therapy</em>, <em>Peoplemaking</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV FOOTER -->
+  <div class="page-nav">
+    <a href="index.html">← Página Inicial</a>
+    <a href="escola-boweniana.html" class="next">Próxima: Boweniana →</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Psicologia Sistêmica</strong> · Escola Experiencial · Material de estudo
+</footer>
+
+</body>
+</html>

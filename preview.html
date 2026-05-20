@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escolas da Terapia Familiar Sistêmica</title>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin:0;
+        padding:0;
+        background:#f5f7fb;
+        color:#222;
+        line-height:1.6;
+    }
+
+    header{
+        background:#1f3c88;
+        color:white;
+        padding:40px 20px;
+        text-align:center;
+    }
+
+    header h1{
+        margin:0;
+        font-size:2.5rem;
+    }
+
+    header p{
+        margin-top:10px;
+        font-size:1.1rem;
+    }
+
+    .container{
+        width:90%;
+        max-width:1400px;
+        margin:auto;
+        padding:30px 0;
+    }
+
+    h2{
+        margin-top:50px;
+        color:#1f3c88;
+        border-left:6px solid #1f3c88;
+        padding-left:12px;
+    }
+
+    .timeline{
+        display:flex;
+        overflow-x:auto;
+        gap:20px;
+        padding:20px 0;
+    }
+
+    .timeline-item{
+        min-width:250px;
+        background:white;
+        border-radius:12px;
+        padding:20px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .timeline-item h3{
+        margin-top:0;
+        color:#1f3c88;
+    }
+
+    .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+        gap:25px;
+        margin-top:30px;
+    }
+
+    .card{
+        background:white;
+        border-radius:16px;
+        padding:25px;
+        box-shadow:0 2px 12px rgba(0,0,0,0.08);
+        transition:0.2s;
+    }
+
+    .card:hover{
+        transform:translateY(-4px);
+    }
+
+    .card h3{
+        margin-top:0;
+        color:#1f3c88;
+    }
+
+    .tag{
+        display:inline-block;
+        background:#dbe6ff;
+        color:#1f3c88;
+        padding:5px 10px;
+        border-radius:20px;
+        font-size:0.85rem;
+        margin-bottom:10px;
+    }
+
+    ul{
+        padding-left:20px;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:30px;
+        background:white;
+        box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    th, td{
+        border:1px solid #ddd;
+        padding:14px;
+        text-align:left;
+        vertical-align:top;
+    }
+
+    th{
+        background:#1f3c88;
+        color:white;
+    }
+
+    tr:nth-child(even){
+        background:#f8f9fc;
+    }
+
+    .scale{
+        background:white;
+        padding:25px;
+        border-radius:16px;
+        margin-top:30px;
+        box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .scale ol{
+        font-size:1.1rem;
+    }
+
+    footer{
+        margin-top:60px;
+        background:#1f3c88;
+        color:white;
+        text-align:center;
+        padding:20px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Escolas da Terapia Familiar Sistêmica</h1>
+    <p>Resumo comparativo das principais abordagens sistêmicas familiares</p>
+</header>
+
+<div class="container">
+
+    <h2>Linha do Tempo das Abordagens</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>1950</h3>
+            <strong>Boweniana</strong>
+            <p><b>Autor:</b> Murray Bowen</p>
+            <p><b>País:</b> EUA</p>
+            <p>Diferenciação do self e padrões multigeracionais.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1950-1960</h3>
+            <strong>Estratégica</strong>
+            <p><b>Autores:</b> Bateson, Haley</p>
+            <p><b>País:</b> EUA</p>
+            <p>Teoria da comunicação e resolução estratégica de problemas.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1960</h3>
+            <strong>Experiencial</strong>
+            <p><b>Autores:</b> Whitaker e Satir</p>
+            <p><b>País:</b> EUA</p>
+            <p>Ênfase na experiência emocional e autenticidade.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1970</h3>
+            <strong>Estrutural</strong>
+            <p><b>Autor:</b> Salvador Minuchin</p>
+            <p><b>País:</b> EUA / Argentina</p>
+            <p>Estrutura familiar, fronteiras e hierarquias.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1970</h3>
+            <strong>Trigeracional</strong>
+            <p><b>Autor:</b> Maurizio Andolfi</p>
+            <p><b>País:</b> Itália</p>
+            <p>Lealdades familiares e transmissão geracional.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1980+</h3>
+            <strong>Diagnóstico Sistêmico</strong>
+            <p><b>Autores:</b> Minuchin, Stierlin</p>
+            <p><b>País:</b> EUA / Alemanha</p>
+            <p>Formulação de hipóteses relacionais sistêmicas.</p>
+        </div>
+
+    </div>
+
+    <h2>Escala: Menos Estruturada → Mais Estruturada</h2>
+
+    <div class="scale">
+        <ol>
+            <li><b>Experiencial</b></li>
+            <li><b>Boweniana</b></li>
+            <li><b>Trigeracional</b></li>
+            <li><b>Estrutural</b></li>
+            <li><b>Estratégica</b></li>
+            <li><b>Diagnóstico Sistêmico</b></li>
+        </ol>
+    </div>
+
+    <h2>Comparação das Escolas</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <span class="tag">Experiencial</span>
+            <h3>Whitaker e Satir</h3>
+
+            <p><b>Pressupostos:</b></p>
+            <ul>
+                <li>Ênfase no aqui-e-agora</li>
+                <li>Expressão emocional livre</li>
+                <li>Crescimento individual e familiar</li>
+                <li>Autenticidade nas relações</li>
+            </ul>
+
+            <p><b>Visão do sintoma:</b></p>
+            <p>Resultado da repressão emocional e falta de intimidade genuína.</p>
+
+            <p><b>Técnicas:</b></p>
+            <ul>
+                <li>Escultura familiar</li>
+                <li>Role playing</li>
+                <li>Desenho familiar</li>
+                <li>Dramatizações</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="tag">Boweniana</span>
+            <h3>Murray Bowen</h3>
+
+            <p><b>Pressupostos:</b></p>
+            <ul>
+                <li>Diferenciação do self</li>
+                <li>Triângulos emocionais</li>
+                <li>Ansiedade familiar</li>
+                <li>Transmissão multigeracional</li>
+            </ul>
+
+            <p><b>Visão do sintoma:</b></p>
+            <p>Resultado da fusão emocional e baixa diferenciação.</p>
+
+            <p><b>Técnicas:</b></p>
+            <ul>
+                <li>Genograma</li>
+                <li>Perguntas reflexivas</li>
+                <li>Análise de triangulações</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="tag">Trigeracional</span>
+            <h3>Maurizio Andolfi</h3>
+
+            <p><b>Pressupostos:</b></p>
+            <ul>
+                <li>Lealdades familiares</li>
+                <li>Mitos familiares</li>
+                <li>Mandatos transgeracionais</li>
+                <li>Família de origem</li>
+            </ul>
+
+            <p><b>Visão do sintoma:</b></p>
+            <p>Expressão de conflitos herdados entre gerações.</p>
+
+            <p><b>Técnicas:</b></p>
+            <ul>
+                <li>Metáforas</li>
+                <li>Escultura</li>
+                <li>Jogos terapêuticos</li>
+                <li>Provocação</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="tag">Estrutural</span>
+            <h3>Salvador Minuchin</h3>
+
+            <p><b>Pressupostos:</b></p>
+            <ul>
+                <li>Estrutura familiar</li>
+                <li>Hierarquias</li>
+                <li>Subsistemas</li>
+                <li>Fronteiras familiares</li>
+            </ul>
+
+            <p><b>Visão do sintoma:</b></p>
+            <p>Resultado de desorganização estrutural da família.</p>
+
+            <p><b>Técnicas:</b></p>
+            <ul>
+                <li>Encenação</li>
+                <li>Desequilíbrio</li>
+                <li>Mapeamento estrutural</li>
+                <li>Criação de fronteiras</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="tag">Estratégica</span>
+            <h3>Jay Haley e Cloe Madanes</h3>
+
+            <p><b>Pressupostos:</b></p>
+            <ul>
+                <li>Problema mantido por interações</li>
+                <li>Tentativas fracassadas de solução</li>
+                <li>Foco pragmático</li>
+                <li>Intervenção diretiva</li>
+            </ul>
+
+            <p><b>Visão do sintoma:</b></p>
+            <p>Parte de ciclos repetitivos e soluções ineficazes.</p>
+
+            <p><b>Técnicas:</b></p>
+            <ul>
+                <li>Diretivas</li>
+                <li>Prescrição do sintoma</li>
+                <li>Reenquadramento</li>
+                <li>Provocações</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="tag">Diagnóstico Sistêmico</span>
+            <h3>Avaliação Familiar</h3>
+
+            <p><b>Pressupostos:</b></p>
+            <ul>
+                <li>Visão circular do sintoma</li>
+                <li>Hipóteses relacionais</li>
+                <li>Contextualização do paciente</li>
+                <li>Interdependência familiar</li>
+            </ul>
+
+            <p><b>Visão do sintoma:</b></p>
+            <p>Expressão relacional do sistema familiar.</p>
+
+            <p><b>Técnicas:</b></p>
+            <ul>
+                <li>Entrevista familiar</li>
+                <li>Genograma</li>
+                <li>Perguntas circulares</li>
+                <li>EFE</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2>Tabela Comparativa Geral</h2>
+
+    <table>
+
+        <tr>
+            <th>Escola</th>
+            <th>Foco Principal</th>
+            <th>Papel do Terapeuta</th>
+            <th>Objetivo Central</th>
+        </tr>
+
+        <tr>
+            <td>Experiencial</td>
+            <td>Expressão emocional</td>
+            <td>Espontâneo e genuíno</td>
+            <td>Crescimento pessoal e familiar</td>
+        </tr>
+
+        <tr>
+            <td>Boweniana</td>
+            <td>Diferenciação do self</td>
+            <td>Reflexivo e neutro</td>
+            <td>Autonomia emocional</td>
+        </tr>
+
+        <tr>
+            <td>Trigeracional</td>
+            <td>Lealdades familiares</td>
+            <td>Investigativo e provocador</td>
+            <td>Compreender heranças emocionais</td>
+        </tr>
+
+        <tr>
+            <td>Estrutural</td>
+            <td>Estrutura e fronteiras</td>
+            <td>Ativo e reorganizador</td>
+            <td>Modificar organização familiar</td>
+        </tr>
+
+        <tr>
+            <td>Estratégica</td>
+            <td>Resolução de problemas</td>
+            <td>Diretivo e planejador</td>
+            <td>Modificar interações disfuncionais</td>
+        </tr>
+
+        <tr>
+            <td>Diagnóstico Sistêmico</td>
+            <td>Avaliação relacional</td>
+            <td>Observador e analítico</td>
+            <td>Construir hipóteses sistêmicas</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<footer>
+    Resumo das Escolas da Terapia Familiar Sistêmica
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escola Estratégica — Psicologia Sistêmica</title>
+<style>
+  :root {
+    --color:       #DC2626;
+    --color-dark:  #B91C1C;
+    --color-light: #FEF2F2;
+    --color-mid:   #FEE2E2;
+    --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-700:#374151;--gray-900:#111827;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--gray-50);color:var(--gray-700);line-height:1.7;}
+  nav{background:white;border-bottom:1px solid var(--gray-200);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+  .nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--gray-700);font-size:0.9rem;font-weight:600;}
+  .nav-back:hover{color:var(--color);}
+  .nav-badge{background:var(--color);color:white;padding:4px 14px;border-radius:20px;font-size:0.82rem;font-weight:700;}
+  .nav-siblings{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav-siblings a{font-size:0.78rem;padding:4px 10px;border-radius:12px;background:var(--gray-100);color:var(--gray-700);text-decoration:none;font-weight:500;}
+  .nav-siblings a:hover{background:var(--color-mid);color:var(--color);}
+  .hero{background:linear-gradient(135deg,var(--color-dark) 0%,var(--color) 100%);color:white;padding:64px 24px 48px;}
+  .hero-inner{max-width:800px;margin:0 auto;}
+  .hero-eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;}
+  .hero-authors{font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:12px;}
+  .hero-period{display:inline-block;background:rgba(255,255,255,0.2);padding:4px 14px;border-radius:12px;font-size:0.85rem;font-weight:600;}
+  .content{max-width:800px;margin:0 auto;padding:48px 24px;}
+  .section{margin-bottom:52px;}
+  .section h2{font-size:1.3rem;font-weight:700;color:var(--gray-900);border-left:4px solid var(--color);padding-left:14px;margin-bottom:20px;}
+  .section p{margin-bottom:14px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
+  .info-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .info-card h3{font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--color);margin-bottom:10px;}
+  .info-card ul{padding-left:18px;}
+  .info-card li{margin-bottom:6px;font-size:0.93rem;}
+  .technique{background:white;border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:12px;border-left:4px solid var(--color);}
+  .technique h3{font-size:1rem;font-weight:700;color:var(--gray-900);margin-bottom:6px;}
+  .technique p{font-size:0.92rem;margin:0;}
+  .author-card{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .author-card h3{font-size:1.1rem;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
+  .author-card .author-dates{font-size:0.82rem;color:#6B7280;margin-bottom:12px;}
+  .author-card p{font-size:0.92rem;}
+  .highlight{background:var(--color-light);border-left:4px solid var(--color);border-radius:0 12px 12px 0;padding:18px 20px;margin-bottom:20px;}
+  .highlight p{margin:0;font-size:0.95rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .pill{background:var(--color-mid);color:var(--color);padding:4px 12px;border-radius:20px;font-size:0.82rem;font-weight:600;}
+  .page-nav{display:flex;justify-content:space-between;gap:16px;padding:32px 0;border-top:1px solid var(--gray-200);margin-top:16px;}
+  .page-nav a{background:white;border:1px solid var(--gray-200);border-radius:10px;padding:12px 20px;text-decoration:none;font-size:0.88rem;font-weight:600;color:var(--gray-700);transition:border-color 0.15s;}
+  .page-nav a:hover{border-color:var(--color);color:var(--color);}
+  .page-nav .next{background:var(--color);color:white;border-color:var(--color);}
+  .page-nav .next:hover{opacity:0.88;color:white;}
+  footer{background:var(--gray-900);color:#9CA3AF;text-align:center;padding:24px;font-size:0.85rem;}
+  footer strong{color:white;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Voltar</a>
+  <span class="nav-badge">Estratégica</span>
+  <div class="nav-siblings">
+    <a href="escola-experiencial.html">Experiencial</a>
+    <a href="escola-boweniana.html">Boweniana</a>
+    <a href="escola-trigeracional.html">Trigeracional</a>
+    <a href="escola-estrutural.html">Estrutural</a>
+    <a href="escola-diagnostico.html">Diag. Sistêmico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Escola 5 de 6</p>
+    <h1>Terapia Familiar Estratégica</h1>
+    <p class="hero-authors">Jay Haley · Cloe Madanes · MRI (Watzlawick, Weakland, Fisch)</p>
+    <span class="hero-period">Anos 1960–80 · EUA · Palo Alto / Washington</span>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Visão Geral</h2>
+    <div class="highlight">
+      <p>A terapia estratégica entende que os problemas são <strong>mantidos por ciclos repetitivos de interação</strong>. A mudança exige intervenções planejadas e específicas para romper esses ciclos — geralmente de forma direta, mas às vezes paradoxal.</p>
+    </div>
+    <p>A abordagem estratégica tem duas correntes principais. A primeira, associada ao <strong>Mental Research Institute (MRI)</strong> de Palo Alto (Watzlawick, Weakland, Fisch), foca nas tentativas de solução que paradoxalmente mantêm o problema. A segunda, desenvolvida por <strong>Jay Haley</strong> e depois <strong>Cloe Madanes</strong> em Washington, enfatiza poder, hierarquia e sequências comportamentais.</p>
+    <p>Ambas as correntes têm raízes na teoria da comunicação de <strong>Gregory Bateson</strong> e na hipnoterapia de <strong>Milton Erickson</strong>, de quem Haley foi aluno direto.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pressupostos Teóricos</h2>
+    <div class="tags">
+      <span class="pill">Ciclos interacionais</span>
+      <span class="pill">Tentativas de solução</span>
+      <span class="pill">Poder e hierarquia</span>
+      <span class="pill">Mudança comportamental</span>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>MRI — Watzlawick et al.</h3>
+        <ul>
+          <li>Problema mantido pelas soluções tentadas</li>
+          <li>"Mais do mesmo" perpetua o ciclo</li>
+          <li>Mudança de 1ª ordem vs. 2ª ordem</li>
+          <li>Foco breve e pragmático</li>
+          <li>Paradoxo terapêutico como ferramenta</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Haley / Madanes</h3>
+        <ul>
+          <li>Sintoma tem função no sistema de poder</li>
+          <li>Hierarquia familiar como foco central</li>
+          <li>Sequências comportamentais observáveis</li>
+          <li>Madanes: sintoma como expressão de amor e proteção</li>
+          <li>Terapeuta planeja estratégias específicas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Conceito Central: Tentativas de Solução</h2>
+    <div class="highlight">
+      <p>Para o MRI, <strong>o problema não é o problema — o problema é a solução</strong>. As tentativas repetidas e ineficazes de resolver o problema são o que o mantém. A terapia consiste em identificar e interromper essas tentativas.</p>
+    </div>
+    <p>Exemplo clássico: os pais tentam resolver a insônia do filho indo até o quarto cada vez que ele chora — o que aumenta a frequência do choro. A "solução" (ir ao quarto) mantém o "problema" (insônia). A intervenção estratégica é modificar esse padrão de resposta.</p>
+    <p>A mudança de <strong>2ª ordem</strong> (Watzlawick) não é apenas "fazer diferente" — é mudar as regras que organizam as possíveis soluções. É uma mudança de nível lógico diferente, que muda o próprio enquadramento do problema.</p>
+  </div>
+
+  <div class="section">
+    <h2>Visão do Sintoma</h2>
+    <div class="highlight">
+      <p>O sintoma é parte de um <strong>ciclo repetitivo</strong> de interações que o sistema não consegue abandonar — mesmo que queira. Ele cumpre uma função: pode estabilizar o sistema, distribuir poder, expressar lealdade ou proteger alguém.</p>
+    </div>
+    <p>Para Haley, o sintoma frequentemente envolve uma <em>inversão hierárquica</em> — como quando uma criança controla o comportamento dos pais através do seu sintoma. Para Madanes, o sintoma pode ser uma forma de amor: a pessoa adoece para proteger quem ela ama de algo mais ameaçador.</p>
+  </div>
+
+  <div class="section">
+    <h2>Técnicas Terapêuticas</h2>
+
+    <div class="technique">
+      <h3>Diretivas Diretas</h3>
+      <p>Instruções claras e específicas dadas pelo terapeuta para que a família faça algo diferente entre as sessões. O terapeuta usa sua autoridade para prescrever comportamentos concretos que rompam padrões disfuncionais.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Prescrição do Sintoma (Diretiva Paradoxal)</h3>
+      <p>O terapeuta instrui a família a <em>manter</em> ou exagerar o sintoma de forma controlada. Isso interrompe a luta contra o sintoma, coloca-o sob controle voluntário e frequentemente o elimina por torná-lo deliberado.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Reenquadramento (Reframing)</h3>
+      <p>Redefinir o significado de um comportamento ou situação dentro de um novo enquadramento, sem mudar os fatos. Ex: o adolescente "difícil" passa a ser visto como "um filho que protege os pais do vazio do casal". Muda a posição relacional sem mudar os fatos.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Ordálio</h3>
+      <p>Técnica de Haley: o terapeuta prescreve uma tarefa árdua (mas não prejudicial) que o paciente deve realizar sempre que o sintoma aparecer. O sintoma torna-se "caro demais" e a pessoa escolhe abandoná-lo.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Fingir (Madanes)</h3>
+      <p>Paciente e família representam ou simulam o sintoma de forma lúdica. Coloca o sintoma no domínio do voluntário e do imaginário, retirando-o do campo do involuntário e do "real".</p>
+    </div>
+
+    <div class="technique">
+      <h3>Análise de Sequências</h3>
+      <p>O terapeuta mapeia a sequência exata de comportamentos que precede, acompanha e segue o sintoma. Identificar "quem faz o quê, com quem, quando" revela o circuito interacional que mantém o problema.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Papel do Terapeuta</h2>
+    <div class="highlight">
+      <p>O terapeuta estratégico é <strong>planejador e diretivo</strong>. Ele planeja intervenções específicas baseadas na análise do problema, assume responsabilidade pelos resultados e adapta sua estratégia se a primeira não funcionar.</p>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Postura</h3>
+        <ul>
+          <li>Foco no problema apresentado</li>
+          <li>Pragmático e orientado à solução</li>
+          <li>Usa resistência da família a seu favor</li>
+          <li>Adapta linguagem à família</li>
+          <li>Não impõe seus valores</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Estratégia</h3>
+        <ul>
+          <li>Define o problema em termos comportamentais</li>
+          <li>Estabelece metas concretas e observáveis</li>
+          <li>Planeia intervenções por etapas</li>
+          <li>Terapia breve (geralmente 10–15 sessões)</li>
+          <li>Avalia resultado das diretivas nas sessões</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Autores Principais</h2>
+    <div class="grid-2">
+      <div class="author-card">
+        <h3>Jay Haley</h3>
+        <p class="author-dates">1923–2007 · EUA</p>
+        <p>Comunicólogo e terapeuta, trabalhou com Bateson em Palo Alto e depois estudou com Milton Erickson. Desenvolveu a terapia estratégica focada em poder, hierarquia e diretivas. Obras: <em>Strategies of Psychotherapy</em> (1963), <em>Problem-Solving Therapy</em> (1976).</p>
+      </div>
+      <div class="author-card">
+        <h3>Cloe Madanes</h3>
+        <p class="author-dates">1940– · Argentina/EUA</p>
+        <p>Terapeuta familiar argentina, co-fundou o Family Therapy Institute com Haley. Expandiu a abordagem estratégica incluindo dimensões de amor, proteção e jogo na análise do sintoma. Obras: <em>Strategic Family Therapy</em> (1981), <em>Sex, Love, and Violence</em> (1990).</p>
+      </div>
+    </div>
+    <br>
+    <div class="author-card">
+      <h3>Paul Watzlawick, John Weakland e Richard Fisch — MRI</h3>
+      <p class="author-dates">Mental Research Institute · Palo Alto, Califórnia</p>
+      <p>Desenvolveram a terapia breve centrada no problema e na interrupção das tentativas de solução. Watzlawick é conhecido pela Teoria da Comunicação Humana e pelos trabalhos sobre paradoxo e mudança. Obras: <em>Pragmatics of Human Communication</em> (1967), <em>Change</em> (1974).</p>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="escola-estrutural.html">← Estrutural</a>
+    <a href="escola-diagnostico.html" class="next">Próxima: Diag. Sistêmico →</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Psicologia Sistêmica</strong> · Escola Estratégica · Material de estudo
+</footer>
+
+</body>
+</html>

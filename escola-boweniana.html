@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escola Boweniana — Psicologia Sistêmica</title>
+<style>
+  :root {
+    --color:       #2563EB;
+    --color-dark:  #1E40AF;
+    --color-light: #EFF6FF;
+    --color-mid:   #DBEAFE;
+    --gray-50:  #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+    --gray-700: #374151; --gray-900: #111827;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.7; }
+  nav { background: white; border-bottom: 1px solid var(--gray-200); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .nav-back { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--gray-700); font-size: 0.9rem; font-weight: 600; }
+  .nav-back:hover { color: var(--color); }
+  .nav-badge { background: var(--color); color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; }
+  .nav-siblings { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav-siblings a { font-size: 0.78rem; padding: 4px 10px; border-radius: 12px; background: var(--gray-100); color: var(--gray-700); text-decoration: none; font-weight: 500; }
+  .nav-siblings a:hover { background: var(--color-mid); color: var(--color); }
+  .hero { background: linear-gradient(135deg, var(--color-dark) 0%, var(--color) 100%); color: white; padding: 64px 24px 48px; }
+  .hero-inner { max-width: 800px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+  .hero-authors { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 12px; }
+  .hero-period { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+  .content { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+  .section { margin-bottom: 52px; }
+  .section h2 { font-size: 1.3rem; font-weight: 700; color: var(--gray-900); border-left: 4px solid var(--color); padding-left: 14px; margin-bottom: 20px; }
+  .section p { margin-bottom: 14px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .grid-2 { grid-template-columns: 1fr; } }
+  .info-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .info-card h3 { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color); margin-bottom: 10px; }
+  .info-card ul { padding-left: 18px; }
+  .info-card li { margin-bottom: 6px; font-size: 0.93rem; }
+  .technique { background: white; border-radius: 12px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 12px; border-left: 4px solid var(--color); }
+  .technique h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+  .technique p { font-size: 0.92rem; margin: 0; }
+  .author-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .author-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px; }
+  .author-card .author-dates { font-size: 0.82rem; color: #6B7280; margin-bottom: 12px; }
+  .author-card p { font-size: 0.92rem; }
+  .highlight { background: var(--color-light); border-left: 4px solid var(--color); border-radius: 0 12px 12px 0; padding: 18px 20px; margin-bottom: 20px; }
+  .highlight p { margin: 0; font-size: 0.95rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .pill { background: var(--color-mid); color: var(--color); padding: 4px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; }
+  .concept-num { display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; border-radius: 50%; background: var(--color); color: white; font-weight: 700; font-size: 0.82rem; margin-right: 10px; flex-shrink: 0; }
+  .concept-item { display: flex; align-items: flex-start; gap: 0; margin-bottom: 14px; }
+  .concept-item > div { flex: 1; }
+  .concept-item strong { color: var(--gray-900); }
+  .concept-item p { margin: 2px 0 0; font-size: 0.88rem; color: #6B7280; }
+  .page-nav { display: flex; justify-content: space-between; gap: 16px; padding: 32px 0; border-top: 1px solid var(--gray-200); margin-top: 16px; }
+  .page-nav a { background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 12px 20px; text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--gray-700); transition: border-color 0.15s; }
+  .page-nav a:hover { border-color: var(--color); color: var(--color); }
+  .page-nav .next { background: var(--color); color: white; border-color: var(--color); }
+  .page-nav .next:hover { opacity: 0.88; color: white; }
+  footer { background: var(--gray-900); color: #9CA3AF; text-align: center; padding: 24px; font-size: 0.85rem; }
+  footer strong { color: white; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Voltar</a>
+  <span class="nav-badge">Boweniana</span>
+  <div class="nav-siblings">
+    <a href="escola-experiencial.html">Experiencial</a>
+    <a href="escola-trigeracional.html">Trigeracional</a>
+    <a href="escola-estrutural.html">Estrutural</a>
+    <a href="escola-estrategica.html">Estratégica</a>
+    <a href="escola-diagnostico.html">Diag. Sistêmico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Escola 2 de 6</p>
+    <h1>Terapia Familiar Boweniana</h1>
+    <p class="hero-authors">Murray Bowen</p>
+    <span class="hero-period">Anos 1950 · EUA · Georgetown Family Center</span>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Visão Geral</h2>
+    <div class="highlight">
+      <p>Bowen via a família como uma <strong>unidade emocional</strong> — um sistema regido por forças de fusão e diferenciação que se repetem ao longo das gerações. A mudança terapêutica exige que o indivíduo se <strong>diferencie</strong> desse campo emocional.</p>
+    </div>
+    <p>Murray Bowen desenvolveu sua teoria a partir da observação de famílias com membros esquizofrênicos no National Institute of Mental Health (NIMH) nos anos 1950. Ele percebeu que os padrões emocionais familiares eram altamente previsíveis e multigeracionais.</p>
+    <p>A teoria boweniana é uma das mais abrangentes da terapia familiar — composta por oito conceitos interligados que descrevem como o sistema emocional funciona dentro e entre gerações.</p>
+  </div>
+
+  <div class="section">
+    <h2>Os Oito Conceitos de Bowen</h2>
+    <p>A teoria é construída sobre oito conceitos que se interligam para explicar o funcionamento emocional das famílias:</p>
+
+    <div class="concept-item">
+      <span class="concept-num">1</span>
+      <div><strong>Diferenciação do Self</strong><p>Capacidade de separar o pensamento da emoção e de manter a identidade sob pressão do grupo familiar. É um contínuo — ninguém é totalmente diferenciado.</p></div>
+    </div>
+    <div class="concept-item">
+      <span class="concept-num">2</span>
+      <div><strong>Triangulação</strong><p>Quando a tensão entre duas pessoas aumenta, uma terceira é triangulada para aliviar a ansiedade. Triângulos são a unidade básica do sistema emocional.</p></div>
+    </div>
+    <div class="concept-item">
+      <span class="concept-num">3</span>
+      <div><strong>Sistema Emocional Nuclear da Família</strong><p>Padrões de funcionamento da família nuclear: conflito conjugal, disfunção em um cônjuge, projeção nos filhos ou distância emocional.</p></div>
+    </div>
+    <div class="concept-item">
+      <span class="concept-num">4</span>
+      <div><strong>Processo de Projeção Familiar</strong><p>Os pais projetam seu nível de ansiedade e imaturidade emocional em um ou mais filhos, comprometendo sua diferenciação.</p></div>
+    </div>
+    <div class="concept-item">
+      <span class="concept-num">5</span>
+      <div><strong>Transmissão Multigeracional</strong><p>O nível de diferenciação se transmite ao longo das gerações. Filhos que absorvem mais projeção tendem a ter menor diferenciação que os pais.</p></div>
+    </div>
+    <div class="concept-item">
+      <span class="concept-num">6</span>
+      <div><strong>Posição entre Irmãos</strong><p>A posição de nascimento (primogênito, caçula, filho do meio, filho único) influencia características funcionais e padrões relacionais ao longo da vida.</p></div>
+    </div>
+    <div class="concept-item">
+      <span class="concept-num">7</span>
+      <div><strong>Corte Emocional</strong><p>Forma de lidar com a fusão não resolvida com a família de origem — afastar-se fisicamente ou emocionalmente, o que não resolve, apenas congela o problema.</p></div>
+    </div>
+    <div class="concept-item">
+      <span class="concept-num">8</span>
+      <div><strong>Processo Emocional da Sociedade</strong><p>Os mesmos padrões emocionais da família — fusão, ansiedade crônica, projetos de melhoria — operam também em grupos sociais maiores.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Visão do Sintoma</h2>
+    <div class="highlight">
+      <p>O sintoma é resultado da <strong>fusão emocional</strong> e da <strong>ansiedade crônica</strong> no sistema. Baixa diferenciação torna o indivíduo vulnerável à absorção da ansiedade familiar, que eventualmente se manifesta como sintoma físico, emocional ou relacional.</p>
+    </div>
+    <p>Na visão boweniana, o "paciente identificado" é a pessoa que absorveu mais a ansiedade do sistema. O tratamento foca em aumentar a diferenciação — não apenas eliminar o sintoma.</p>
+  </div>
+
+  <div class="section">
+    <h2>Técnicas Terapêuticas</h2>
+
+    <div class="technique">
+      <h3>Genograma</h3>
+      <p>Mapa visual de pelo menos três gerações da família. Revela padrões repetitivos, triangulações, cortes emocionais, doenças, mortes e eventos críticos ao longo do tempo. É uma das contribuições mais duradouras de Bowen para toda a terapia familiar.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Perguntas de Processo</h3>
+      <p>O terapeuta pergunta sobre como os membros pensam e sentem sobre as relações, não sobre quem tem razão. O objetivo é ativar o pensamento em vez da reatividade emocional.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Análise de Triangulações</h3>
+      <p>Identificar os triângulos ativos no sistema familiar e ajudar o cliente a se "destacriangular" — manter contato com ambas as partes do triângulo sem ser absorvido pela tensão entre elas.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Trabalho com a Família de Origem</h3>
+      <p>Visitas planejadas e estratégicas à família de origem para praticar a diferenciação no campo emocional real. O terapeuta prepara o cliente para essas visitas com antecedência.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Sessões com Formato Reflexivo</h3>
+      <p>Bowen frequentemente atendia apenas um membro da família (geralmente o mais motivado), ajudando-o a mudar seu funcionamento no sistema, o que provocava mudanças em cascata nos demais.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Papel do Terapeuta</h2>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Postura</h3>
+        <ul>
+          <li>Neutro e não reativo emocionalmente</li>
+          <li>Modelo de diferenciação</li>
+          <li>Mantém-se "destacriangulado" da família</li>
+          <li>Usa o pensamento mais que a emoção</li>
+          <li>Trabalha o próprio self continuamente</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Estratégia</h3>
+        <ul>
+          <li>Foco em padrões, não em conteúdo</li>
+          <li>Reforça a responsabilidade individual</li>
+          <li>Evita tomar partido</li>
+          <li>Trabalho de longo prazo</li>
+          <li>Psicoeducação sobre a teoria</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Autor Principal</h2>
+    <div class="author-card">
+      <h3>Murray Bowen</h3>
+      <p class="author-dates">1913–1990 · EUA · Georgetown University</p>
+      <p>Psiquiatra que começou sua carreira na clínica Menninger e depois no NIMH, onde hospitalizava famílias inteiras para observação. Fundou o Georgetown Family Center em Washington. Sua teoria é considerada uma das mais sofisticadas e coerentes da terapia familiar. Obras principais: <em>Family Therapy in Clinical Practice</em> (1978).</p>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="escola-experiencial.html">← Experiencial</a>
+    <a href="escola-trigeracional.html" class="next">Próxima: Trigeracional →</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Psicologia Sistêmica</strong> · Escola Boweniana · Material de estudo
+</footer>
+
+</body>
+</html>

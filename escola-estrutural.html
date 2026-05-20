@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escola Estrutural — Psicologia Sistêmica</title>
+<style>
+  :root {
+    --color:       #059669;
+    --color-dark:  #047857;
+    --color-light: #ECFDF5;
+    --color-mid:   #D1FAE5;
+    --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-700:#374151;--gray-900:#111827;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--gray-50);color:var(--gray-700);line-height:1.7;}
+  nav{background:white;border-bottom:1px solid var(--gray-200);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+  .nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--gray-700);font-size:0.9rem;font-weight:600;}
+  .nav-back:hover{color:var(--color);}
+  .nav-badge{background:var(--color);color:white;padding:4px 14px;border-radius:20px;font-size:0.82rem;font-weight:700;}
+  .nav-siblings{display:flex;gap:8px;flex-wrap:wrap;}
+  .nav-siblings a{font-size:0.78rem;padding:4px 10px;border-radius:12px;background:var(--gray-100);color:var(--gray-700);text-decoration:none;font-weight:500;}
+  .nav-siblings a:hover{background:var(--color-mid);color:var(--color);}
+  .hero{background:linear-gradient(135deg,var(--color-dark) 0%,var(--color) 100%);color:white;padding:64px 24px 48px;}
+  .hero-inner{max-width:800px;margin:0 auto;}
+  .hero-eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;}
+  .hero-authors{font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:12px;}
+  .hero-period{display:inline-block;background:rgba(255,255,255,0.2);padding:4px 14px;border-radius:12px;font-size:0.85rem;font-weight:600;}
+  .content{max-width:800px;margin:0 auto;padding:48px 24px;}
+  .section{margin-bottom:52px;}
+  .section h2{font-size:1.3rem;font-weight:700;color:var(--gray-900);border-left:4px solid var(--color);padding-left:14px;margin-bottom:20px;}
+  .section p{margin-bottom:14px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  @media(max-width:700px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+  .info-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .info-card h3{font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--color);margin-bottom:10px;}
+  .info-card ul{padding-left:18px;}
+  .info-card li{margin-bottom:6px;font-size:0.93rem;}
+  .technique{background:white;border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:12px;border-left:4px solid var(--color);}
+  .technique h3{font-size:1rem;font-weight:700;color:var(--gray-900);margin-bottom:6px;}
+  .technique p{font-size:0.92rem;margin:0;}
+  .author-card{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .author-card h3{font-size:1.1rem;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
+  .author-card .author-dates{font-size:0.82rem;color:#6B7280;margin-bottom:12px;}
+  .author-card p{font-size:0.92rem;}
+  .highlight{background:var(--color-light);border-left:4px solid var(--color);border-radius:0 12px 12px 0;padding:18px 20px;margin-bottom:20px;}
+  .highlight p{margin:0;font-size:0.95rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .pill{background:var(--color-mid);color:var(--color);padding:4px 12px;border-radius:20px;font-size:0.82rem;font-weight:600;}
+  .boundary-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;}
+  .boundary-card h3{font-size:0.95rem;font-weight:700;margin-bottom:8px;}
+  .boundary-card p{font-size:0.88rem;margin:0;}
+  .page-nav{display:flex;justify-content:space-between;gap:16px;padding:32px 0;border-top:1px solid var(--gray-200);margin-top:16px;}
+  .page-nav a{background:white;border:1px solid var(--gray-200);border-radius:10px;padding:12px 20px;text-decoration:none;font-size:0.88rem;font-weight:600;color:var(--gray-700);transition:border-color 0.15s;}
+  .page-nav a:hover{border-color:var(--color);color:var(--color);}
+  .page-nav .next{background:var(--color);color:white;border-color:var(--color);}
+  .page-nav .next:hover{opacity:0.88;color:white;}
+  footer{background:var(--gray-900);color:#9CA3AF;text-align:center;padding:24px;font-size:0.85rem;}
+  footer strong{color:white;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Voltar</a>
+  <span class="nav-badge">Estrutural</span>
+  <div class="nav-siblings">
+    <a href="escola-experiencial.html">Experiencial</a>
+    <a href="escola-boweniana.html">Boweniana</a>
+    <a href="escola-trigeracional.html">Trigeracional</a>
+    <a href="escola-estrategica.html">Estratégica</a>
+    <a href="escola-diagnostico.html">Diag. Sistêmico</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Escola 4 de 6</p>
+    <h1>Terapia Familiar Estrutural</h1>
+    <p class="hero-authors">Salvador Minuchin</p>
+    <span class="hero-period">Anos 1960–70 · EUA · Philadelphia Child Guidance Clinic</span>
+  </div>
+</section>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Visão Geral</h2>
+    <div class="highlight">
+      <p>A terapia estrutural entende que os sintomas surgem de uma <strong>organização disfuncional da família</strong>. Mudando a estrutura — fronteiras, hierarquias e subsistemas — o sintoma perde sua função e desaparece.</p>
+    </div>
+    <p>Salvador Minuchin desenvolveu a abordagem estrutural trabalhando com famílias pobres e delinquentes juvenis em Nova York e depois na Philadelphia Child Guidance Clinic nos anos 1960–70. Sua teoria é uma das mais influentes e amplamente ensinadas da terapia familiar.</p>
+    <p>A perspectiva estrutural é <strong>pragmática e focada no presente</strong>: interessa menos a história da família do que como ela está organizada agora. O terapeuta ativo "entra" no sistema familiar para reorganizá-lo diretamente.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pressupostos Teóricos</h2>
+    <div class="tags">
+      <span class="pill">Estrutura familiar</span>
+      <span class="pill">Fronteiras</span>
+      <span class="pill">Subsistemas</span>
+      <span class="pill">Hierarquia</span>
+    </div>
+    <p>A família é entendida como um sistema com <strong>estrutura</strong> — padrões organizacionais estáveis que determinam quem interage com quem, como e quando. Esta estrutura se manifesta em três elementos principais:</p>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Subsistemas</h3>
+        <ul>
+          <li><strong>Conjugal:</strong> casal sem filhos</li>
+          <li><strong>Parental:</strong> casal na função de pais</li>
+          <li><strong>Fraternal:</strong> irmãos entre si</li>
+          <li>Cada membro pertence a múltiplos subsistemas</li>
+          <li>Cada subsistema tem tarefas específicas</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Hierarquia</h3>
+        <ul>
+          <li>Pais exercem autoridade executiva</li>
+          <li>Hierarquia funcional ≠ autoritarismo</li>
+          <li>Inversão hierárquica gera sintomas</li>
+          <li>Parentificação: filho assume papel parental</li>
+          <li>Criança como árbitro do casal é disfuncional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tipos de Fronteiras</h2>
+    <p>As fronteiras regulam o fluxo de informação e participação entre subsistemas. Minuchin descreve três tipos:</p>
+    <div class="grid-3">
+      <div class="boundary-card" style="border-top:4px solid #059669;">
+        <h3 style="color:#059669;">Claras</h3>
+        <p>Permeáveis e definidas. Permitem troca e proteção adequadas. Sinal de família funcional.</p>
+      </div>
+      <div class="boundary-card" style="border-top:4px solid #D97706;">
+        <h3 style="color:#D97706;">Difusas</h3>
+        <p>Pouco definidas. Geram <strong>emaranhamento</strong> — fusão excessiva, falta de autonomia, hipersensibilidade ao outro.</p>
+      </div>
+      <div class="boundary-card" style="border-top:4px solid #DC2626;">
+        <h3 style="color:#DC2626;">Rígidas</h3>
+        <p>Impermeáveis. Geram <strong>desligamento</strong> — isolamento, falta de suporte, comunicação quase nula.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Visão do Sintoma</h2>
+    <div class="highlight">
+      <p>O sintoma é resultado de uma <strong>estrutura familiar disfuncional</strong> — fronteiras inadequadas, inversão hierárquica, coalizões intergeracionais ou triangulações estabilizadoras. O portador do sintoma cumpre uma função no sistema.</p>
+    </div>
+    <p>Exemplos clássicos: uma criança desenvolve sintomas físicos quando os pais brigam — o sintoma une os pais em torno do cuidado e estabiliza o sistema. Ou um adolescente "difícil" distrai o casal de um conflito conjugal irresolúvel.</p>
+  </div>
+
+  <div class="section">
+    <h2>Técnicas Terapêuticas</h2>
+
+    <div class="technique">
+      <h3>Encenação (Enactment)</h3>
+      <p>O terapeuta pede que a família <em>aja</em> um conflito ou padrão diretamente na sessão, em vez de descrevê-lo. "Não me conte — mostre como vocês discutem". Isso permite observar e intervir diretamente na estrutura real.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Mapeamento Estrutural</h3>
+      <p>Diagrama da organização familiar usando símbolos padronizados para fronteiras (linha contínua = clara, tracejada = difusa, dupla = rígida), alianças, coalizões e triangulações. Ferramenta de hipótese e planejamento terapêutico.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Desequilíbrio</h3>
+      <p>O terapeuta rompe alianças e coalizões disfuncionais, aliando-se temporariamente com um membro contra outro. Cria instabilidade intencional para possibilitar uma reorganização mais funcional.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Criação de Fronteiras</h3>
+      <p>Intervenções que estabelecem ou clarificam fronteiras inadequadas. Ex: pedir que os pais discutam entre si sem que o filho intervenha; ou promover que irmãos negociem diretamente sem passar pelos pais.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Intensidade</h3>
+      <p>O terapeuta aumenta o impacto de uma mensagem repetindo-a, mudando o tom, usando metáforas ou modificando a distância física — até que o sistema não possa ignorá-la.</p>
+    </div>
+
+    <div class="technique">
+      <h3>Mimese (Joining)</h3>
+      <p>O terapeuta "entra" na família adaptando seu estilo, ritmo, linguagem e postura ao da família. É o pré-requisito para qualquer intervenção — sem aliança, a família não se abre à mudança.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Papel do Terapeuta</h2>
+    <div class="highlight">
+      <p>O terapeuta estrutural é <strong>ativo, diretivo e reorganizador</strong>. Ele se junta ao sistema familiar (joining), mapeia sua estrutura e usa intervenções deliberadas para criar uma organização mais funcional.</p>
+    </div>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Postura</h3>
+        <ul>
+          <li>Diretivo e interativo</li>
+          <li>Usa o próprio corpo e espaço na sessão</li>
+          <li>Movimenta membros de lugar fisicamente</li>
+          <li>Cria experiências novas na sessão</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Estratégia</h3>
+        <ul>
+          <li>Joining antes de qualquer reestruturação</li>
+          <li>Foco na estrutura presente, não no passado</li>
+          <li>Trabalha com toda a família simultaneamente</li>
+          <li>Metas concretas e observáveis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Autor Principal</h2>
+    <div class="author-card">
+      <h3>Salvador Minuchin</h3>
+      <p class="author-dates">1921–2017 · Argentina/EUA · Philadelphia Child Guidance Clinic</p>
+      <p>Psiquiatra argentino que emigrou para os EUA e desenvolveu a terapia familiar estrutural trabalhando com famílias desfavorecidas. Sua obra mais influente, <em>Families and Family Therapy</em> (1974), é um dos livros mais citados da área. Mais tarde desenvolveu a terapia familiar com transtornos psicossomáticos em parceria com Bernice Rosman e Lester Baker.</p>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="escola-trigeracional.html">← Trigeracional</a>
+    <a href="escola-estrategica.html" class="next">Próxima: Estratégica →</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Psicologia Sistêmica</strong> · Escola Estrutural · Material de estudo
+</footer>
+
+</body>
+</html>
