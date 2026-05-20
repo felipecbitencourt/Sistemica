@@ -1,42 +1,49 @@
 """
-Extrai texto de PDFs escaneados via Tesseract OCR.
-Requer: Tesseract instalado (com pacote de língua 'por')
-        pip install pytesseract  (já instalado)
+Extrai texto de PDFs escaneados via EasyOCR.
+Requer: pip install easyocr  (instala PyTorch e o modelo automaticamente)
         PyMuPDF já instalado (fitz)
 
 Uso: python ocr_artigos.py
 Saída: Artigos_md/<nome>.md  (substitui arquivos vazios gerados antes)
+
+Nota: na primeira execução o EasyOCR baixa o modelo (~200 MB).
 """
 
 import fitz          # PyMuPDF – renderiza páginas como imagem
-import pytesseract
 import pathlib
-from PIL import Image
 import io
+import numpy as np
+from PIL import Image
 
 # ── Configuração ────────────────────────────────────────────────────────────
 
 BASE = pathlib.Path(r"C:\Users\felip\Códigos\sistemica")
 
-# Ajuste se o Tesseract não estiver no PATH padrão
-# Exemplo: pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-LANG      = "por"          # português; use "por+eng" se houver muito inglês
-DPI       = 200            # 200 DPI é rápido e suficiente para texto impresso
-THRESHOLD = 50             # mínimo de caracteres por página para incluir
-
-# ── Quais pastas/arquivos processar ─────────────────────────────────────────
+LANGS     = ['pt', 'en']   # português + inglês (cobrem referências mistas)
+DPI       = 200            # 200 DPI é suficiente para texto impresso
+THRESHOLD = 50             # mínimo de caracteres para considerar texto nativo
 
 FOLDERS = [
     (BASE / "Artigos",  BASE / "Artigos_md"),
-    (BASE / "Slides",   BASE / "Slides_md"),   # os slides já têm texto, mas
-                                                # esta linha re-tenta os vazios
+    (BASE / "Slides",   BASE / "Slides_md"),
 ]
+
+# ── Inicializa EasyOCR (carrega modelo uma vez) ──────────────────────────────
+
+def init_reader():
+    try:
+        import easyocr
+    except ImportError:
+        print("✗ EasyOCR não encontrado!\n\n  Instale com:  pip install easyocr\n")
+        return None
+    print("Carregando modelo EasyOCR (pode demorar na primeira vez)...")
+    reader = easyocr.Reader(LANGS, gpu=False)
+    print("✓ Modelo carregado\n")
+    return reader
 
 # ── Função principal ─────────────────────────────────────────────────────────
 
-def ocr_pdf(pdf_path: pathlib.Path, out_path: pathlib.Path, lang: str, dpi: int):
-    """Converte cada página do PDF em imagem e aplica OCR."""
+def ocr_pdf(pdf_path: pathlib.Path, out_path: pathlib.Path, reader, dpi: int):
     doc = fitz.open(str(pdf_path))
     n   = doc.page_count
     md_lines = [f"# {pdf_path.stem}\n\n"]
@@ -44,43 +51,38 @@ def ocr_pdf(pdf_path: pathlib.Path, out_path: pathlib.Path, lang: str, dpi: int)
     for i in range(n):
         page = doc[i]
 
-        # Tenta texto nativo primeiro (rápido)
+        # Tenta texto nativo primeiro (rápido, sem OCR)
         native = page.get_text("text").strip()
         if len(native) > THRESHOLD:
             md_lines.append(f"\n---\n<!-- página {i+1} -->\n\n{native}\n")
+            print(f"  p{i+1}/{n} [nativo]", end="\r", flush=True)
             continue
 
         # Sem texto nativo → renderizar como imagem e fazer OCR
-        mat  = fitz.Matrix(dpi / 72, dpi / 72)   # escala para o DPI desejado
-        pix  = page.get_pixmap(matrix=mat, colorspace=fitz.csGRAY)
-        img  = Image.open(io.BytesIO(pix.tobytes("png")))
-        text = pytesseract.image_to_string(img, lang=lang).strip()
+        mat = fitz.Matrix(dpi / 72, dpi / 72)
+        pix = page.get_pixmap(matrix=mat, colorspace=fitz.csGRAY)
+        img = Image.open(io.BytesIO(pix.tobytes("png"))).convert("RGB")
+        img_array = np.array(img)
+
+        results = reader.readtext(img_array, detail=0, paragraph=True)
+        text = "\n".join(results).strip()
 
         if text:
             md_lines.append(f"\n---\n<!-- página {i+1} -->\n\n{text}\n")
         else:
             md_lines.append(f"\n---\n<!-- página {i+1} — sem texto detectado -->\n")
 
-        print(f"  p{i+1}/{n}", end="\r", flush=True)
+        print(f"  p{i+1}/{n} [ocr]   ", end="\r", flush=True)
 
     doc.close()
     out_path.write_text("".join(md_lines), encoding="utf-8")
+    print()
     return n
 
 
 def main():
-    # Verifica se o Tesseract está acessível
-    try:
-        version = pytesseract.get_tesseract_version()
-        print(f"✓ Tesseract {version} detectado\n")
-    except pytesseract.TesseractNotFoundError:
-        print(
-            "✗ Tesseract não encontrado!\n\n"
-            "  Instale de: https://github.com/UB-Mannheim/tesseract/wiki\n"
-            "  Inclua o pacote de língua 'Portuguese' (por) na instalação.\n\n"
-            "  Se o instalador estiver em local não-padrão, edite a linha:\n"
-            "  pytesseract.pytesseract.tesseract_cmd = r'C:\\caminho\\tesseract.exe'\n"
-        )
+    reader = init_reader()
+    if reader is None:
         return
 
     for src_dir, out_dir in FOLDERS:
@@ -98,10 +100,10 @@ def main():
                 print(f"  [ok] {pdf.name} (já extraído)")
                 continue
 
-            print(f"  → {pdf.name} ...", end=" ", flush=True)
-            pages = ocr_pdf(pdf, out, LANG, DPI)
+            print(f"  → {pdf.name} ...")
+            pages = ocr_pdf(pdf, out, reader, DPI)
             size  = out.stat().st_size
-            print(f"✓ {pages} págs | {size//1024} KB salvo em {out.name}")
+            print(f"  ✓ {pages} págs | {size // 1024} KB -> {out.name}")
 
         print()
 

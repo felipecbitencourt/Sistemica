@@ -6,54 +6,68 @@
 <title>Escola Trigeracional — Psicologia Sistêmica</title>
 <style>
   :root {
-    --color:       #D97706;
-    --color-dark:  #B45309;
-    --color-light: #FFFBEB;
-    --color-mid:   #FEF3C7;
-    --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-700:#374151;--gray-900:#111827;
+    --color:#D97706; --color-dark:#B45309; --color-light:#FFFBEB; --color-mid:#FEF3C7;
+    --gray-50:#F9FAFB; --gray-100:#F3F4F6; --gray-200:#E5E7EB; --gray-700:#374151; --gray-900:#111827;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--gray-50);color:var(--gray-700);line-height:1.7;}
-  nav{background:white;border-bottom:1px solid var(--gray-200);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
-  .nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--gray-700);font-size:0.9rem;font-weight:600;}
+  nav{background:white;border-bottom:1px solid var(--gray-200);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+  .nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--gray-700);font-size:.9rem;font-weight:600;}
   .nav-back:hover{color:var(--color);}
-  .nav-badge{background:var(--color);color:white;padding:4px 14px;border-radius:20px;font-size:0.82rem;font-weight:700;}
+  .nav-badge{background:var(--color);color:white;padding:4px 14px;border-radius:20px;font-size:.82rem;font-weight:700;}
   .nav-siblings{display:flex;gap:8px;flex-wrap:wrap;}
-  .nav-siblings a{font-size:0.78rem;padding:4px 10px;border-radius:12px;background:var(--gray-100);color:var(--gray-700);text-decoration:none;font-weight:500;}
+  .nav-siblings a{font-size:.78rem;padding:4px 10px;border-radius:12px;background:var(--gray-100);color:var(--gray-700);text-decoration:none;font-weight:500;}
   .nav-siblings a:hover{background:var(--color-mid);color:var(--color);}
   .hero{background:linear-gradient(135deg,var(--color-dark) 0%,var(--color) 100%);color:white;padding:64px 24px 48px;}
   .hero-inner{max-width:800px;margin:0 auto;}
-  .hero-eyebrow{font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+  .hero-eyebrow{font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px;}
   .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;}
-  .hero-authors{font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:12px;}
-  .hero-period{display:inline-block;background:rgba(255,255,255,0.2);padding:4px 14px;border-radius:12px;font-size:0.85rem;font-weight:600;}
-  .content{max-width:800px;margin:0 auto;padding:48px 24px;}
-  .section{margin-bottom:52px;}
-  .section h2{font-size:1.3rem;font-weight:700;color:var(--gray-900);border-left:4px solid var(--color);padding-left:14px;margin-bottom:20px;}
+  .hero-authors{font-size:1rem;color:rgba(255,255,255,.8);margin-bottom:12px;}
+  .hero-period{display:inline-block;background:rgba(255,255,255,.2);padding:4px 14px;border-radius:12px;font-size:.85rem;font-weight:600;}
+  .section-nav-wrap{background:var(--color-light);border-bottom:1px solid var(--color-mid);}
+  .section-nav{max-width:800px;margin:0 auto;padding:12px 24px;display:flex;gap:8px;flex-wrap:wrap;}
+  .section-nav a{padding:5px 14px;border-radius:20px;font-size:.82rem;font-weight:600;text-decoration:none;background:white;color:var(--color);border:1px solid var(--color-mid);transition:.15s;}
+  .section-nav a:hover{background:var(--color);color:white;border-color:var(--color);}
+  .content{max-width:800px;margin:0 auto;padding:0 24px 48px;}
+  .chapter{padding-top:48px;margin-bottom:8px;}
+  .chapter-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--color);margin-bottom:4px;}
+  .chapter-title{font-size:1.55rem;font-weight:800;color:var(--gray-900);margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--color-mid);}
+  .section{margin-bottom:40px;}
+  .section h2{font-size:1.15rem;font-weight:700;color:var(--gray-900);border-left:4px solid var(--color);padding-left:14px;margin-bottom:18px;}
   .section p{margin-bottom:14px;}
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   @media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
-  .info-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-  .info-card h3{font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--color);margin-bottom:10px;}
+  .info-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .info-card h3{font-size:.88rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color);margin-bottom:10px;}
   .info-card ul{padding-left:18px;}
-  .info-card li{margin-bottom:6px;font-size:0.93rem;}
-  .technique{background:white;border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:12px;border-left:4px solid var(--color);}
+  .info-card li{margin-bottom:6px;font-size:.93rem;}
+  .technique{background:white;border-radius:12px;padding:20px 22px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:12px;border-left:4px solid var(--color);}
   .technique h3{font-size:1rem;font-weight:700;color:var(--gray-900);margin-bottom:6px;}
-  .technique p{font-size:0.92rem;margin:0;}
-  .author-card{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .technique p{font-size:.92rem;margin:0;}
+  .author-card{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
   .author-card h3{font-size:1.1rem;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
-  .author-card .author-dates{font-size:0.82rem;color:#6B7280;margin-bottom:12px;}
-  .author-card p{font-size:0.92rem;}
+  .author-card .author-dates{font-size:.82rem;color:#6B7280;margin-bottom:12px;}
+  .author-card p{font-size:.92rem;}
   .highlight{background:var(--color-light);border-left:4px solid var(--color);border-radius:0 12px 12px 0;padding:18px 20px;margin-bottom:20px;}
-  .highlight p{margin:0;font-size:0.95rem;}
+  .highlight p{margin:0;font-size:.95rem;}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-  .pill{background:var(--color-mid);color:var(--color);padding:4px 12px;border-radius:20px;font-size:0.82rem;font-weight:600;}
+  .pill{background:var(--color-mid);color:var(--color);padding:4px 12px;border-radius:20px;font-size:.82rem;font-weight:600;}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+  @media(max-width:600px){.compare-grid{grid-template-columns:1fr;}}
+  .compare-card{background:white;border-radius:12px;padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06);border-left:4px solid var(--gray-200);}
+  .compare-vs{display:inline-block;font-size:.75rem;font-weight:700;background:var(--gray-100);color:var(--gray-700);padding:2px 10px;border-radius:10px;margin-bottom:8px;letter-spacing:.04em;}
+  .compare-card h3{font-size:.95rem;font-weight:700;color:var(--gray-900);margin-bottom:6px;}
+  .compare-card p{font-size:.88rem;line-height:1.55;}
+  .unique-box{background:var(--color);color:white;border-radius:14px;padding:24px 26px;margin-top:20px;}
+  .unique-box-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.75;margin-bottom:12px;}
+  .unique-box ul{padding-left:20px;}
+  .unique-box li{font-size:.92rem;margin-bottom:8px;line-height:1.5;}
   .page-nav{display:flex;justify-content:space-between;gap:16px;padding:32px 0;border-top:1px solid var(--gray-200);margin-top:16px;}
-  .page-nav a{background:white;border:1px solid var(--gray-200);border-radius:10px;padding:12px 20px;text-decoration:none;font-size:0.88rem;font-weight:600;color:var(--gray-700);transition:border-color 0.15s;}
+  .page-nav a{background:white;border:1px solid var(--gray-200);border-radius:10px;padding:12px 20px;text-decoration:none;font-size:.88rem;font-weight:600;color:var(--gray-700);transition:border-color .15s;}
   .page-nav a:hover{border-color:var(--color);color:var(--color);}
   .page-nav .next{background:var(--color);color:white;border-color:var(--color);}
-  .page-nav .next:hover{opacity:0.88;color:white;}
-  footer{background:var(--gray-900);color:#9CA3AF;text-align:center;padding:24px;font-size:0.85rem;}
+  .page-nav .next:hover{opacity:.88;color:white;}
+  footer{background:var(--gray-900);color:#9CA3AF;text-align:center;padding:24px;font-size:.85rem;}
   footer strong{color:white;}
 </style>
 </head>
@@ -80,218 +94,245 @@
   </div>
 </section>
 
+<div class="section-nav-wrap">
+  <nav class="section-nav">
+    <a href="#apresentacao">Apresentação</a>
+    <a href="#teoria">Conceitualização Teórica</a>
+    <a href="#tecnicas">Técnicas</a>
+    <a href="#comparacao">Comparação</a>
+  </nav>
+</div>
+
 <div class="content">
 
-  <div class="section">
-    <h2>Visão Geral</h2>
-    <div class="highlight">
-      <p>O modelo trigeracional entende que o sofrimento familiar tem raízes em <strong>lealdades invisíveis e mandatos não resolvidos</strong> transmitidos entre gerações. O sintoma atual é muitas vezes uma mensagem cifrada da família de origem.</p>
-    </div>
-    <p>Maurizio Andolfi desenvolveu seu modelo em Roma na década de 1970, integrando contribuições da escola boweniana (padrões multigeracionais) com a abordagem contextual de <strong>Ivan Boszormenyi-Nagy</strong> (lealdades invisíveis) e elementos experienciais da terapia familiar italiana.</p>
-    <p>A perspectiva trigeracional propõe que para compreender o sofrimento de uma família nuclear é necessário acessar <strong>três gerações</strong>: avós, pais e filhos. O paciente designado frequentemente carrega uma missão ou lealdade que pertence a um ancestral.</p>
-  </div>
+  <!-- ══ CAPÍTULO 1: APRESENTAÇÃO ══════════════════════ -->
+  <div class="chapter" id="apresentacao">
+    <p class="chapter-num">Seção 1</p>
+    <h2 class="chapter-title">Apresentação Geral</h2>
 
-  <div class="section">
-    <h2>Pressupostos Teóricos</h2>
-    <div class="tags">
-      <span class="pill">Lealdades invisíveis</span>
-      <span class="pill">Mandatos transgeracionais</span>
-      <span class="pill">Família de origem</span>
-      <span class="pill">Mitos familiares</span>
-    </div>
-    <div class="grid-2">
-      <div class="info-card">
-        <h3>Sobre as Gerações</h3>
-        <ul>
-          <li>O presente contém o passado familiar</li>
-          <li>Lealdades invisíveis orientam comportamentos</li>
-          <li>Mandatos transgeracionais são tarefas herdadas</li>
-          <li>Família de origem é contexto formador</li>
-          <li>Segredos familiares perpetuam padrões</li>
-        </ul>
+    <div class="section">
+      <h2>O Que É Esta Abordagem?</h2>
+      <div class="highlight">
+        <p>O modelo trigeracional entende que o sofrimento familiar tem raízes em <strong>lealdades invisíveis e mandatos não resolvidos</strong> transmitidos entre gerações. O sintoma atual é muitas vezes uma mensagem cifrada da família de origem — não um problema individual, mas o portador de uma história ainda viva.</p>
       </div>
-      <div class="info-card">
-        <h3>Sobre o Sintoma</h3>
-        <ul>
-          <li>Portador do sintoma como mensageiro</li>
-          <li>Sintoma protege o sistema familiar</li>
-          <li>Conflitos herdados buscam resolução</li>
-          <li>Luto não elaborado atravessa gerações</li>
-          <li>Dívidas e créditos relacionais (Boszormenyi-Nagy)</li>
-        </ul>
+      <p>Maurizio Andolfi desenvolveu seu modelo em Roma na década de 1970, integrando a escola boweniana (padrões multigeracionais) com a abordagem contextual de <strong>Ivan Boszormenyi-Nagy</strong> (lealdades invisíveis e ética relacional) e elementos experienciais da terapia familiar italiana. Para compreender o sofrimento de uma família nuclear, é necessário acessar <strong>três gerações</strong>: avós, pais e filhos.</p>
+      <div class="tags">
+        <span class="pill">Lealdades invisíveis</span>
+        <span class="pill">Mandatos transgeracionais</span>
+        <span class="pill">Família de origem</span>
+        <span class="pill">Mitos familiares</span>
+        <span class="pill">Ética relacional</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Autores Principais</h2>
+      <div class="grid-2">
+        <div class="author-card">
+          <h3>Maurizio Andolfi</h3>
+          <p class="author-dates">1942– · Itália · Roma</p>
+          <p>Psiquiatra e psicoterapeuta italiano, fundador da Accademia di Psicoterapia della Famiglia em Roma. Desenvolveu o modelo trigeracional integrando perspectivas italianas, bowenianas e contextuais. Obras: <em>Famiglia come sistema</em>, <em>Il bambino come capro espiatorio</em>.</p>
+        </div>
+        <div class="author-card">
+          <h3>Ivan Boszormenyi-Nagy</h3>
+          <p class="author-dates">1920–2007 · Hungria/EUA</p>
+          <p>Psiquiatra húngaro-americano, desenvolveu a <em>Terapia Contextual</em> baseada no conceito de lealdades invisíveis e ética relacional. Sua noção de "livro-razão relacional" (dívidas e créditos emocionais) é central para o modelo trigeracional. Obra: <em>Invisible Loyalties</em> (1973).</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2>Conceitos Centrais</h2>
+  <!-- ══ CAPÍTULO 2: TEORIA ═════════════════════════════ -->
+  <div class="chapter" id="teoria">
+    <p class="chapter-num">Seção 2</p>
+    <h2 class="chapter-title">Conceitualização Teórica</h2>
 
-    <div class="technique">
-      <h3>Lealdades Invisíveis (Boszormenyi-Nagy)</h3>
-      <p>Vínculos de obrigação e dívida emocional que ligam membros da família através das gerações. São "invisíveis" porque operam fora da consciência, mas determinam fortemente os comportamentos e escolhas de vida.</p>
-    </div>
-
-    <div class="technique">
-      <h3>Mitos Familiares</h3>
-      <p>Narrativas compartilhadas pela família sobre sua história, identidade e regras. Os mitos organizam a realidade familiar, protegem de ansiedades profundas e resistem à mudança — mesmo quando disfuncionais.</p>
-    </div>
-
-    <div class="technique">
-      <h3>Mandatos Transgeracionais</h3>
-      <p>Tarefas, missões ou proibições transmitidas implicitamente de geração em geração. Ex: "os homens desta família não choram", "precisamos cuidar da mãe", "nunca se deve falar de dinheiro".</p>
-    </div>
-
-    <div class="technique">
-      <h3>Paciente Designado como Mensageiro</h3>
-      <p>A pessoa que apresenta o sintoma não é o "doente" da família, mas aquela que porta a mensagem do sistema — frequentemente a mais sensível e ligada às dores familiares não elaboradas.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Técnicas Terapêuticas</h2>
-
-    <div class="technique">
-      <h3>Metáforas e Narrativas</h3>
-      <p>Andolfi é conhecido pelo uso criativo de metáforas para acessar conteúdos emocionais sem confrontar diretamente resistências. Uma imagem pode dizer o que palavras não conseguem — e mobiliza o sistema emocional de forma diferente.</p>
-    </div>
-
-    <div class="technique">
-      <h3>Escultura Familiar Trigeracional</h3>
-      <p>Uso do espaço físico para representar as relações não apenas na família nuclear, mas incluindo gerações anteriores — frequentemente com cadeiras ou representações simbólicas dos ausentes.</p>
-    </div>
-
-    <div class="technique">
-      <h3>Jogos Terapêuticos</h3>
-      <p>Recursos lúdicos, objetos, bonecos ou desenhos para acessar conteúdos relacionais de forma menos ameaçadora. Especialmente útil com crianças e adolescentes.</p>
-    </div>
-
-    <div class="technique">
-      <h3>Provocação Criativa</h3>
-      <p>O terapeuta intervém de forma inesperada — com humor, paradoxo ou ação — para romper padrões rígidos. Diferente da provocação estratégica, aqui o objetivo é abrir espaço para o novo, não controlar a mudança.</p>
-    </div>
-
-    <div class="technique">
-      <h3>Trabalho com a Família de Origem</h3>
-      <p>Convidar gerações anteriores para as sessões (quando possível) ou trabalhar com representações simbólicas dos antepassados. O objetivo é ressignificar as lealdades e liberar o presente das dívidas do passado.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Papel do Terapeuta</h2>
-    <div class="highlight">
-      <p>O terapeuta trigeracional é <strong>investigativo e provocador</strong> — usa a curiosidade ativa para explorar o passado familiar e intervenções criativas para mobilizar o sistema.</p>
-    </div>
-    <div class="grid-2">
-      <div class="info-card">
-        <h3>Postura</h3>
-        <ul>
-          <li>Curiosidade genuína pela história familiar</li>
-          <li>Uso criativo e imprevisível de técnicas</li>
-          <li>Respeito pelas lealdades, mesmo disfuncionais</li>
-          <li>Trabalho com três gerações simultaneamente</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h3>Relação com a Família</h3>
-        <ul>
-          <li>Aliança com toda a família, não só o paciente</li>
-          <li>Validação das dores de cada geração</li>
-          <li>Busca de recursos na história familiar</li>
-          <li>Confronta mitos com gentileza</li>
-        </ul>
+    <div class="section">
+      <h2>Pressupostos Fundamentais</h2>
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>Sobre as Gerações</h3>
+          <ul>
+            <li>O presente contém o passado familiar</li>
+            <li>Lealdades invisíveis orientam comportamentos</li>
+            <li>Mandatos transgeracionais são tarefas herdadas</li>
+            <li>Família de origem é contexto formador</li>
+            <li>Segredos familiares perpetuam padrões</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Sobre o Sintoma</h3>
+          <ul>
+            <li>Portador do sintoma como mensageiro do sistema</li>
+            <li>Sintoma protege o equilíbrio familiar</li>
+            <li>Conflitos herdados buscam resolução</li>
+            <li>Luto não elaborado atravessa gerações</li>
+            <li>Dívidas e créditos relacionais (Boszormenyi-Nagy)</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Autores Principais</h2>
-    <div class="grid-2">
-      <div class="author-card">
-        <h3>Maurizio Andolfi</h3>
-        <p class="author-dates">1942– · Itália · Roma</p>
-        <p>Psiquiatra e psicoterapeuta italiano, fundador da Accademia di Psicoterapia della Famiglia em Roma. Desenvolveu o modelo trigeracional integrando perspectivas italianas, bowenianas e contextuais. Obras: <em>Famiglia come sistema</em>, <em>Il bambino come capro espiatorio</em>.</p>
+    <div class="section">
+      <h2>Conceitos Centrais</h2>
+      <div class="technique">
+        <h3>Lealdades Invisíveis (Boszormenyi-Nagy)</h3>
+        <p>Vínculos de obrigação e dívida emocional que ligam membros da família através das gerações. São "invisíveis" porque operam fora da consciência, mas determinam fortemente os comportamentos e escolhas de vida.</p>
       </div>
-      <div class="author-card">
-        <h3>Ivan Boszormenyi-Nagy</h3>
-        <p class="author-dates">1920–2007 · Hungria/EUA</p>
-        <p>Psiquiatra húngaro-americano, desenvolveu a <em>Terapia Contextual</em> baseada no conceito de lealdades invisíveis e ética relacional. Sua noção de "livro-razão relacional" (dívidas e créditos emocionais) é central para o modelo trigeracional. Obra: <em>Invisible Loyalties</em> (1973).</p>
+      <div class="technique">
+        <h3>Mitos Familiares</h3>
+        <p>Narrativas compartilhadas pela família sobre sua história, identidade e regras. Os mitos organizam a realidade familiar, protegem de ansiedades profundas e resistem à mudança — mesmo quando disfuncionais.</p>
+      </div>
+      <div class="technique">
+        <h3>Mandatos Transgeracionais</h3>
+        <p>Tarefas, missões ou proibições transmitidas implicitamente de geração em geração. Ex: "os homens desta família não choram", "precisamos cuidar da mãe", "nunca se deve falar de dinheiro".</p>
+      </div>
+      <div class="technique">
+        <h3>Paciente Designado como Mensageiro</h3>
+        <p>A pessoa que apresenta o sintoma não é o "doente" da família, mas aquela que porta a mensagem do sistema — frequentemente a mais sensível e ligada às dores familiares não elaboradas.</p>
       </div>
     </div>
-  </div>
 
-  <!-- ESCOLHA DO PARCEIRO E FAMÍLIA DE ORIGEM -->
-  <div class="section">
-    <h2>A Escolha do Parceiro e a Família de Origem</h2>
-    <div class="highlight">
-      <p>"Em cada casal, não existem apenas duas pessoas unidas — existem <strong>dois sistemas familiares</strong>." — Andolfi</p>
-    </div>
-    <p>Para o modelo trigeracional, a escolha do parceiro raramente é "livre" no sentido pleno da palavra. Quanto mais a relação com a família de origem estiver marcada por conflitos não resolvidos, <strong>mais coercitiva é a necessidade de encontrar um tipo particular de parceiro</strong> — alguém que, de alguma forma, reproduza ou repare o que ficou em aberto.</p>
-    <p>As dificuldades presentes do casal (tanto no plano pessoal quanto parental) são frequentemente <strong>esforços reparadores</strong> que buscam corrigir, controlar ou apagar paradigmas relacionais antigos e perturbadores da família de origem. O indivíduo busca no vínculo interpessoal soluções para conflitos que são intrapsíquicos — e que pertencem a outro tempo e a outras relações.</p>
-    <div class="grid-2">
-      <div class="info-card">
-        <h3>Implicação Clínica</h3>
-        <ul>
-          <li>Conflito de casal frequentemente encobre dores da família de origem</li>
-          <li>Parceiros muitas vezes reproduzem papéis familiares antigos</li>
-          <li>Trabalhar o casal sem a FO é tratar apenas a superfície</li>
-          <li>Convidar famílias de origem para a terapia amplia o campo de trabalho</li>
-        </ul>
+    <div class="section">
+      <h2>A Escolha do Parceiro e a Família de Origem</h2>
+      <div class="highlight">
+        <p>"Em cada casal, não existem apenas duas pessoas unidas — existem <strong>dois sistemas familiares</strong>." — Andolfi</p>
       </div>
-      <div class="info-card">
-        <h3>Débitos e Créditos (Boszormenyi-Nagy)</h3>
-        <ul>
-          <li>Cada relação acumula um "livro-razão" de dívidas e créditos emocionais</li>
-          <li>Crianças nascem já "devedoras" do cuidado recebido</li>
-          <li>Lealdades invisíveis orientam como essas dívidas são pagas</li>
-          <li>Terapia: tornar visível esse livro-razão e renegociar os saldos</li>
-        </ul>
+      <p>Para o modelo trigeracional, a escolha do parceiro raramente é "livre". Quanto mais a relação com a família de origem estiver marcada por conflitos não resolvidos, <strong>mais coercitiva é a necessidade de encontrar um tipo particular de parceiro</strong> — alguém que reproduza ou repare o que ficou em aberto.</p>
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>Implicação Clínica</h3>
+          <ul>
+            <li>Conflito de casal frequentemente encobre dores da família de origem</li>
+            <li>Parceiros muitas vezes reproduzem papéis familiares antigos</li>
+            <li>Trabalhar o casal sem a família de origem é tratar apenas a superfície</li>
+            <li>Convidar gerações anteriores para a terapia amplia o campo de trabalho</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Débitos e Créditos (Boszormenyi-Nagy)</h3>
+          <ul>
+            <li>Cada relação acumula um "livro-razão" de dívidas e créditos emocionais</li>
+            <li>Crianças nascem já "devedoras" do cuidado recebido</li>
+            <li>Lealdades invisíveis orientam como essas dívidas são pagas</li>
+            <li>Terapia: tornar visível esse livro-razão e renegociar os saldos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>A Criança como Ponte Intergeracional</h2>
+      <div class="highlight">
+        <p>"Um problema de uma criança é sempre um problema familiar." — Andolfi</p>
+      </div>
+      <p>Em vez de tratar a criança como o "paciente" a ser consertado, Andolfi propõe que ela seja compreendida como <strong>porta de entrada no sistema familiar</strong> e como <strong>reguladora de todo o processo terapêutico</strong>. O sintoma da criança se transforma em metáfora — produto de uma história transgeracional que persiste.</p>
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>Criança como Fio de Ariadne</h3>
+          <ul>
+            <li>Favorece o ingresso do terapeuta no labirinto familiar</li>
+            <li>Ponto de acesso às lealdades e mandatos ocultos</li>
+            <li>Media entre a geração dos adultos e dos idosos</li>
+            <li>Porta de acesso mais livre ao sistema emocional real</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Criança como Consultora</h3>
+          <ul>
+            <li>Sua voz é menos hipócrita e mais direta que a dos adultos</li>
+            <li>Diante das palavras do filho, o adulto reflete — não reage</li>
+            <li>Pode ser convidada em momentos de impasse na terapia de casal</li>
+            <li>Os recursos estão no interior do próprio sintoma</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Provocação como Intervenção Terapêutica</h2>
+      <p>A provocação em Andolfi não é confronto agressivo — é uma <strong>intervenção deliberada para introduzir complexidade</strong> onde há rigidez. Se o terapeuta aceita o papel de "carregador" das tensões familiares, assume a função do paciente designado — e o sistema não muda.</p>
+      <div class="technique">
+        <h3>A Lógica da Provocação</h3>
+        <p>A alternativa é <strong>induzir a crise que a família quer evitar</strong>: um desafio ao sistema para que ele mude seu funcionamento. A provocação aumenta a tensão interna até que seja mais fácil reagir ao terapeuta do que continuar sendo um ator leal ao velho roteiro repetitivo da família.</p>
+      </div>
+      <div class="technique">
+        <h3>Objetos Metafóricos</h3>
+        <p>Andolfi desenvolveu o uso de objetos concretos como <strong>vias de comunicação simbólica</strong>. O objeto cria uma imagem das emoções e relações que permite ao sistema falar sobre o que não consegue verbalizar. Tira a conversa do plano cognitivo e a transfere para o plano emocional, pela dramatização.</p>
       </div>
     </div>
   </div>
 
-  <!-- PROVOCAÇÃO COMO INTERVENÇÃO -->
-  <div class="section">
-    <h2>Provocação como Intervenção Terapêutica</h2>
-    <p>A provocação em Andolfi não é confronto agressivo — é uma <strong>intervenção deliberada e calculada para introduzir complexidade</strong> onde há rigidez. A família chega à terapia pedindo ajuda, mas com profundo medo de mudar. O paciente identificado pode não conseguir mais conter a crise, e o sistema tenta transferir essa tensão para o terapeuta.</p>
-    <div class="technique">
-      <h3>A Lógica da Provocação</h3>
-      <p>Se o terapeuta aceita o papel de "carregador" das tensões familiares, assume a função do paciente designado — e o sistema não muda. A alternativa é <strong>induzir a crise que a família quer evitar</strong>: um desafio ao sistema para que ele mude seu funcionamento. A provocação aumenta a tensão interna até que seja mais fácil reagir ao terapeuta do que continuar sendo um ator leal ao velho roteiro repetitivo da família.</p>
-    </div>
-    <div class="technique">
-      <h3>Objetos Metafóricos</h3>
-      <p>Andolfi desenvolveu o uso de objetos concretos como <strong>vias de comunicação simbólica</strong>. O objeto metafórico cria uma imagem das emoções e relações que permite ao sistema falar sobre o que não consegue verbalizar diretamente. A família pode escolher seu próprio objeto — o que reduz resistência — ou o terapeuta pode introduzir um objeto que redefine o que está acontecendo. O objeto tira a conversa do plano cognitivo e a transfere para o plano emocional, pela dramatização.</p>
+  <!-- ══ CAPÍTULO 3: TÉCNICAS ══════════════════════════ -->
+  <div class="chapter" id="tecnicas">
+    <p class="chapter-num">Seção 3</p>
+    <h2 class="chapter-title">Técnicas Terapêuticas</h2>
+
+    <div class="section">
+      <div class="technique">
+        <h3>Metáforas e Narrativas</h3>
+        <p>Andolfi é conhecido pelo uso criativo de metáforas para acessar conteúdos emocionais sem confrontar diretamente resistências. Uma imagem pode dizer o que palavras não conseguem — mobiliza o sistema emocional de forma diferente da linguagem direta.</p>
+      </div>
+      <div class="technique">
+        <h3>Escultura Familiar Trigeracional</h3>
+        <p>Uso do espaço físico para representar as relações não apenas na família nuclear, mas incluindo gerações anteriores — frequentemente com cadeiras ou representações simbólicas dos ausentes.</p>
+      </div>
+      <div class="technique">
+        <h3>Jogos Terapêuticos</h3>
+        <p>Recursos lúdicos, objetos, bonecos ou desenhos para acessar conteúdos relacionais de forma menos ameaçadora. Especialmente útil com crianças e adolescentes.</p>
+      </div>
+      <div class="technique">
+        <h3>Provocação Criativa</h3>
+        <p>O terapeuta intervém de forma inesperada — com humor, paradoxo ou ação — para romper padrões rígidos. O objetivo é abrir espaço para o novo, não controlar a mudança.</p>
+      </div>
+      <div class="technique">
+        <h3>Trabalho com a Família de Origem</h3>
+        <p>Convidar gerações anteriores para as sessões (quando possível) ou trabalhar com representações simbólicas dos antepassados. O objetivo é ressignificar as lealdades e liberar o presente das dívidas do passado.</p>
+      </div>
     </div>
   </div>
 
-  <!-- CRIANÇA COMO PONTE INTERGERACIONAL -->
-  <div class="section">
-    <h2>A Criança como Ponte Intergeracional</h2>
-    <div class="highlight">
-      <p>"Um problema de uma criança é sempre um problema familiar." — Andolfi</p>
-    </div>
-    <p>Andolfi desenvolveu ao longo de décadas uma perspectiva singular sobre a criança na terapia familiar. Em vez de tratá-la como o "paciente" a ser consertado, propõe que ela seja compreendida como <strong>porta de entrada no sistema familiar</strong> e como <strong>reguladora de todo o processo terapêutico</strong>.</p>
-    <p>O sintoma da criança se transforma numa <em>metáfora</em> — produto de uma história não apenas pessoal, mas transgeracional, que persiste e se elabora no tempo a partir de "débitos e créditos" intergeracionais. Os distúrbios (psicossomáticos, cognitivos ou relacionais) falam através do corpo ou do comportamento e são o caminho para se chegar aos <strong>nós relacionais da família</strong>.</p>
-    <div class="grid-2">
-      <div class="info-card">
-        <h3>Criança como Fio de Ariadne</h3>
+  <!-- ══ CAPÍTULO 4: COMPARAÇÃO ═════════════════════════ -->
+  <div class="chapter" id="comparacao">
+    <p class="chapter-num">Seção 4</p>
+    <h2 class="chapter-title">Em Comparação com Outras Abordagens</h2>
+
+    <div class="section">
+      <p>O modelo trigeracional compartilha com a escola boweniana o olhar multigeracional, mas o diferencia ao adicionar uma <strong>dimensão ética e relacional</strong> — não apenas psicológica. O passado não é contexto para entender, mas território a ser <em>renegociado</em>.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <span class="compare-vs">vs. Boweniana</span>
+          <h3>Psicologia ou Ética Relacional?</h3>
+          <p>A Boweniana usa um continuum funcional (diferenciação). A Trigeracional adiciona uma dimensão ética — o que se deve, o que se herdou, o que precisa ser reparado. Boszormenyi-Nagy vai além da psicologia: propõe uma justiça relacional entre gerações.</p>
+        </div>
+        <div class="compare-card">
+          <span class="compare-vs">vs. Estrutural</span>
+          <h3>O Presente Tem Raízes</h3>
+          <p>A Estrutural trabalha a organização atual — fronteiras, hierarquias, subsistemas presentes. A Trigeracional entende que as estruturas atuais foram moldadas por histórias que não terminaram: a arquitetura do presente foi construída no passado.</p>
+        </div>
+        <div class="compare-card">
+          <span class="compare-vs">vs. Estratégica</span>
+          <h3>Mudar ou Compreender?</h3>
+          <p>A Estratégica interrompe padrões sem necessidade de entendimento das origens. A Trigeracional entende que a <em>compreensão do contexto é terapêutica em si</em> — nomear de onde vem o padrão já é parte da cura, não apenas preparação para ela.</p>
+        </div>
+        <div class="compare-card">
+          <span class="compare-vs">vs. Experiencial</span>
+          <h3>Sentir ou Contextualizar?</h3>
+          <p>A Experiencial confia no encontro emocional presente como agente de mudança. A Trigeracional confia que situar o presente no contexto geracional — saber de onde vem o que se sente — é o que possibilita a verdadeira transformação.</p>
+        </div>
+      </div>
+
+      <div class="unique-box">
+        <p class="unique-box-title">O que torna esta escola única</p>
         <ul>
-          <li>Favorece o ingresso do terapeuta no labirinto familiar</li>
-          <li>Ajuda o terapeuta a encontrar o caminho de volta</li>
-          <li>Ponto de acesso às lealdades e mandatos ocultos</li>
-          <li>Media entre a geração dos adultos e dos idosos</li>
+          <li><strong>Única escola com marco ético-relacional explícito</strong> — Boszormenyi-Nagy propõe uma justiça entre gerações, não apenas um modelo psicológico de transmissão</li>
+          <li><strong>Criança como consultora</strong> — em nenhuma outra escola a criança tem um papel ativo e central como guia do processo terapêutico (Andolfi)</li>
+          <li><strong>A escolha do parceiro como mensagem</strong> — único modelo que analisa sistematicamente a escolha amorosa como expressão da família de origem</li>
+          <li><strong>Objetos metafóricos como método clínico</strong> — o uso de objetos concretos como instrumentos terapêuticos principais é uma contribuição distintiva de Andolfi</li>
         </ul>
       </div>
-      <div class="info-card">
-        <h3>Criança como Consultora</h3>
-        <ul>
-          <li>Sua voz é menos hipócrita e mais direta que a dos adultos</li>
-          <li>Diante das palavras do filho, o adulto <em>reflete</em> — não reage</li>
-          <li>Pode ser convidada em momentos de impasse na terapia de casal</li>
-          <li>Avalia os progressos dos pais na fase final da terapia</li>
-        </ul>
-      </div>
     </div>
-    <p style="margin-top:16px;">Os recursos da criança estão <strong>no interior do próprio problema</strong>: não há sentido em tratar o sintoma em si, mas em aliá-lo e compreendê-lo. Restituir competência relacional à criança é o primeiro ato para construir cumplicidade terapêutica com ela — e, através dela, com a família.</p>
   </div>
 
   <div class="page-nav">
@@ -304,6 +345,5 @@
 <footer>
   <strong>Psicologia Sistêmica</strong> · Escola Trigeracional · Material de estudo
 </footer>
-
 </body>
 </html>
