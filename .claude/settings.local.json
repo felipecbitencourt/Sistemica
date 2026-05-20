@@ -7,7 +7,12 @@
       "Bash(where tesseract *)",
       "Bash(pip install *)",
       "Bash(pip show *)",
-      "Bash(tesseract --version)"
+      "Bash(tesseract --version)",
+      "Bash(touch .nojekyll)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\felip\\\\Códigos\\\\sistemica\\\\Artigos_md\\\\\" | Select-Object Name, Length *)"
     ]
   }
 }

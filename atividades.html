@@ -495,6 +495,34 @@ const flashCards = [
   // ESTRUTURAL — novos
   { escola:'est', pergunta:'Quais são as quatro etapas do modelo de Minuchin, Nichols & Lee?',
     resposta:'(1) Ampliar e redefinir a queixa; (2) explorar as interações que mantêm o problema; (3) investigar o passado relevante com foco estrutural; (4) co-criar alternativas — "dançar com a família" para que ela encontre novas formas de funcionar.' },
+  { escola:'est', pergunta:'O que é "coalizão geracional cruzada" na terapia estrutural?',
+    resposta:'Aliança rígida entre um progenitor e um filho contra o outro progenitor, saltando a fronteira intergeracional. Sintoma clássico de hierarquia invertida; o filho entra na posição de parceiro do adulto, comprometendo seu desenvolvimento.' },
+  { escola:'est', pergunta:'O que é "dar forma à competência" (sculpting competence) em Minuchin?',
+    resposta:'Técnica de reestruturação em que o terapeuta cria ativamente situações que evidenciam as capacidades da família — não apenas aponta recursos, mas organiza interações que tornam a competência visível e experienciada pelo sistema.' },
+  { escola:'est', pergunta:'O que é a "síndrome mãe emaranhada / pai desligado" na terapia estrutural?',
+    resposta:'Padrão em que a mãe está excessivamente fusionada com os filhos (fronteiras difusas) enquanto o pai se encontra periférico e desengajado. Consequência: fronteiras intergeracionais borradas; filho assume função emocional do cônjuge ausente.' },
+
+  // ESTRATÉGICA — novos
+  { escola:'str', pergunta:'Quais são os cinco Axiomas da Comunicação de Watzlawick?',
+    resposta:'(1) Impossível não comunicar; (2) toda comunicação tem nível de conteúdo e de relação; (3) a pontuação da sequência define a relação; (4) comunicação analógica (não-verbal) e digital (verbal); (5) interações simétricas ou complementares.' },
+  { escola:'str', pergunta:'O que é "homeostase familiar" (Jackson)?',
+    resposta:'Tendência do sistema familiar a resistir à mudança e retornar ao equilíbrio habitual. Quando um membro melhora, o sistema pode reagir produzindo novo sintoma — o sintoma tem função reguladora.' },
+  { escola:'str', pergunta:'O que é "duplo vínculo" (double bind — Bateson et al., 1956)?',
+    resposta:'Padrão comunicativo em que a pessoa recebe mensagens contraditórias em dois níveis (verbal/relacional) sem poder sair da situação. Qualquer resposta é "errada". Associado originalmente à etiologia da esquizofrenia; hoje generalizado a padrões de comunicação disfuncional.' },
+  { escola:'str', pergunta:'Quais são as três categorias de "soluções erradas" do MRI?',
+    resposta:'(1) Negar que há problema (quando algo precisa mudar); (2) agir como se houvesse problema (quando não há); (3) tentar resolver no nível errado — aplicar solução de 1ª ordem a problema que exige mudança de 2ª ordem.' },
+
+  // BOWENIANA — novos
+  { escola:'bow', pergunta:'Qual a diferença entre nível básico e nível funcional de diferenciação?',
+    resposta:'Nível básico: estrutura estável de self, desenvolvida ao longo da vida, resistente ao estresse. Nível funcional: posição flutuante segundo o contexto relacional — sobe quando apoiado, cai sob pressão. Uma pessoa pode parecer bem diferenciada funcionalmente mas ter baixo nível básico.' },
+  { escola:'bow', pergunta:'Qual foi a contribuição de Betty Carter e Monica McGoldrick à abordagem boweniana?',
+    resposta:'Introduziram perspectiva feminista e multicultural: questionaram o ideal de diferenciação como neutro ao gênero (culturalmente masculino), destacaram o impacto de raça e etnia nos padrões multigeracionais, e expandiram o ciclo de vida familiar para incluir divórcio, recasamento e famílias não-tradicionais.' },
+
+  // EXPERIENCIAL — novos
+  { escola:'exp', pergunta:'O que é a Terapia Focada nas Emoções (EFT) de Greenberg & Johnson?',
+    resposta:'Abordagem derivada do modelo experiencial, integra teoria do apego com técnicas experienciais. Em 9 estágios, trabalha ciclos de interação negativa do casal, acessa emoções de apego subjacentes (medo de abandono, necessidade de contato) e reestrutura vínculos afetivos.' },
+  { escola:'exp', pergunta:'O que é o modelo IFS (Internal Family Systems) de Richard Schwartz?',
+    resposta:'Cada pessoa contém múltiplas "partes" internas com papéis próprios: exilados (carregam dor), gerentes (controlam para evitar a dor), bombeiros (reagem impulsivamente quando exilados emergem). O objetivo é alcançar o Self — centro calmo e compassivo — que lidera o sistema interno.' },
 ];
 
 // ─── QUIZ ────────────────────────────────────────────────
@@ -538,6 +566,16 @@ const quizData = [
     ops:['Paciente designado a ser protegido das sessões','Observador neutro do sistema','Fio de Ariadne — consultora que guia o terapeuta e conecta as gerações','Porta-voz das queixas dos pais'], ans:2 },
   { q:'Quais são as quatro etapas do modelo estrutural de Minuchin, Nichols & Lee?',
     ops:['Engajamento, avaliação, intervenção e encerramento','Ampliar a queixa, explorar interações mantenedoras, investigar o passado estrutural e co-criar alternativas','Hipotização, circularidade, neutralidade e intervenção','Mapeamento, estruturação, desequilíbrio e consolidação'], ans:1 },
+  { q:'O que é o "duplo vínculo" (double bind) descrito por Bateson et al.?',
+    ops:['Conflito entre dois membros da família por lealdades opostas','Mensagens contraditórias em dois níveis comunicacionais sem possibilidade de saída — qualquer resposta é "errada"','Aliança de dois membros contra um terceiro','Técnica paradoxal do terapeuta estratégico'], ans:1 },
+  { q:'Qual dos seguintes descreve a "homeostase familiar" segundo Don Jackson?',
+    ops:['A capacidade da família de se adaptar a novos contextos','A tendência do sistema a resistir à mudança e restaurar o equilíbrio habitual, podendo gerar novo sintoma quando um membro melhora','O equilíbrio saudável entre fronteiras rígidas e difusas','O processo de diferenciação progressiva dos filhos'], ans:1 },
+  { q:'Na distinção de Bowen, qual é a diferença entre nível básico e nível funcional de diferenciação?',
+    ops:['O básico mede o QI emocional; o funcional mede habilidades de comunicação','O básico é estável e resistente ao estresse; o funcional oscila conforme o contexto relacional','O básico é medido pelo genograma; o funcional pela escala 0–100','Não há diferença — são sinônimos usados em contextos diferentes'], ans:1 },
+  { q:'O que caracteriza a "coalizão geracional cruzada" na terapia estrutural?',
+    ops:['Aliança entre avós e netos excluindo os pais','Aliança rígida entre um progenitor e um filho contra o outro progenitor, invertendo a hierarquia intergeracional','Triangulação em que a criança medeia o conflito conjugal','Fronteira difusa entre os subsistemas fraternal e parental'], ans:1 },
+  { q:'A Terapia Focada nas Emoções (EFT) de Greenberg & Johnson pertence a qual tradição?',
+    ops:['Estrutural, com foco em subsistemas e fronteiras do casal','Boweniana, trabalhando triangulações e diferenciação','Derivada do modelo experiencial, integrando teoria do apego','Estratégica, usando prescrições paradoxais para mudar padrões'], ans:2 },
 ];
 
 // ─── DRAG & DROP DATA ────────────────────────────────────
